@@ -6,7 +6,8 @@
     data-testid="wishlist-icon"
     :aria-label="$t('Open wishlist')"
   >
-    <i class="material-icons">favorite_border</i>
+    <!-- <i class="material-icons">favorite_border</i> -->
+    <img src="/assets/fonts/heart.svg" alt="wishlist" height="35" width="35px">
     <span
       class="whishlist-count absolute flex center-xs middle-xs border-box py0 px2 h6 lh16 weight-700 cl-white bg-cl-silver"
       v-cloak

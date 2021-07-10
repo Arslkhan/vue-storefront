@@ -6,7 +6,7 @@
     >
       <div class="container px15">
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage || isThankYouPage">
-          <div class="col-md-4 col-xs-2 middle-xs">
+          <div class="col-md-4 col-xs-2 middle-xs hidden">
             <div>
               <hamburger-icon class="p15 icon bg-cl-secondary pointer" />
             </div>
@@ -14,9 +14,9 @@
           <div class="col-xs-2 visible-xs">
             <search-icon class="p15 icon pointer" />
           </div>
-          <div class="col-md-4 col-xs-4 center-xs pt5">
+          <div class="col-md-5 col-xs-4 center-xs pt5 logo-group">
             <div>
-              <logo width="auto" height="41px" />
+              <logo width="auto" height="66px" />
             </div>
           </div>
           <div class="col-xs-2 visible-xs">
@@ -24,7 +24,7 @@
           </div>
           <div class="col-md-4 col-xs-2 end-xs">
             <div class="inline-flex right-icons">
-              <search-icon class="p15 icon hidden-xs pointer" />
+              <search-icon class="p15 icon pointer hidden" />
               <wishlist-icon class="p15 icon hidden-xs pointer" />
               <compare-icon class="p15 icon hidden-xs pointer" />
               <microcart-icon class="p15 icon pointer" />
@@ -147,12 +147,26 @@ export default {
 @import '~theme/css/variables/colors';
 @import '~theme/css/helpers/functions/color';
 $color-icon-hover: color(secondary, $colors-background);
-
+.header {
+  height: 9.375rem;
+  .container {
+    width: 1513px;
+    max-width: 100%;
+    .logo-group {
+      height: 9.375rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 0;
+    }
+  }
+}
 header {
-  height: 54px;
+  height: 150px;
   top: -55px;
   z-index: 3;
   transition: top 0.2s ease-in-out;
+  background: #6d1f37ff;
   &.is-visible {
     top: 0;
   }

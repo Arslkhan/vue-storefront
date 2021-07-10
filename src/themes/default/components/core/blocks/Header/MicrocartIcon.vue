@@ -6,7 +6,8 @@
     data-testid="openMicrocart"
     :aria-label="$t('Open microcart')"
   >
-    <i class="material-icons">shopping_cart</i>
+    <!-- <i class="material-icons">shopping_cart</i> -->
+    <img src="/assets/fonts/bag.svg" alt="basket">
     <span
       class="minicart-count absolute flex center-xs middle-xs border-box py0 px2 h6 lh16 weight-700 cl-white bg-cl-silver"
       v-cloak
