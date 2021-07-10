@@ -16,19 +16,25 @@
           </div>
           <div class="col-md-5 col-xs-4 center-xs pt5 logo-group">
             <div>
-              <logo width="auto" height="66px" />
+              <logo width="auto" height="66px" class="logo-main" />
             </div>
           </div>
           <div class="col-xs-2 visible-xs">
             <wishlist-icon class="p15 icon pointer" />
           </div>
           <div class="col-md-4 col-xs-2 end-xs">
-            <div class="inline-flex right-icons">
+            <div class="inline-flex">
               <search-icon class="p15 icon pointer hidden" />
               <wishlist-icon class="p15 icon hidden-xs pointer" />
               <compare-icon class="p15 icon hidden-xs pointer" />
               <microcart-icon class="p15 icon pointer" />
               <account-icon class="p15 icon hidden-xs pointer" />
+            </div>
+            <div class="social-icons">
+              <span><img src="/assets/fonts/fb.svg" alt="facebook"></span>
+              <span><img src="/assets/fonts/twitter.svg" alt="twitter"></span>
+              <span><img src="/assets/fonts/youtube.svg" alt="youtube"></span>
+              <span><img src="/assets/fonts/insta.svg" alt="instagram"></span>
             </div>
           </div>
         </div>
@@ -158,6 +164,23 @@ $color-icon-hover: color(secondary, $colors-background);
       justify-content: flex-start;
       align-items: center;
       padding: 0;
+      .logo-main {
+        padding: 0 0 0 122px;
+      }
+    }
+    .social-icons {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 15px 0 0;
+      span {
+        width: 11%;
+        cursor: pointer;
+        img {
+          width: 32px;
+          fill: #fff;
+           cursor: pointer;
+        }
+      }
     }
   }
 }
@@ -175,7 +198,7 @@ header {
   opacity: 0.6;
   &:hover,
   &:focus {
-    background-color: $color-icon-hover;
+    background-color: none;
     opacity: 1;
   }
 }
