@@ -22,7 +22,7 @@
           <div class="col-xs-2 visible-xs">
             <wishlist-icon class="p15 icon pointer" />
           </div>
-          <div class="col-md-4 col-xs-2 end-xs">
+          <div class="col-md-4 col-xs-2 end-xs icons-group">
             <div class="inline-flex">
               <search-icon class="p15 icon pointer hidden" />
               <wishlist-icon class="p15 icon hidden-xs pointer" />
@@ -167,6 +167,9 @@ $color-icon-hover: color(secondary, $colors-background);
       .logo-main {
         padding: 0 0 0 122px;
       }
+    }
+    .icons-group {
+      align-self: baseline;
     }
     .social-icons {
       display: flex;
