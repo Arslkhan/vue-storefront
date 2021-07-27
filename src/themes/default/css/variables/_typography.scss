@@ -15,3 +15,24 @@ $font-families: (
         primary: ("Roboto", #{(map-get($font-fallbacks, 'sans-serif'))}),
         secondary: ("Playfair Display", map-get($font-fallbacks, 'serif'))
 ) !default;
+
+@font-face {
+	font-family: 'BrandonMedium';
+	src: url('/assets/fonts/Brandon_med.otf');
+}
+@font-face {
+	font-family: 'Raleway-Regular';
+	src: url('/assets/fonts/Raleway-Regular.ttf');
+} 
+@font-face {
+	font-family: 'Brandon_reg';
+	src: url('/assets/fonts/Brandon_reg.otf');
+} 
+@font-face {
+	font-family: 'Brandon_light';
+	src: url('/assets/fonts/Brandon_light.otf');
+} 
+@font-face {
+	font-family: 'Raleway-Medium';
+	src: url('/assets/fonts/Raleway-Medium.ttf');
+} 

@@ -3,7 +3,7 @@
     <div
       v-for="(product, key) in products"
       :key="product.id"
-      class="col-sm-6 flex"
+      class="col-sm-6 flex flex-width"
       :class="['col-md-' + (12/columns)%10, wide(product.sale, product.new, key)]"
     >
       <product-tile :product="product" />
@@ -42,3 +42,10 @@ export default {
   }
 }
 </script>
+<style lang="scss" scoped>
+.flex-width {
+  flex-basis: 25%;
+  max-width: 25%;
+  padding: 0 29px;
+}
+</style>
