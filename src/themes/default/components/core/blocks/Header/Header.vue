@@ -6,12 +6,12 @@
     >
       <div class="container px15">
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage || isThankYouPage">
-          <div class="col-md-4 col-xs-2 middle-xs hidden">
+          <div class="col-md-4 col-xs-2 middle-xs hidden-md">
             <div>
-              <hamburger-icon class="p15 icon bg-cl-secondary pointer" />
+              <hamburger-icon class="p15 icon pointer" />
             </div>
           </div>
-          <div class="col-xs-2 visible-xs">
+          <div class="col-xs-2 visible-xs hidden">
             <search-icon class="p15 icon pointer" />
           </div>
           <div class="col-md-5 col-xs-4 center-xs pt5 logo-group">
@@ -19,15 +19,15 @@
               <logo width="auto" height="66px" class="logo-main" />
             </div>
           </div>
-          <div class="col-xs-2 visible-xs">
+          <div class="col-xs-2 visible-xs hidden">
             <wishlist-icon class="p15 icon pointer" />
           </div>
           <div class="col-md-4 col-xs-2 end-xs icons-group">
             <div class="inline-flex">
               <search-icon class="p15 icon pointer hidden" />
-              <wishlist-icon class="p15 icon hidden-xs pointer" />
+              <wishlist-icon class="p15 icon hidden-xs pointer wishicon" />
               <compare-icon class="p15 icon hidden-xs pointer" />
-              <microcart-icon class="p15 icon pointer" />
+              <microcart-icon class="p15 icon pointer carticon" />
               <account-icon class="p15 icon hidden-xs pointer" />
             </div>
             <div class="social-icons">
@@ -166,20 +166,31 @@ $color-icon-hover: color(secondary, $colors-background);
       padding: 0;
       .logo-main {
         padding: 0 0 0 122px;
+        @media (max-width:1199px) {
+          padding: 0 0 0 19px;
+        }
       }
     }
     .icons-group {
       align-self: baseline;
+      .wishicon {
+        display: flex;
+        order: 2;
+      }
+      .carticon {
+        display: flex;
+        order: 3;
+      }
     }
     .social-icons {
       display: flex;
       justify-content: flex-end;
-      padding: 0 15px 0 0;
+      padding: 0 7px 0 0;
       span {
-        width: 11%;
+        padding: 0 9px;
         cursor: pointer;
         img {
-          width: 32px;
+          width: 26px;
           fill: #fff;
            cursor: pointer;
         }
@@ -197,14 +208,14 @@ header {
     top: 0;
   }
 }
-.icon {
-  opacity: 0.6;
-  &:hover,
-  &:focus {
-    background-color: none;
-    opacity: 1;
-  }
-}
+// .icon {
+//   opacity: 0.6;
+//   &:hover,
+//   &:focus {
+//     background-color: none;
+//     opacity: 1;
+//   }
+// }
 .right-icons {
   //for edge
   float: right;
