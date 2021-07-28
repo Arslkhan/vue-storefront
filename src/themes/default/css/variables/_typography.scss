@@ -15,7 +15,6 @@ $font-families: (
         primary: ("Roboto", #{(map-get($font-fallbacks, 'sans-serif'))}),
         secondary: ("Playfair Display", map-get($font-fallbacks, 'serif'))
 ) !default;
-
 @font-face {
 	font-family: 'BrandonMedium';
 	src: url('/assets/fonts/Brandon_med.otf');

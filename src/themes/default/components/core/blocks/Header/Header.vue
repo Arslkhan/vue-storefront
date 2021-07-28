@@ -6,7 +6,7 @@
     >
       <div class="container px15">
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage || isThankYouPage">
-          <div class="col-md-4 col-xs-2 middle-xs">
+          <div class="col-md-4 col-xs-2 middle-xs hidden">
             <div>
               <hamburger-icon class="p15 icon bg-cl-secondary pointer" />
             </div>
@@ -14,21 +14,27 @@
           <div class="col-xs-2 visible-xs">
             <search-icon class="p15 icon pointer" />
           </div>
-          <div class="col-md-4 col-xs-4 center-xs pt5">
+          <div class="col-md-5 col-xs-4 center-xs pt5 logo-group">
             <div>
-              <logo width="auto" height="41px" />
+              <logo width="auto" height="66px" class="logo-main" />
             </div>
           </div>
           <div class="col-xs-2 visible-xs">
             <wishlist-icon class="p15 icon pointer" />
           </div>
-          <div class="col-md-4 col-xs-2 end-xs">
-            <div class="inline-flex right-icons">
-              <search-icon class="p15 icon hidden-xs pointer" />
+          <div class="col-md-4 col-xs-2 end-xs icons-group">
+            <div class="inline-flex">
+              <search-icon class="p15 icon pointer hidden" />
               <wishlist-icon class="p15 icon hidden-xs pointer" />
               <compare-icon class="p15 icon hidden-xs pointer" />
               <microcart-icon class="p15 icon pointer" />
               <account-icon class="p15 icon hidden-xs pointer" />
+            </div>
+            <div class="social-icons">
+              <span><img src="/assets/fonts/fb.svg" alt="facebook"></span>
+              <span><img src="/assets/fonts/twitter.svg" alt="twitter"></span>
+              <span><img src="/assets/fonts/youtube.svg" alt="youtube"></span>
+              <span><img src="/assets/fonts/insta.svg" alt="instagram"></span>
             </div>
           </div>
         </div>
@@ -147,12 +153,46 @@ export default {
 @import '~theme/css/variables/colors';
 @import '~theme/css/helpers/functions/color';
 $color-icon-hover: color(secondary, $colors-background);
-
+.header {
+  height: 9.375rem;
+  .container {
+    width: 1513px;
+    max-width: 100%;
+    .logo-group {
+      height: 9.375rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 0;
+      .logo-main {
+        padding: 0 0 0 122px;
+      }
+    }
+    .icons-group {
+      align-self: baseline;
+    }
+    .social-icons {
+      display: flex;
+      justify-content: flex-end;
+      padding: 0 15px 0 0;
+      span {
+        width: 11%;
+        cursor: pointer;
+        img {
+          width: 32px;
+          fill: #fff;
+           cursor: pointer;
+        }
+      }
+    }
+  }
+}
 header {
-  height: 54px;
+  height: 150px;
   top: -55px;
   z-index: 3;
   transition: top 0.2s ease-in-out;
+  background: #6d1f37ff;
   &.is-visible {
     top: 0;
   }
@@ -161,7 +201,7 @@ header {
   opacity: 0.6;
   &:hover,
   &:focus {
-    background-color: $color-icon-hover;
+    background-color: none;
     opacity: 1;
   }
 }

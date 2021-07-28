@@ -14,7 +14,8 @@
       type="button"
       class="bg-cl-transparent brdr-none p0"
     >
-      <i class="material-icons block">account_circle</i>
+      <!-- <i class="material-icons block">account_circle</i> -->
+      <img src="/assets/fonts/user.svg" alt="account">
     </button>
 
     <no-ssr>
