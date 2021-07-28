@@ -1,17 +1,22 @@
 <template>
   <div id="category">
-    <header class="bg-cl-secondary py35 pl20">
-      <div class="container">
+    <header class="bg-cl-primary py35">
+      <div class="container-custom">
         <breadcrumbs />
-        <div class="row middle-sm">
-          <h1 class="col-sm-8 category-title mb10">
-            {{ getCurrentCategory.name }}
+        <div class="row middle-sm bg-cl-primary">
+          <h1 class="col-sm-12 category-title mb10 align-center">
+            <!-- {{ getCurrentCategory.name }} -->
+            {{ "Our range" }}
           </h1>
-          <div class="sorting col-sm-2 align-right mt50">
+          <div class="sorting col-sm-2 align-right mt50 hidden">
             <label class="mr10">{{ $t('Columns') }}:</label>
             <columns @change-column="columnChange" />
           </div>
-          <div class="sorting col-sm-2 align-right mt50">
+          <p class="col-xs-12 col-md-6 m0 pb0 cl-secondary items">
+            {{ $t('{count} items', { count: getCategoryProductsTotal }) }}
+          </p>
+          <div class="sorting col-sm-2 col-md-6 align-right">
+            <label class="mr10">{{ $t('Sort By') }}:</label>
             <sort-by
               :has-label="true"
               @change="changeFilter"
@@ -37,9 +42,9 @@
         </div>
       </div>
     </header>
-    <div class="container pb60">
+    <div class="container-custom pb60">
       <div class="row m0 pt15">
-        <div class="col-md-3 start-xs category-filters">
+        <div class="col-md-3 start-xs category-filters hidden">
           <sidebar :filters="getAvailableFilters" @changeFilter="changeFilter" />
         </div>
         <div class="col-md-3 start-xs mobile-filters" v-show="mobileFilters">
@@ -57,10 +62,7 @@
             {{ $t('Filter') }}
           </button-full>
         </div>
-        <div class="col-md-9 px10 border-box products-list">
-          <p class="col-xs-12 end-md m0 pb20 cl-secondary">
-            {{ $t('{count} items', { count: getCategoryProductsTotal }) }}
-          </p>
+        <div class="col-md-12 px10 border-box products-list">
           <div v-if="isCategoryEmpty" class="hidden-xs">
             <h4 data-testid="noProductsInfo">
               {{ $t('No products found!') }}
@@ -226,6 +228,9 @@ export default {
     bottom: 20px;
     left: -36px;
   }
+  .container-custom {
+    padding: 0 91px;
+  }
   .category-filters {
     width: 242px;
   }
@@ -245,9 +250,25 @@ export default {
 
   .category-title {
     line-height: 65px;
+    font-size: 40px;
+    font-weight: 700;
+    color: #6E2138;
+    font-family: 'Brandon_reg';
+  }
+  .items {
+    color: #000000;
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 4px;
+    padding-left: 22px;
   }
 
   .sorting {
+    color: #404042;
+    font-weight: 400;
+    font-size: 14px;
+    margin-top: 4px;
+    padding-right: 32px;
     label {
       margin-right: 10px;
     }

@@ -38,10 +38,12 @@
         />
       </div>
 
-      <p class="mb0 cl-accent mt10" v-if="!onlyImage">
+      <p class="mb0 cl-accent mt10 product-name" v-if="!onlyImage">
         {{ product.name | htmlDecode }}
       </p>
-
+      <p class="mb0 cl-accent mt10 product-description">
+        {{ '16oz/350ml Vacuum flip lid insulated travel cup' }}
+      </p>
       <span
         class="price-original mr5 lh30 cl-secondary"
         v-if="product.special_price && parseFloat(product.original_price_incl_tax) > 0 && !onlyImage"
@@ -53,7 +55,7 @@
       >{{ product.price_incl_tax | price(storeView) }}</span>
 
       <span
-        class="lh30 cl-secondary"
+        class="lh30 cl-secondary shown-price"
         v-if="!product.special_price && parseFloat(product.price_incl_tax) > 0 && !onlyImage"
       >{{ product.price_incl_tax | price(storeView) }}</span>
     </router-link>
@@ -143,6 +145,7 @@ export default {
 @import '~theme/css/animations/transitions';
 @import '~theme/css/variables/colors';
 @import '~theme/css/helpers/functions/color';
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 $bg-secondary: color(secondary, $colors-background);
 $border-secondary: color(secondary, $colors-border);
@@ -180,7 +183,27 @@ $color-white: color(white);
     }
   }
 }
+.product-name {
+  font-weight: 900;
+  font-size: 24px;
+  font-family: 'Brandon_reg';
+  color: #6D1F37;
+}
+.product-description {
+  font-weight: 300;
+  font-size: 14px;
+  font-family: 'Brandon_reg';
+  color: #404042;
+  margin-bottom: 11px;
+  margin-top: 3px;
 
+}
+.shown-price {
+  font-weight: 600;
+  font-size: 17px;
+  // font-family: 'Raleway-Medium';
+  color: #000000;
+}
 .price-original {
   text-decoration: line-through;
 }
