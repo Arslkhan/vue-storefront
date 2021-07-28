@@ -1,5 +1,5 @@
 <template>
-  <div class="mb40 price serif">
+  <div class="mb25 price serif">
     <div
       class="h3 cl-secondary"
       v-if="initialPrice.special && price.default && price.original"
@@ -97,9 +97,15 @@ $color-primary: color(primary);
   text-decoration: line-through;
 }
 
-.price {
+#product .price {
+  font-family: 'Raleway-Regular';
+  font-weight:300 !important; 
+  color: #404042 !important;
+   @media (max-width: 767px) {
+    font-size: 50px !important;
+  }
   @media (max-width: 767px) {
-    color: $color-primary;
+  
   }
 }
 </style>

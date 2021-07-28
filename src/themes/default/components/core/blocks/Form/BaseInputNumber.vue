@@ -85,6 +85,32 @@ export default {
 @import '~theme/css/variables/colors';
 @import '~theme/css/helpers/functions/color';
 
+#product {
+  .base-input-number {
+  &__input {
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    width: 50px;
+    color:#404042;
+    height: 1.4rem;
+    line-height: 1.7rem;
+    @media (min-width: 768px) {
+      height: 1.7rem;
+    }
+  }
+
+  &__label {
+    font-size: 0.8rem;
+    line-height: 1.2rem;
+    font-family: 'Brandon_reg';
+    @media (min-width: 768px) {
+      font-size: 1rem;
+      line-height: 1.4rem;
+    }
+  }
+}
+}
+
 .base-input-number {
   &__input {
     border-style: solid;

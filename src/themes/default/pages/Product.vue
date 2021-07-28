@@ -4,6 +4,9 @@
       <div class="container">
         <section class="row m0 between-xs">
           <div class="col-xs-12 col-md-6 center-xs middle-xs image">
+            <breadcrumbs
+              class="product-Breadcrumb hidden-xs"
+            />
             <product-gallery
               :offline="getOfflineImage"
               :gallery="getProductGallery"
@@ -12,29 +15,26 @@
             />
           </div>
           <div class="col-xs-12 col-md-5 data">
-            <breadcrumbs
-              class="pt40 pb20 hidden-xs"
-            />
             <h1
-              class="mb20 mt0 cl-mine-shaft product-name"
+              class="mb0 mt0 cl-mine-shaft product-name"
               data-testid="productName"
             >
               {{ getCurrentProduct.name | htmlDecode }}
-              <web-share
+              <!-- <web-share
                 :title="getCurrentProduct.name | htmlDecode"
                 text="Check this product!"
                 class="web-share"
-              />
+              /> -->
             </h1>
-            <div
+            <!-- <div
               class="mb20 uppercase cl-secondary"
               :content="getCurrentProduct.sku"
             >
               {{ $t('SKU: {sku}', { sku: getCurrentProduct.sku }) }}
-            </div>
+            </div> -->
+            <div class="Pd-Short-Description"> <span> 16oz/350ml Vacuum flip lid insulated travel cup  </span> </div>
             <div>
               <product-price
-                class="mb40"
                 v-if="getCurrentProduct.type_id !== 'grouped'"
                 :product="getCurrentProduct"
                 :custom-options="getCurrentCustomOptions"
@@ -454,6 +454,20 @@ $bg-secondary: color(secondary, $colors-background);
   }
 }
 
+.product-Breadcrumb{
+  margin-top: 80px;
+  margin-bottom: 10px;
+  text-align: left;
+  font-family: 'Brandon_reg';
+  font-size: 14px;
+}
+.Pd-Short-Description{
+  color:#404042;
+  font-size:20px;
+  font-family: 'Brandon_light';
+}
+
+
 .breadcrumbs {
   @media (max-width: 767px) {
     margin: 15px 0;
@@ -479,8 +493,12 @@ $bg-secondary: color(secondary, $colors-background);
 }
 
 .product-name {
+  padding-top:60px;
+  font-size: 40px;
+  font-family: 'BrandonMedium';
+  color:#6D1F37;
   @media (max-width: 767px) {
-    font-size: 36px;
+    font-size: 32px;
   }
 }
 

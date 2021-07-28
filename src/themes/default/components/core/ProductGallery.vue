@@ -88,8 +88,8 @@ export default {
   text-align: center;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
+  // display: flex;
+  // align-items: center;
   min-height: calc(90vw * 1.1);
 
   @media only screen and (min-width:768px) {
