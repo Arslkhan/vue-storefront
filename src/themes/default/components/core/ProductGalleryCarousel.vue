@@ -41,6 +41,51 @@
       class="zoom-in material-icons p15 cl-bgs-tertiary pointer"
       @click="openOverlay"
     >zoom_in</i>
+   <div class="ProductThumbnails">
+     <carousel
+       :per-page-custom="[
+          [480, 0],
+          [768, 2],
+          [1000, 3],
+          [1200, 4],
+        ]"
+      :mouse-drag="false"
+      :navigation-enabled="true"
+      :pagination-enabled="false"
+      pagination-active-color="#828282"
+      pagination-color="transparent"
+      navigation-next-label="<i class='material-icons p15 cl-bg-tertiary pointer'>keyboard_arrow_right</i>"
+      navigation-prev-label="<i class='material-icons p15 cl-bg-tertiary pointer'>keyboard_arrow_left</i>"
+      ref="carousel2"
+      :speed="carouselTransitionSpeed"
+      @pageChange="pageChange"
+      :navigate-to="currentPage"
+    >
+      <slide
+        v-for="(images, index) in gallery"
+        :key="images.src"
+      >
+        <div
+          class="product-image-container bg-cl-secondary"
+          :class="{'video-container w-100 h-100 flex relative': images.video}"
+        >
+          <product-image
+            v-show="hideImageAtIndex !== index"
+            @dblclick="openOverlay"
+            class="pointer image"
+            :image="images"
+            :alt="productName | htmlDecode"
+          />
+          <product-video
+            v-if="images.video && (index === currentPage)"
+            v-bind="images.video"
+            :index="index"
+            @video-started="onVideoStarted"
+          />
+        </div>
+      </slide>
+    </carousel>
+     </div>
   </div>
 </template>
 
@@ -174,6 +219,14 @@ export default {
 </style>
 
 <style lang="scss">
+.ProductThumbnails{
+  .product-image{
+    img{
+      width: 92px !important;
+      height: auto;
+    }
+  }
+}
 .media-gallery-carousel,
 .media-zoom-carousel {
   .VueCarousel-pagination {
