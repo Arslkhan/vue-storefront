@@ -10,16 +10,16 @@
           <div
             class="row m0 col-lg-7 col-md-8 col-xs-12 start-md between-xs no-mobile footer-content"
           >
-            <div class="start-md col-md-4 copyright">
+            <div class="start-md col-md-4 col-xs-12 copyright">
               <span>&copy;{{ copyrightYear }} The W10 Collection</span>
             </div>
-            <div class="start-md col-md-8 cmspages">
+            <div class="start-md col-md-8 col-xs-12 cmspages">
               <h5>Terms &amp; Conditions</h5>
               <h5>Privacy Policy</h5>
               <h5>Returns</h5>
             </div>
           </div>
-          <div class="row social col-md-4">
+          <div class="row social col-md-4 col-xs-12">
             <div class="social-icons">
               <span><img src="/assets/fonts/fb.svg" alt="facebook"></span>
               <span><img src="/assets/fonts/twitter.svg" alt="twitter"></span>
@@ -105,6 +105,9 @@ $color-secondary: color(secondary);
   padding: 0;
   background: #6E2138;
   padding: 27.5px 0;
+  @media (max-width:767px) {
+     padding: 13px 0;
+  }
 }
 .footer-content {
   align-items: center;
@@ -115,6 +118,10 @@ $color-secondary: color(secondary);
   @media (max-width:800px) {
     flex-basis: 70%;
     max-width: 70%;
+  }
+  @media (max-width:767px) {
+    flex-basis: 100%;
+    max-width: 100%;
   }
 }
 .copyright {
@@ -161,6 +168,11 @@ $color-secondary: color(secondary);
   @media (max-width:800px) {
     flex-basis: 30%;
     max-width: 30%;
+  }
+  @media (max-width:767px) {
+    flex-basis: 100%;
+    max-width: 100%;
+    justify-content: center;
   }
   .social-icons {
     span {
@@ -236,17 +248,17 @@ $color-secondary: color(secondary);
   }
 }
 
-@media (max-width: 595px) {
-  .no-mobile {
-    display: none;
-  }
+// @media (max-width: 595px) {
+//   .no-mobile {
+//     display: none;
+//   }
 
-  .social {
-    margin-top: 0;
-  }
+//   .social {
+//     margin-top: 0;
+//   }
 
-  .footer-links {
-    padding-bottom: 30px;
-  }
-}
+//   .footer-links {
+//     padding-bottom: 30px;
+//   }
+// }
 </style>

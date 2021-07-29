@@ -1,12 +1,12 @@
 <template>
   <button
     type="button"
-    class="bg-cl-transparent brdr-none inline-flex"
+    class="bg-cl-transparent brdr-none inline-flex ham-menu"
     @click="openSidebarMenu"
     :aria-label="$t('Open menu')"
     data-testid="menuButton"
   >
-    <i class="material-icons cl-white">dehaze</i>
+    <img src="/assets/bars.png" alt="ham-menu">
   </button>
 </template>
 
@@ -17,3 +17,10 @@ export default {
   mixins: [HamburgerIcon]
 }
 </script>
+<style lang="scss" scoped>
+.ham-menu {
+  img {
+    height: 30px;
+  }
+}
+</style>
