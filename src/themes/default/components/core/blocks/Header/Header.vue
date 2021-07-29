@@ -1,3 +1,4 @@
+/* eslint-disable no-trailing-spaces */
 <template>
   <div class="header">
     <header
@@ -6,15 +7,15 @@
     >
       <div class="container px15">
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage || isThankYouPage">
-          <div class="col-md-4 col-xs-2 middle-xs hidden-md">
-            <div>
-              <hamburger-icon class="p15 icon pointer" />
+          <div class="col-md-4 col-xs-1 middle-xs hidden-md">
+            <div class="ham-main">
+              <hamburger-icon class="p15 icon pointer ham-button" />
             </div>
           </div>
           <div class="col-xs-2 visible-xs hidden">
             <search-icon class="p15 icon pointer" />
           </div>
-          <div class="col-md-5 col-xs-4 center-xs pt5 logo-group">
+          <div class="col-md-5 col-xs-7 center-xs pt5 logo-group">
             <div>
               <logo width="auto" height="66px" class="logo-main" />
             </div>
@@ -22,7 +23,7 @@
           <div class="col-xs-2 visible-xs hidden">
             <wishlist-icon class="p15 icon pointer" />
           </div>
-          <div class="col-md-4 col-xs-2 end-xs icons-group">
+          <div class="col-md-4 col-xs-4 end-xs icons-group">
             <div class="inline-flex">
               <search-icon class="p15 icon pointer hidden" />
               <wishlist-icon class="p15 icon hidden-xs pointer wishicon" />
@@ -158,34 +159,67 @@ $color-icon-hover: color(secondary, $colors-background);
   .container {
     width: 1513px;
     max-width: 100%;
+    .ham-main {
+      .ham-button {
+        @media (max-width:480px) {
+        padding: 0 0 0 3px;
+      }
+      }
+    }
     .logo-group {
       height: 9.375rem;
       display: flex;
       justify-content: flex-start;
       align-items: center;
       padding: 0;
+      @media (max-width:767px) {
+        justify-content: center;
+      }
+      @media (max-width:480px) {
+        padding-left: 0;
+      }
       .logo-main {
         padding: 0 0 0 122px;
         @media (max-width:1199px) {
           padding: 0 0 0 19px;
         }
+        @media (max-width:480px) { 
+          padding: 0 0 0 31px;
+        }
       }
     }
     .icons-group {
       align-self: baseline;
+      @media (max-width: 767px) {
+        align-self: center;
+        flex-basis: 28%;
+      }
+      @media (max-width:480px) {
+        padding: 0;
+        flex-basis: 28%;
+      }
       .wishicon {
         display: flex;
         order: 2;
+        @media (max-width:480px) {
+          padding: 0 10px 0 0;
+        }
       }
       .carticon {
         display: flex;
         order: 3;
+        @media (max-width:480px) {
+          padding: 0 10px 0 0;
+        }
       }
     }
     .social-icons {
       display: flex;
       justify-content: flex-end;
       padding: 0 7px 0 0;
+      @media (max-width: 767px) {
+        display: none;
+      }
       span {
         padding: 0 9px;
         cursor: pointer;
@@ -243,6 +277,15 @@ header {
   a,
   span {
     font-size: 12px;
+  }
+}
+</style>
+<style lang="scss">
+@media (max-width:767px) {
+  .main-logo {
+    img  {
+      width: 100%;
+    }
   }
 }
 </style>

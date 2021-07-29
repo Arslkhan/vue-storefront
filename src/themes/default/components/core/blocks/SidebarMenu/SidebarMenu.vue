@@ -249,7 +249,7 @@ $color-mine-shaft: color(mine-shaft);
   overflow: hidden;
 
   @media (max-width: 767px) {
-    width: 51%;
+    width: 100vh;
   }
 
   &__container {

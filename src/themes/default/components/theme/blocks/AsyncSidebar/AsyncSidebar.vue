@@ -114,7 +114,7 @@ export default {
   z-index: 4;
 
     @media (max-width: 767px) {
-      width: 51%;
+      width: 100vh;
     }
   }
 
