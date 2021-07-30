@@ -57,6 +57,7 @@ export default {
         display: inline-flex;
         position: relative;
         border-bottom: 1px solid $color-tertiary;
+        background-image: linear-gradient(to right, transparent, white, white, #F0F0F0 123%);
         select {
             @extend .h4;
             font-size: 14px;

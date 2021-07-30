@@ -1,7 +1,7 @@
 <template>
   <div id="category">
-    <header class="bg-cl-primary py35">
-      <div class="container-custom">
+    <header class="bg-cl-primary py35 main-container">
+      <div class="container-custom-1">
         <breadcrumbs />
         <div class="row middle-sm bg-cl-primary">
           <h1 class="col-sm-12 category-title mb10 align-center">
@@ -12,7 +12,7 @@
             <label class="mr10">{{ $t('Columns') }}:</label>
             <columns @change-column="columnChange" />
           </div>
-          <p class="col-xs-12 col-md-6 m0 pb0 cl-secondary items">
+          <p class="col-xs-12 col-md-6 m0 pb0 cl-secondary items hidden-xs">
             {{ $t('{count} items', { count: getCategoryProductsTotal }) }}
           </p>
           <div class="sorting col-sm-2 col-md-6 align-right">
@@ -25,13 +25,16 @@
           </div>
         </div>
       </div>
-      <div class="container">
+      <div class="container-mobile">
         <div class="row m0">
+          <p class="col-xs-4 col-md-6 m0 pb0 cl-secondary items items-mobile hidden-md">
+            {{ $t('{count} items', { count: getCategoryProductsTotal }) }}
+          </p>
           <button
-            class="col-xs-5 mt25 mr15 p15 mobile-filters-button bg-cl-th-accent brdr-none cl-white h5 sans-serif fs-medium-small"
+            class="col-xs-2 mt25 mr15 p15 mobile-filters-button bg-cl-th-accent brdr-none cl-white h5 sans-serif fs-medium-small"
             @click="openFilters"
           >
-            {{ $t('Filters') }}
+            {{ $t('Sort By:') }}
           </button>
           <div class="mobile-sorting col-xs-6 mt25">
             <sort-by
@@ -228,8 +231,14 @@ export default {
     bottom: 20px;
     left: -36px;
   }
+  .main-container {
+    padding: 0 0 33px 0;
+  }
   .container-custom {
-    padding: 0 91px;
+    padding: 0 79px;
+  }
+  .container-custom-1 {
+    padding: 0 97px;
   }
   .category-filters {
     width: 242px;
@@ -254,15 +263,15 @@ export default {
     font-weight: 700;
     color: #6E2138;
     font-family: 'Brandon_reg';
+    margin: 0;
   }
   .items {
     color: #000000;
     font-weight: 400;
     font-size: 14px;
     margin-top: 4px;
-    padding-left: 22px;
+    padding-left: 30px;
   }
-
   .sorting {
     color: #404042;
     font-weight: 400;
@@ -273,20 +282,29 @@ export default {
       margin-right: 10px;
     }
   }
-
-  @media (max-width: 64em) {
-    .products-list {
-      max-width: 530px;
-    }
-  }
-
-  @media (max-width: 770px) {
+  @media (max-width: 767px) {
     .category-title {
       margin: 0;
       font-size: 36px;
       line-height: 40px;
+      @media (max-width: 350px) {
+        font-size: 27px;
+      }
     }
-
+    .container-mobile {
+      .row {
+        padding: 19px 11px 0 16px;
+      }
+    }
+    .items-mobile {
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+    .container-custom {
+      padding: 0;
+    }
     .products-list {
       width: 100%;
       max-width: none;
@@ -299,20 +317,25 @@ export default {
     .mobile-filters-button {
       display: block;
       height: 45px;
+      display: block;
+      height: 45px;
+      background: transparent;
+      color: #000;
+      margin: 0;
+      padding: 0;
     }
-
     .sorting {
       display: none;
     }
 
     .mobile-sorting {
       display: block;
+      margin: 0;
     }
 
     .category-filters {
       display: none;
     }
-
     .product-listing {
       justify-content: center;;
     }
