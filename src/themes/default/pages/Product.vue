@@ -39,7 +39,7 @@
                 :product="getCurrentProduct"
                 :custom-options="getCurrentCustomOptions"
               />
-              <div class="cl-primary variants" v-if="getCurrentProduct.type_id =='configurable'">
+              <div class="cl-primary variants hidden" v-if="getCurrentProduct.type_id =='configurable'">
                 <div
                   class="error"
                   v-if="getCurrentProduct.errors && Object.keys(getCurrentProduct.errors).length > 0"
@@ -122,17 +122,33 @@
               <add-to-cart
                 :product="getCurrentProduct"
                 :disabled="isAddToCartDisabled"
-                class="col-xs-12 col-sm-4 col-md-6"
+                class="col-xs-12 col-sm-4 col-md-6 addTo-Cart"
               />
             </div>
-            <div class="row py40 add-to-buttons">
+            <div class="productDescription"> 
+              <h1 class="ProductDescription-Title">Description</h1>
+              <ul>
+                <li> Stainless Steel body, polypropylene plastic lid and silicone gasket ring </li>
+                <li> Dishwasher - Body is dishwasher safe, lid to be hand washed </li>
+                <li> Laser embellishment logo on body </li>
+                <li> Dimensions - H 14cm, base diameter 6.7cm, lid diameter 8cm </li>
+                <li> Capacity - 16oz/350ml </li>
+                <li> Weight - 210g </li>
+                <li> Do not use in a microwave </li>
+                <li> Costa express machine compatible </li>
+                <li>Spill proof lid </li>
+              </ul>
+              <h1 class="ProductDescription-Title">Care and use</h1>
+              <p>Costa DISHWASHER HOT TRAVEL CUP Instructions</p>
+            </div> 
+            <!-- <div class="row py40 add-to-buttons">
               <div class="col-xs-6 col-sm-3 col-md-6">
                 <AddToWishlist :product="getCurrentProduct" />
               </div>
               <div class="col-xs-6 col-sm-3 col-md-6">
                 <AddToCompare :product="getCurrentProduct" />
               </div>
-            </div>
+            </div> -->
           </div>
         </section>
       </div>
@@ -223,6 +239,8 @@ import { catalogHooksExecutors } from '@vue-storefront/core/modules/catalog-next
 import ProductPrice from 'theme/components/core/ProductPrice.vue'
 import { doPlatformPricesSync } from '@vue-storefront/core/modules/catalog/helpers'
 import { filterChangedProduct } from '@vue-storefront/core/modules/catalog/events'
+import { Carousel, Slide } from 'vue-carousel'
+import NoSSR from 'vue-no-ssr'
 
 export default {
   components: {
@@ -245,7 +263,10 @@ export default {
     SizeGuide,
     LazyHydrate,
     ProductQuantity,
-    ProductPrice
+    ProductPrice,
+    Carousel: () => import('vue-carousel').then((Slider) => Slider.Carousel),
+    Slide: () => import('vue-carousel').then((Slider) => Slider.Slide),
+    'no-ssr': NoSSR
   },
   mixins: [ProductOption],
   directives: { focusClean },
@@ -453,7 +474,18 @@ $bg-secondary: color(secondary, $colors-background);
     }
   }
 }
-
+.addTo-Cart{
+  background:#6D1F37;
+  width:100%;
+  max-width:250px;
+  height:60px;
+  border-radius:50px;
+  font-size:18px;
+  font-family: 'BrandonMedium';
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .product-Breadcrumb{
   margin-top: 80px;
   margin-bottom: 10px;
@@ -466,7 +498,23 @@ $bg-secondary: color(secondary, $colors-background);
   font-size:20px;
   font-family: 'Brandon_light';
 }
+.ProductDescription-Title{
+  font-size: 40px;
+  font-family: 'BrandonMedium';
+  color:#6D1F37;
+  margin: 28px 0px 15px 0px;
+  @media (max-width: 767px) {
+    font-size: 32px;
+  }
+}
 
+.productDescription{
+  ul, p{
+    line-height: 25.74px;
+    font-size:18px;
+    font-family:'Brandon_light';
+  }
+}
 
 .breadcrumbs {
   @media (max-width: 767px) {
