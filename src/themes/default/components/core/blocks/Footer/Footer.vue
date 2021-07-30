@@ -14,9 +14,33 @@
               <span>&copy;{{ copyrightYear }} The W10 Collection</span>
             </div>
             <div class="start-md col-md-8 col-xs-12 cmspages">
-              <h5>Terms &amp; Conditions</h5>
-              <h5>Privacy Policy</h5>
-              <h5>Returns</h5>
+              <h5>
+                <router-link
+                  class="inline-flex weight-500 relative no-underline"
+                  :to="localizedRoute('/i/terms-and-conditions')"
+                  exact
+                >
+                  Terms &amp; Conditions
+                </router-link>
+              </h5>
+              <h5>
+                <router-link
+                  class="inline-flex weight-500 relative no-underline"
+                  :to="localizedRoute('/i/privacy-policy')"
+                  exact
+                >
+                  Privacy Policy
+                </router-link>
+              </h5>
+              <h5>
+                <router-link
+                  class="inline-flex weight-500 relative no-underline"
+                  :to="localizedRoute('/i/returns-policy')"
+                  exact
+                >
+                  Returns
+                </router-link>
+              </h5>
             </div>
           </div>
           <div class="row social col-md-4 col-xs-12">
@@ -56,7 +80,7 @@ export default {
   name: 'MainFooter',
   data () {
     return {
-      copyrightYear:''
+      copyrightYear: ''
     }
   },
   methods: {
@@ -148,6 +172,10 @@ $color-secondary: color(secondary);
     flex-basis: 60%;
     max-width: 60%;
   }
+   @media (max-width:767px) { 
+     flex-direction: column;
+     margin-top: 6px;
+   }
   h5 {
     font-family: 'BrandonMedium';
     color: #fff;
@@ -156,6 +184,12 @@ $color-secondary: color(secondary);
     cursor: pointer;
     @media (max-width:1030px) {
       font-size: clamp(16px, 1.942vw, 20px);
+    }
+    @media (max-width:767px) { 
+      margin: 0 0 4px 0;
+   }
+    a {
+       color: #fff;
     }
   }
 }
