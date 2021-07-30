@@ -9,7 +9,6 @@
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage || isThankYouPage">
           <div class="col-md-4 col-xs-1 middle-xs hidden">
             <div class="ham-main">
-              <Menu class="hidden-xs" />
               <hamburger-icon class="p15 icon pointer ham-button hidden-md" />
             </div>
           </div>
@@ -99,7 +98,6 @@
 import { mapState } from 'vuex'
 import CurrentPage from 'theme/mixins/currentPage'
 import AccountIcon from 'theme/components/core/blocks/Header/AccountIcon'
-import Menu from 'theme/components/core/blocks/Header/Menu'
 import CompareIcon from 'theme/components/core/blocks/Header/CompareIcon'
 import HamburgerIcon from 'theme/components/core/blocks/Header/HamburgerIcon'
 import Logo from 'theme/components/core/Logo'
@@ -116,8 +114,7 @@ export default {
     Logo,
     MicrocartIcon,
     SearchIcon,
-    WishlistIcon,
-    Menu
+    WishlistIcon
   },
   mixins: [CurrentPage],
   data () {
