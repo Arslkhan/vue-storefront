@@ -9,7 +9,7 @@
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage || isThankYouPage">
           <div class="col-md-4 col-xs-1 middle-xs hidden">
             <div class="ham-main">
-              <!-- <Menu class="hidden-xs"/> -->
+              <Menu class="hidden-xs" />
               <hamburger-icon class="p15 icon pointer ham-button hidden-md" />
             </div>
           </div>
@@ -21,10 +21,33 @@
               <logo width="auto" height="66px" class="logo-main" />
             </div>
           </div>
+          <div class="col-md-4 hidden-xs center-xs headerlink">
+            <router-link
+              class="inline-flex weight-500 relative no-underline"
+              :to="localizedRoute('/our-range')"
+              exact
+            >
+              Our Range
+            </router-link>
+            <router-link
+              class="inline-flex weight-500 relative no-underline"
+              :to="localizedRoute('/about-us')"
+              exact
+            >
+              About us
+            </router-link>
+            <router-link
+              class="inline-flex weight-500 relative no-underline"
+              :to="localizedRoute('/contact-us')"
+              exact
+            >
+              Contact us
+            </router-link>
+          </div>
           <div class="col-xs-2 visible-xs hidden">
             <wishlist-icon class="p15 icon pointer" />
           </div>
-          <div class="col-md-4 col-xs-4 end-xs icons-group">
+          <div class="col-md-3 col-xs-4 end-xs icons-group">
             <div class="inline-flex">
               <search-icon class="p15 icon pointer hidden" />
               <wishlist-icon class="p15 icon hidden-xs pointer wishicon" />
@@ -186,9 +209,25 @@ $color-icon-hover: color(secondary, $colors-background);
         @media (max-width:1199px) {
           padding: 0 0 0 19px;
         }
-        @media (max-width:480px) { 
+        @media (max-width:480px) {
           padding: 0 0 0 31px;
         }
+      }
+    }
+    .headerlink {
+      display: flex;
+      justify-content: space-evenly;
+      @media (max-width: 767px) {
+        display: none;
+      }
+      a {
+        color: #fff;
+        font-family: 'BrandonMedium';
+        font-size: 22px;
+        @media (max-width: 900px) { 
+          font-size: 18px;
+        }
+
       }
     }
     .icons-group {
@@ -284,6 +323,13 @@ header {
 }
 </style>
 <style lang="scss">
+@media (max-width:900px) { 
+  .main-logo {
+    img  {
+      width: 100%;
+    }
+  }
+}
 @media (max-width:767px) {
   .main-logo {
     img  {
