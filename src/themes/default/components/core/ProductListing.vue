@@ -2,9 +2,8 @@
   <div class="product-listing row m0 center-xs start-md">
     <div
       v-for="(product, key) in products"
-      :key="product.id"
-      class="col-sm-6 flex flex-width"
-      :class="['col-md-' + (12/columns)%10, wide(product.sale, product.new, key)]"
+      :key="key"
+      class="col-sm-6 flex col-lg-3 col-md-3 col-xs-6 spacing"
     >
       <product-tile :product="product" />
     </div>
@@ -13,11 +12,15 @@
 
 <script>
 import ProductTile from 'theme/components/core/ProductTile'
-let lastHero = 0
 export default {
   name: 'ProductListing',
   components: {
     ProductTile
+  },
+  data () {
+    return {
+      lastHero: 0
+    }
   },
   props: {
     products: {
@@ -29,23 +32,29 @@ export default {
       required: true
     }
   },
+  mounted () {
+    setTimeout(this.emitingfunc, 2000)
+  },
   methods: {
+    emitingfunc () {
+      this.$emit('showPagination', true)
+    },
     wide (isOnSale, isNew, index) {
-      let deltaCondition = index > 0 && ((index - 1) - lastHero) % 2 === 0
+      let deltaCondition = index > 0 && ((index - 1) - this.lastHero) % 2 === 0
       // last image always shouldn't be big, we also need to count from last promoted to check if it will look ok
-      let isHero = ((isOnSale === '1' || isNew === '1') && deltaCondition) || (index === this.products.length - 1 && (index - lastHero) % 2 !== 0)
+      let isHero = ((isOnSale === '1' || isNew === '1') && deltaCondition) || (index === this.products.length - 1 && (index - this.lastHero) % 2 !== 0)
       if (isHero) {
-        lastHero = index
+        this.lastHero = index
       }
       return isHero ? 'col-xs-12' : 'col-xs-6'
     }
   }
 }
 </script>
-<style lang="scss" scoped>
-.flex-width {
-  flex-basis: 25%;
-  max-width: 25%;
-  padding: 0 29px;
+<style scoped>
+@media screen and (min-width: 768px) {
+.spacing{
+    padding: 0 31px;
+}
 }
 </style>

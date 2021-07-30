@@ -188,6 +188,10 @@ $color-white: color(white);
   font-size: 24px;
   font-family: 'Brandon_reg';
   color: #6D1F37;
+  font-size: clamp(16px, 1.600vw, 24px);
+  @media (max-width: 767px) {
+    font-size: clamp(15px, 3.129vw, 24px);
+  }
 }
 .product-description {
   font-weight: 300;
@@ -196,7 +200,10 @@ $color-white: color(white);
   color: #404042;
   margin-bottom: 11px;
   margin-top: 3px;
-
+  font-size: clamp(13.5px, 0.933vw, 14px);
+    @media (max-width: 767px) {
+    font-size: clamp(13px, 1.825vw, 14px);
+  }
 }
 .shown-price {
   font-weight: 600;
