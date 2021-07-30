@@ -7,7 +7,7 @@
     >
       <div class="container px15">
         <div class="row between-xs middle-xs" v-if="!isCheckoutPage || isThankYouPage">
-          <div class="col-md-4 col-xs-1 middle-xs">
+          <div class="col-md-4 col-xs-1 middle-xs hidden-md">
             <div class="ham-main">
               <hamburger-icon class="p15 icon pointer ham-button hidden-md" />
             </div>
