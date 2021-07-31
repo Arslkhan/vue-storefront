@@ -125,7 +125,31 @@
                 class="col-xs-12 col-sm-4 col-md-6 addTo-Cart"
               />
             </div>
-            <div class="productDescription"> 
+
+          <div class="productDescription"> 
+            <h1 class="ProductDescription-Title">
+              {{ $t('Product details') }}
+            </h1>
+            <div class="h4 details-wrapper" :class="{'details-wrapper--open': detailsOpen}">
+              <div class="row between-md m0">
+                  <div class="lh30 h5 descriptionText" v-html="getCurrentProduct.description" />    
+                  <ul class="descriptionText attributes p0 pt5 m0">
+                    <product-attribute
+                      :key="attr.attribute_code"
+                      v-for="attr in getCustomAttributes"
+                      :product="getCurrentProduct"
+                      :attribute="attr"
+                      empty-placeholder="N/A"
+                    />
+                  </ul>
+                <div class="details-overlay" @click="showDetails" />
+              </div>
+            </div>
+            <h1 class="ProductDescription-Title">Care and use</h1>
+              <p>Costa DISHWASHER HOT TRAVEL CUP Instructions</p>
+          </div>
+
+            <!-- <div class="productDescription"> 
               <h1 class="ProductDescription-Title">Description</h1>
               <ul>
                 <li> Stainless Steel body, polypropylene plastic lid and silicone gasket ring </li>
@@ -140,7 +164,8 @@
               </ul>
               <h1 class="ProductDescription-Title">Care and use</h1>
               <p>Costa DISHWASHER HOT TRAVEL CUP Instructions</p>
-            </div> 
+            </div>  -->
+
             <!-- <div class="row py40 add-to-buttons">
               <div class="col-xs-6 col-sm-3 col-md-6">
                 <AddToWishlist :product="getCurrentProduct" />
@@ -152,49 +177,27 @@
           </div>
         </section>
       </div>
+      <br> <br>
     </section>
-    <section class="container px15 pt50 pb35 cl-accent details">
-      <h2 class="h3 m0 mb10 serif lh20 details-title">
-        {{ $t('Product details') }}
-      </h2>
-      <div class="h4 details-wrapper" :class="{'details-wrapper--open': detailsOpen}">
-        <div class="row between-md m0">
-          <div class="col-xs-12 col-sm-6">
-            <div class="lh30 h5" v-html="getCurrentProduct.description" />
-          </div>
-          <div class="col-xs-12 col-sm-5">
-            <ul class="attributes p0 pt5 m0">
-              <product-attribute
-                :key="attr.attribute_code"
-                v-for="attr in getCustomAttributes"
-                :product="getCurrentProduct"
-                :attribute="attr"
-                empty-placeholder="N/A"
-              />
-            </ul>
-          </div>
-          <div class="details-overlay" @click="showDetails" />
-        </div>
-      </div>
-    </section>
-    <lazy-hydrate when-idle>
+
+    <!-- <lazy-hydrate when-idle>
       <reviews
         :product-name="getCurrentProduct.name"
         :product-id="getCurrentProduct.id"
         v-show="isOnline"
         :product="getCurrentProduct"
       />
-    </lazy-hydrate>
-    <lazy-hydrate when-idle>
+    </lazy-hydrate> -->
+    <!-- <lazy-hydrate when-idle>
       <related-products type="upsell" :heading="$t('We found other products you might like')" />
-    </lazy-hydrate>
-    <lazy-hydrate when-idle>
+    </lazy-hydrate> -->
+    <!-- <lazy-hydrate when-idle>
       <promoted-offers single-banner />
-    </lazy-hydrate>
-    <lazy-hydrate when-idle>
+    </lazy-hydrate> -->
+    <!-- <lazy-hydrate when-idle>
       <related-products type="related" />
-    </lazy-hydrate>
-    <SizeGuide />
+    </lazy-hydrate> -->
+    <!-- <SizeGuide /> -->
     <script v-html="getJsonLd" type="application/ld+json" />
   </div>
 </template>
@@ -502,14 +505,14 @@ $bg-secondary: color(secondary, $colors-background);
   font-size: 40px;
   font-family: 'BrandonMedium';
   color:#6D1F37;
-  margin: 28px 0px 15px 0px;
+  margin: 28px 0px 0px 0px;
   @media (max-width: 767px) {
     font-size: 32px;
   }
 }
 
 .productDescription{
-  ul, p{
+  .descriptionText{
     line-height: 25.74px;
     font-size:18px;
     font-family:'Brandon_light';

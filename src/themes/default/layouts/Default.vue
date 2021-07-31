@@ -1,6 +1,9 @@
 <template>
   <div class="default-layout">
     <overlay v-if="overlayActive" />
+     <div v-if="route=='/'" class="overlayHome">
+        <homeOverlay />
+    </div>
     <loader />
     <div id="viewport" class="w-100 relative">
       <main-header />
@@ -38,6 +41,7 @@
 </template>
 
 <script>
+import homeOverlay from 'theme/components/core/homeOverlay.vue'
 import { mapState } from 'vuex'
 import AsyncSidebar from 'theme/components/theme/blocks/AsyncSidebar/AsyncSidebar.vue'
 import MainHeader from 'theme/components/core/blocks/Header/Header.vue'
@@ -113,6 +117,7 @@ export default {
   },
   metaInfo: Head,
   components: {
+    homeOverlay,
     MainHeader,
     MainFooter,
     SidebarMenu, // eslint-disable-line vue/no-unused-components
@@ -129,3 +134,17 @@ export default {
 </script>
 
 <style lang="scss" src="theme/css/main.scss"></style>
+<style scoped>
+  .overlayHome{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0.96;
+    background-color: #000000;
+    z-index: 4;
+  }
+</style>
