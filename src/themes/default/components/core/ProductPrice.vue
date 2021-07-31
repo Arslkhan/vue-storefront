@@ -12,7 +12,7 @@
       >{{ price.original | price(storeView) }}</span>
     </div>
     <div
-      class="h2 cl-mine-shaft weight-700"
+      class="h2 mt5 cl-mine-shaft weight-700"
       v-if="!initialPrice.special && price.default"
     >
       {{ price.default | price(storeView) }}
