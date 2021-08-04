@@ -34,6 +34,18 @@
             </router-link>
           </li>
           <li
+            @click="closeMenu"
+            class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary"
+          >
+            <router-link
+              class="block px25 py20 cl-accent no-underline"
+              :to="localizedRoute('/default-category-2')"
+              exact
+            >
+              {{ $t('Our Range') }}
+            </router-link>
+          </li>
+          <li
             class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary flex"
             :key="category.slug"
             @click="closeMenu"
@@ -43,29 +55,29 @@
               v-if="isCurrentMenuShowed"
               class="subcategory-item"
             >
-              <sub-btn
-                v-if="category.children_count > 0"
+              <!-- <sub-btn
+                v-if="category.children_count > 0 && category.name === 'Our Range'"
                 class="bg-cl-transparent brdr-none fs-medium"
                 :id="category.id"
                 :name="category.name"
-              />
-              <router-link
-                v-else
+              /> -->
+              <!-- <router-link
+               v-if="category.children_count > 0 && category.name === 'Our Range'"
                 class="px25 py20 cl-accent no-underline col-xs"
                 :to="categoryLink(category)"
               >
                 {{ category.name }}
-              </router-link>
+              </router-link> -->
             </div>
 
-            <sub-category
+            <!-- <sub-category
               :category-links="category.children_data"
               :id="category.id"
               :parent-slug="category.slug"
               :parent-path="category.url_path"
-            />
+            /> -->
           </li>
-          <li
+          <!-- <li
             v-if="isCurrentMenuShowed"
             @click="closeMenu"
             class="bg-cl-secondary"
@@ -77,8 +89,8 @@
             >
               {{ $t('Sale') }}
             </router-link>
-          </li>
-          <li
+          </li> -->
+          <!-- <li
             v-if="isCurrentMenuShowed"
             @click="closeMenu"
             class="bg-cl-secondary"
@@ -103,7 +115,7 @@
             >
               {{ $t('Compare products') }}
             </router-link>
-          </li>
+          </li> -->
           <li
             @click="login"
             class="brdr-bottom-1 brdr-cl-secondary bg-cl-secondary flex"

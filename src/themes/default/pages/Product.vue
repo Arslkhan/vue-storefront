@@ -353,6 +353,7 @@ export default {
     }
   },
   async mounted () {
+    console.log('getCurrentProduct', this.getCurrentProduct)
     await this.$store.dispatch('recently-viewed/addItem', this.getCurrentProduct)
   },
   async asyncData ({ store, route, context }) {
