@@ -41,7 +41,7 @@
       <p class="mb0 cl-accent mt10 product-name" v-if="!onlyImage">
         {{ product.name | htmlDecode }}
       </p>
-      <p class="mb0 cl-accent mt10 product-description">
+      <p class="mb0 cl-accent mt10 product-description" v-html="product.short_description">
         {{ product.short_description }}
       </p>
       <span
