@@ -97,15 +97,12 @@ $color-primary: color(primary);
   text-decoration: line-through;
 }
 
-#product .price {
+#product .price .cl-mine-shaft {
   font-family: 'Raleway-Regular';
   font-weight:300 !important; 
   color: #404042 !important;
    @media (max-width: 767px) {
     font-size: 50px !important;
-  }
-  @media (max-width: 767px) {
-  
   }
 }
 </style>

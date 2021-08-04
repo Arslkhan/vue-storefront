@@ -1,20 +1,14 @@
 <template>
   <div class="media-gallery-carousel">
-    <carousel
-      :per-page="1"
-      :mouse-drag="false"
-      :navigation-enabled="true"
-      :pagination-enabled="false"
-      pagination-active-color="#828282"
-      pagination-color="transparent"
-      navigation-next-label="<i class='material-icons p15 cl-bg-tertiary pointer'>keyboard_arrow_right</i>"
-      navigation-prev-label="<i class='material-icons p15 cl-bg-tertiary pointer'>keyboard_arrow_left</i>"
+    <VueSlickCarousel
+      :arrows="true"
       ref="carousel"
       :speed="carouselTransitionSpeed"
       @pageChange="pageChange"
       :navigate-to="currentPage"
+      class="mainGallery-Carousel"
     >
-      <slide
+      <div
         v-for="(images, index) in gallery"
         :key="images.src"
       >
@@ -36,13 +30,36 @@
             @video-started="onVideoStarted"
           />
         </div>
-      </slide>
-    </carousel>
+      </div>
+    </VueSlickCarousel>
     <i
       class="zoom-in material-icons p15 cl-bgs-tertiary pointer"
       @click="openOverlay"
     >zoom_in</i>
-   <div class="ProductThumbnails">
+
+     <div class="Galleries" v-if="gallery.length > 1">
+        <div class="main-gallery">
+        <VueSlickCarousel
+          v-bind="setting"
+          :infinite = "false"
+          ref="c2"
+          :draggable = false
+          :slidesToShow='5'
+          :slidesToScroll='1'
+          :rows='1'
+          :initialSlide='0'
+          class="thumbnail-arrows"
+          :speed=300
+          @afterChange="pageChange">
+          >
+        <div v-for="(images, index) in gallery" :key="images.src">
+          <img :src="images.src" :alt="productName" id="thumnail" :class="{'active-img-slide': selected ? images.src == selected : (!firstslideIndex ? index == 0 : index === 'noone'), 'drag-active' : index === firstslideIndex }"   @click="onSelect(index,images.src)" />
+        </div>
+      </VueSlickCarousel>
+      </div>
+      </div>
+
+   <!-- <div class="ProductThumbnails">
      <carousel
        :per-page-custom="[
           [480, 0],
@@ -86,12 +103,16 @@
         </div>
       </slide>
     </carousel>
-     </div>
+     </div> -->
   </div>
 </template>
 
 <script>
 import config from 'config'
+import VueSlickCarousel from 'vue-slick-carousel'
+import 'vue-slick-carousel/dist/vue-slick-carousel.css'
+// optional style for arrows & dots
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css'
 import ProductImage from './ProductImage'
 import ProductVideo from './ProductVideo'
 import reduce from 'lodash-es/reduce'
@@ -103,7 +124,8 @@ export default {
     'Carousel': () => import(/* webpackChunkName: "vue-carousel" */ 'vue-carousel').then(Slider => Slider.Carousel),
     'Slide': () => import(/* webpackChunkName: "vue-carousel" */ 'vue-carousel').then(Slider => Slider.Slide),
     ProductImage,
-    ProductVideo
+    ProductVideo,
+    VueSlickCarousel
   },
   props: {
     gallery: {
@@ -121,11 +143,36 @@ export default {
   },
   data () {
     return {
+      selected: '',
+      firstslideIndex: null,
       carouselTransition: true,
       carouselTransitionSpeed: 0,
       currentColor: 0,
       currentPage: 0,
-      hideImageAtIndex: null
+      hideImageAtIndex: null,
+       setting: {
+        "lazyLoad" : 'onDemand',
+        "responsive": [
+          {
+            "breakpoint": 1199,
+            "settings": {
+              "slidesToShow": 4,
+            }
+          },
+          {
+            "breakpoint": 991,
+            "settings": {
+              "slidesToShow": 3,
+            }
+          },
+           {
+            "breakpoint": 767,
+            "settings": {
+              "slidesToShow": 4,
+            }
+          }
+        ]
+      }
     }
   },
   computed: {},
@@ -148,6 +195,34 @@ export default {
     this.$bus.$off('product-after-load', this.selectVariant)
   },
   methods: {
+    onSelect (slide, imgSrc) {
+      this.selected = imgSrc
+      this.firstslideIndex = null
+      if (!this.afterchangeCalled && !this.startSlide) {
+        setTimeout(() => {
+        this.$refs.carousel.goTo(slide)
+        this.startSlide = 0
+      }, 500);
+      } else {
+        this.$refs.carousel.goTo(slide)
+        this.startSlide = 0
+      }
+      this.slideToChange = slide
+      this.afterchangeCalled = null
+    },
+
+    pageChange (index) {
+      this.stopVideo()
+      this.currentPage = index
+      this.hideImageAtIndex = null
+      this.afterchangeCalled = 'called'
+    },
+    beforeChange (oldSlide, newSlide) {
+      this.$emit('pageChange', newSlide)
+      this.selected = ""
+      this.firstslideIndex = newSlide
+    },
+
     navigate (index) {
       if (index < 0) return
       this.currentPage = index
@@ -202,7 +277,7 @@ export default {
 }
 .zoom-in {
   position: absolute;
-  bottom: 0;
+  bottom: 150px;
   right: 0;
 }
 .image{
@@ -217,9 +292,64 @@ export default {
   align-items: center;
   justify-content: center;
 }
+
 </style>
 
 <style lang="scss">
+.mainGallery-Carousel{
+  .slick-next{
+    &:before{
+      content:none;
+    }
+  }
+  .slick-prev{
+    &:before{
+      content:none;
+    }
+  }
+}
+
+.thumbnail-arrows{
+  padding-left: 5px;
+  @media screen and (min-width:400px)and(max-width:480px) {
+     padding-left: 10px;
+  }
+  .slick-slide{
+    img{
+      border: 1px solid #d5d5d5;
+      max-width: 90px;
+      max-height: 90px;
+      @media screen and (max-width:440px) {
+         max-width: 72px;
+         max-height: 72px;
+      }
+      @media screen and (max-width:374px) {
+         max-width: 65px;
+         max-height: 65px;
+      }
+    }
+  }
+  .slick-next{
+    right: -10px;
+    @media screen and (max-width:374px) {
+      right: -16px;
+    }
+    &:before{
+      color: transparent;
+      background: url('/assets/right-arrow-svg.svg');
+    }
+  }
+  .slick-prev{
+    &:before{
+       color: transparent;
+       background: url('/assets/left-arrow-svg.svg');
+    }
+    @media screen and (max-width:480px) {
+      left:-15px;
+    }
+  }
+}
+
 .ProductThumbnails{
   .product-image{
     img{

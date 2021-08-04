@@ -100,7 +100,7 @@ export default {
   }
 
   &__label {
-    font-size: 0.8rem;
+    font-size: 1rem;
     line-height: 1.2rem;
     font-family: 'Brandon_reg';
     @media (min-width: 768px) {
