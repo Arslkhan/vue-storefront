@@ -221,7 +221,7 @@ $color-icon-hover: color(secondary, $colors-background);
         color: #fff;
         font-family: 'BrandonMedium';
         font-size: 22px;
-        @media (max-width: 900px) { 
+        @media (max-width: 900px) {
           font-size: 18px;
         }
 
@@ -320,7 +320,14 @@ header {
 }
 </style>
 <style lang="scss">
-@media (max-width:900px) { 
+@media (min-width:768px) {
+    .main-logo {
+    img  {
+      max-width: 270px;
+    }
+  }
+}
+@media (max-width:900px) {
   .main-logo {
     img  {
       width: 100%;
