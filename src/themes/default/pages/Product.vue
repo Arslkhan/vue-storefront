@@ -32,7 +32,7 @@
             >
               {{ $t('SKU: {sku}', { sku: getCurrentProduct.sku }) }}
             </div> -->
-            <div class="Pd-Short-Description"> <span> 16oz/350ml Vacuum flip lid insulated travel cup  </span> </div>
+            <div class="Pd-Short-Description" v-html="getCurrentProduct.short_description"> {{ getCurrentProduct.short_description }}</div>
             <div>
               <product-price
                 v-if="getCurrentProduct.type_id !== 'grouped'"
@@ -146,7 +146,7 @@
               </div>
             </div>
             <h1 class="ProductDescription-Title">Care and use</h1>
-              <p>Costa DISHWASHER HOT TRAVEL CUP Instructions</p>
+              <p>{{ getCurrentProduct.costa_instruction }}</p>
           </div>
 
             <!-- <div class="productDescription"> 
