@@ -55,10 +55,10 @@
               <account-icon class="p15 icon hidden-xs pointer" />
             </div>
             <div class="social-icons">
-              <span><img src="/assets/fonts/fb.svg" alt="facebook"></span>
-              <span><img src="/assets/fonts/twitter.svg" alt="twitter"></span>
-              <span><img src="/assets/fonts/youtube.svg" alt="youtube"></span>
-              <span><img src="/assets/fonts/insta.svg" alt="instagram"></span>
+              <a href="https://www.facebook.com/CostaCoffee" target="_blank"><span><img src="/assets/fonts/fb.svg" alt="facebook"></span></a>
+              <a href="https://twitter.com/CostaCoffee/" target="_blank"><span><img src="/assets/fonts/twitter.svg" alt="twitter"></span></a>
+              <a href="https://www.youtube.com/user/forcoffeelovers" target="_blank"> <span><img src="/assets/fonts/youtube.svg" alt="youtube"></span></a>
+              <a href="https://www.instagram.com/costacoffee/?hl=en" target="_blank"> <span><img src="/assets/fonts/insta.svg" alt="instagram"></span></a>
             </div>
           </div>
         </div>
@@ -221,7 +221,7 @@ $color-icon-hover: color(secondary, $colors-background);
         color: #fff;
         font-family: 'BrandonMedium';
         font-size: 22px;
-        @media (max-width: 900px) { 
+        @media (max-width: 900px) {
           font-size: 18px;
         }
 
@@ -320,7 +320,14 @@ header {
 }
 </style>
 <style lang="scss">
-@media (max-width:900px) { 
+@media (min-width:768px) {
+    .main-logo {
+    img  {
+      max-width: 270px;
+    }
+  }
+}
+@media (max-width:900px) {
   .main-logo {
     img  {
       width: 100%;

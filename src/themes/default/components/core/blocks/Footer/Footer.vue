@@ -45,10 +45,10 @@
           </div>
           <div class="row social col-md-4 col-xs-12">
             <div class="social-icons">
-              <span><img src="/assets/fonts/fb.svg" alt="facebook"></span>
-              <span><img src="/assets/fonts/twitter.svg" alt="twitter"></span>
-              <span><img src="/assets/fonts/youtube.svg" alt="youtube"></span>
-              <span><img src="/assets/fonts/insta.svg" alt="instagram"></span>
+              <a href="https://www.facebook.com/CostaCoffee" target="_blank"><span><img src="/assets/fonts/fb.svg" alt="facebook"></span></a>
+              <a href="https://twitter.com/CostaCoffee/" target="_blank"><span><img src="/assets/fonts/twitter.svg" alt="twitter"></span></a>
+              <a href="https://www.youtube.com/user/forcoffeelovers" target="_blank"> <span><img src="/assets/fonts/youtube.svg" alt="youtube"></span></a>
+              <a href="https://www.instagram.com/costacoffee/?hl=en" target="_blank"> <span><img src="/assets/fonts/insta.svg" alt="instagram"></span></a>
             </div>
           </div>
         </div>
