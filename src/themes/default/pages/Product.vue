@@ -126,13 +126,13 @@
               />
             </div>
 
-          <div class="productDescription"> 
+          <div class="productDescription">
             <h1 class="ProductDescription-Title">
               {{ $t('Product details') }}
             </h1>
             <div class="h4 details-wrapper" :class="{'details-wrapper--open': detailsOpen}">
               <div class="row between-md m0">
-                  <div class="lh30 h5 descriptionText" v-html="getCurrentProduct.description" />    
+                  <div class="lh30 h5 descriptionText" v-html="getCurrentProduct.description" />
                   <ul class="descriptionText attributes p0 pt5 m0">
                     <product-attribute
                       :key="attr.attribute_code"
@@ -142,14 +142,14 @@
                       empty-placeholder="N/A"
                     />
                   </ul>
-                <div class="details-overlay" @click="showDetails" />
+                <!-- <div class="details-overlay" @click="showDetails" /> -->
               </div>
             </div>
             <h1 class="ProductDescription-Title">Care and use</h1>
               <p>{{ getCurrentProduct.costa_instruction }}</p>
           </div>
 
-            <!-- <div class="productDescription"> 
+            <!-- <div class="productDescription">
               <h1 class="ProductDescription-Title">Description</h1>
               <ul>
                 <li> Stainless Steel body, polypropylene plastic lid and silicone gasket ring </li>
@@ -489,6 +489,9 @@ $bg-secondary: color(secondary, $colors-background);
   display: flex;
   align-items: center;
   justify-content: center;
+  @media (max-width: 767px) {
+    margin-bottom: 10px;
+  }
 }
 .product-Breadcrumb{
   margin-top: 80px;
@@ -501,6 +504,10 @@ $bg-secondary: color(secondary, $colors-background);
   color:#404042;
   font-size:20px;
   font-family: 'Brandon_light';
+  @media screen and (max-width:767px){
+    font-size:16px;
+    padding: 12px 0;
+  }
 }
 .ProductDescription-Title{
   font-size: 40px;
@@ -508,7 +515,8 @@ $bg-secondary: color(secondary, $colors-background);
   color:#6D1F37;
   margin: 28px 0px 0px 0px;
   @media (max-width: 767px) {
-    font-size: 32px;
+    font-size: 34px;
+    margin: 10px 0px 0px 0px;
   }
 }
 
@@ -517,6 +525,10 @@ $bg-secondary: color(secondary, $colors-background);
     line-height: 25.74px;
     font-size:18px;
     font-family:'Brandon_light';
+    @media (max-width: 767px) {
+      font-size:16px;
+      line-height: 24px;
+    }
   }
 }
 
@@ -549,8 +561,10 @@ $bg-secondary: color(secondary, $colors-background);
   font-size: 40px;
   font-family: 'BrandonMedium';
   color:#6D1F37;
+  line-height: 1.2;
   @media (max-width: 767px) {
-    font-size: 32px;
+    font-size: 34px;
+     padding-top:30px;
   }
 }
 
@@ -612,10 +626,10 @@ $bg-secondary: color(secondary, $colors-background);
 .details-wrapper {
   @media (max-width: 767px) {
     position: relative;
-    max-height: 140px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    font-size: 14px;
+    // max-height: 140px;
+    // overflow: hidden;
+    // transition: all 0.3s ease;
+    // font-size: 14px;
   }
 
   &--open {
