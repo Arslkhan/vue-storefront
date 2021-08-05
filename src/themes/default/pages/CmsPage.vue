@@ -9,7 +9,12 @@
         </div>
       </div>
     </header>
-    <div class="container pb60" v-html="cmsPageContent.content" />
+    <template v-if="cmsPageContent.title === 'Contact Us'">
+    <div class="container pb60 contact-us-info" v-html="cmsPageContent.content" >
+    </div>
+    </template>
+    <div v-else
+    class="container pb60" v-html="cmsPageContent.content" />
   </div>
 </template>
 
@@ -27,6 +32,10 @@ export default {
 </script>
 <style lang="scss">
 #cms-page {
+  .contact-us-info {
+    height: 100vh;
+  }
+
   header {
     display: none;
   }
@@ -51,7 +60,7 @@ export default {
     font-family: 'Brandon_reg';
   }
   p {
-    font-family: 'BrandonMedium';
+    font-family: 'Raleway-Regular';
   }
   span {
     color: #6E2138;

@@ -23,21 +23,21 @@
           <div class="col-md-4 hidden-xs center-xs headerlink">
             <router-link
               class="inline-flex weight-500 relative no-underline"
-              :to="localizedRoute('/our-range')"
+              :to="localizedRoute('/default-category')"
               exact
             >
               Our Range
             </router-link>
-            <router-link
+            <!-- <router-link
               class="inline-flex weight-500 relative no-underline"
               :to="localizedRoute('/about-us')"
               exact
             >
               About us
-            </router-link>
+            </router-link> -->
             <router-link
               class="inline-flex weight-500 relative no-underline"
-              :to="localizedRoute('/contact-us')"
+              :to="localizedRoute('/i/contact-us')"
               exact
             >
               Contact us

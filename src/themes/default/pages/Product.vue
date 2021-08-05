@@ -32,7 +32,7 @@
             >
               {{ $t('SKU: {sku}', { sku: getCurrentProduct.sku }) }}
             </div> -->
-            <div class="Pd-Short-Description"> <span> 16oz/350ml Vacuum flip lid insulated travel cup  </span> </div>
+            <div class="Pd-Short-Description" v-html="getCurrentProduct.short_description"> {{ getCurrentProduct.short_description }}</div>
             <div>
               <product-price
                 v-if="getCurrentProduct.type_id !== 'grouped'"
@@ -126,13 +126,13 @@
               />
             </div>
 
-          <div class="productDescription"> 
+          <div class="productDescription">
             <h1 class="ProductDescription-Title">
               {{ $t('Product details') }}
             </h1>
             <div class="h4 details-wrapper" :class="{'details-wrapper--open': detailsOpen}">
               <div class="row between-md m0">
-                  <div class="lh30 h5 descriptionText" v-html="getCurrentProduct.description" />    
+                  <div class="lh30 h5 descriptionText" v-html="getCurrentProduct.description" />
                   <ul class="descriptionText attributes p0 pt5 m0">
                     <product-attribute
                       :key="attr.attribute_code"
@@ -146,10 +146,10 @@
               </div>
             </div>
             <h1 class="ProductDescription-Title">Care and use</h1>
-              <p class="descriptionText">Costa DISHWASHER HOT TRAVEL CUP Instructions</p>
+              <p>{{ getCurrentProduct.costa_instruction }}</p>
           </div>
 
-            <!-- <div class="productDescription"> 
+            <!-- <div class="productDescription">
               <h1 class="ProductDescription-Title">Description</h1>
               <ul>
                 <li> Stainless Steel body, polypropylene plastic lid and silicone gasket ring </li>
@@ -353,6 +353,7 @@ export default {
     }
   },
   async mounted () {
+    console.log('getCurrentProduct', this.getCurrentProduct)
     await this.$store.dispatch('recently-viewed/addItem', this.getCurrentProduct)
   },
   async asyncData ({ store, route, context }) {

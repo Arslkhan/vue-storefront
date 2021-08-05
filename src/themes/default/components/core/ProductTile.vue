@@ -41,8 +41,8 @@
       <p class="mb0 cl-accent mt10 product-name" v-if="!onlyImage">
         {{ product.name | htmlDecode }}
       </p>
-      <p class="mb0 cl-accent mt10 product-description">
-        {{ '16oz/350ml Vacuum flip lid insulated travel cup' }}
+      <p class="mb0 cl-accent mt10 product-description" v-html="product.short_description">
+        {{ product.short_description }}
       </p>
       <span
         class="price-original mr5 lh30 cl-secondary"
