@@ -39,7 +39,7 @@
           >
             <router-link
               class="block px25 py20 cl-accent no-underline"
-              :to="localizedRoute('/default-category')"
+              :to="localizedRoute('/c/our-range')"
               exact
             >
               {{ $t('Our Range') }}
