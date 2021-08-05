@@ -9,12 +9,7 @@
         </div>
       </div>
     </header>
-    <template v-if="cmsPageContent.title === 'Contact Us'">
-      <div class="container pb60 contact-us-info" v-html="cmsPageContent.content" />
-    </template>
-    <div v-else
-         class="container pb60" v-html="cmsPageContent.content"
-    />
+    <div class="container pb60" v-html="cmsPageContent.content" />
   </div>
 </template>
 
@@ -171,22 +166,21 @@ export default {
         input::placeholder {
           font-weight: bold;
         }
-        #message {
-          border: 1px solid #828282;
-          border-left: none;
-          border-right: none;
-          border-top: none;
-          width: 100%;
-          margin-top: 25px;
-          outline: none;
-          user-select: none;
-          resize: unset;
-        }
-        #message::placeholder {
-          font-weight: bold;
-        }
       }
-
+      #message {
+        border: 1px solid #828282;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        width: 100%;
+        margin-top: 25px;
+        outline: none;
+        user-select: none;
+        resize: unset;
+      }
+      #message::placeholder {
+        font-weight: bold;
+      }
     }
     .buttonmessage {
       display: flex;
