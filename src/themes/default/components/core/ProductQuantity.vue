@@ -79,9 +79,9 @@ export default {
       return !this.maxQuantity && this.checkMaxQuantity && this.isSimpleOrConfigurable
     },
     name () {
-      if (this.isSimpleOrConfigurable && !this.loading && this.showQuantity) {
-        return this.$i18n.t(this.isOnline ? 'Quantity available' : 'Quantity available offline', { qty: this.maxQuantity })
-      }
+      // if (this.isSimpleOrConfigurable && !this.loading && this.showQuantity) {
+      //   return this.$i18n.t(this.isOnline ? 'Quantity available' : 'Quantity available offline', { qty: this.maxQuantity })
+      // }
       return this.$i18n.t('Quantity')
     }
   },
