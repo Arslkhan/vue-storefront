@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="localizedRoute('/default-category')" :title="$t('Home Page')" class="no-underline inline-flex main-logo">
+  <router-link :to="localizedRoute('/c/our-range')" :title="$t('Home Page')" class="no-underline inline-flex main-logo">
     <img
       :width="width"
       :height="height"
