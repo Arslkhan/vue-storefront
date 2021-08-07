@@ -133,6 +133,7 @@ export default {
     }
   },
   beforeMount () {
+    console.log('beforeMount productTile', this.product)
     this.$bus.$on('product-after-priceupdate', this.onProductPriceUpdate)
   },
   beforeDestroy () {

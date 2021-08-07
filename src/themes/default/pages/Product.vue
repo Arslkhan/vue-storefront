@@ -145,11 +145,10 @@
                 <!-- <div class="details-overlay" @click="showDetails" /> -->
               </div>
             </div>
-            <h1 class="ProductDescription-Title">Care and use</h1>
+            <h1 class="ProductDescription-Title" v-if="getCurrentProduct.costa_instruction">Care and use</h1>
               <p v-html="getCurrentProduct.costa_instruction">{{ getCurrentProduct.costa_instruction }}</p>
-
-            <h1 class="ProductDescription-Title">Warning notes</h1>
-            <p v-html="getCurrentProduct.warning_notes">{{ getCurrentProduct.warning_notes }}</p>
+              <h1 class="ProductDescription-Title" v-if="getCurrentProduct.warning_notes">Warning notes</h1>
+              <p v-html="getCurrentProduct.warning_notes">{{ getCurrentProduct.warning_notes }}</p>
           </div>
 
             <!-- <div class="productDescription">
