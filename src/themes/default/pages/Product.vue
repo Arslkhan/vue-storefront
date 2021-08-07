@@ -146,7 +146,7 @@
               </div>
             </div>
             <h1 class="ProductDescription-Title">Care and use</h1>
-              <p>{{ getCurrentProduct.costa_instruction }}</p>
+              <p v-html="getCurrentProduct.costa_instruction">{{ getCurrentProduct.costa_instruction }}</p>
           </div>
 
             <!-- <div class="productDescription">
