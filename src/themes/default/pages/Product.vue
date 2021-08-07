@@ -128,7 +128,7 @@
 
           <div class="productDescription">
             <h1 class="ProductDescription-Title">
-              {{ $t('Product details') }}
+              {{ $t('Description') }}
             </h1>
             <div class="h4 details-wrapper" :class="{'details-wrapper--open': detailsOpen}">
               <div class="row between-md m0">
@@ -147,6 +147,9 @@
             </div>
             <h1 class="ProductDescription-Title">Care and use</h1>
               <p v-html="getCurrentProduct.costa_instruction">{{ getCurrentProduct.costa_instruction }}</p>
+
+            <h1 class="ProductDescription-Title">Warning notes</h1>
+            <p v-html="getCurrentProduct.warning_notes">{{ getCurrentProduct.warning_notes }}</p>
           </div>
 
             <!-- <div class="productDescription">
