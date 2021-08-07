@@ -133,15 +133,15 @@
             <div class="h4 details-wrapper" :class="{'details-wrapper--open': detailsOpen}">
               <div class="row between-md m0">
                   <div class="lh30 h5 descriptionText" v-html="getCurrentProduct.description" />
-                  <ul class="descriptionText attributes p0 pt5 m0">
-                    <product-attribute
-                      :key="attr.attribute_code"
-                      v-for="attr in getCustomAttributes"
-                      :product="getCurrentProduct"
-                      :attribute="attr"
-                      empty-placeholder="N/A"
-                    />
-                  </ul>
+<!--                  <ul class="descriptionText attributes p0 pt5 m0">-->
+<!--                    <product-attribute-->
+<!--                      :key="attr.attribute_code"-->
+<!--                      v-for="attr in getCustomAttributes"-->
+<!--                      :product="getCurrentProduct"-->
+<!--                      :attribute="attr"-->
+<!--                      empty-placeholder="N/A"-->
+<!--                    />-->
+<!--                  </ul>-->
                 <!-- <div class="details-overlay" @click="showDetails" /> -->
               </div>
             </div>
