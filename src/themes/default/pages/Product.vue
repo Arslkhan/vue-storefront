@@ -128,25 +128,27 @@
 
           <div class="productDescription">
             <h1 class="ProductDescription-Title">
-              {{ $t('Product details') }}
+              {{ $t('Description') }}
             </h1>
             <div class="h4 details-wrapper" :class="{'details-wrapper--open': detailsOpen}">
               <div class="row between-md m0">
                   <div class="lh30 h5 descriptionText" v-html="getCurrentProduct.description" />
-                  <ul class="descriptionText attributes p0 pt5 m0">
-                    <product-attribute
-                      :key="attr.attribute_code"
-                      v-for="attr in getCustomAttributes"
-                      :product="getCurrentProduct"
-                      :attribute="attr"
-                      empty-placeholder="N/A"
-                    />
-                  </ul>
+<!--                  <ul class="descriptionText attributes p0 pt5 m0">-->
+<!--                    <product-attribute-->
+<!--                      :key="attr.attribute_code"-->
+<!--                      v-for="attr in getCustomAttributes"-->
+<!--                      :product="getCurrentProduct"-->
+<!--                      :attribute="attr"-->
+<!--                      empty-placeholder="N/A"-->
+<!--                    />-->
+<!--                  </ul>-->
                 <!-- <div class="details-overlay" @click="showDetails" /> -->
               </div>
             </div>
             <h1 class="ProductDescription-Title">Care and use</h1>
-              <p>{{ getCurrentProduct.costa_instruction }}</p>
+              <p v-html="getCurrentProduct.costa_instruction" class="descriptionText">{{ getCurrentProduct.costa_instruction }}</p>
+              <h1 class="ProductDescription-Title" v-if="getCurrentProduct.warning_notes">Warning notes</h1>
+              <p v-html="getCurrentProduct.warning_notes" class="descriptionText">{{ getCurrentProduct.warning_notes }}</p>
           </div>
 
             <!-- <div class="productDescription">
