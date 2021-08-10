@@ -34,6 +34,9 @@ export default {
   header {
     display: none;
   }
+  img {
+    width: 100%;
+  }
   .container {
     width: 1513px;
     max-width: 100%;
