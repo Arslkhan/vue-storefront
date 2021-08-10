@@ -7,12 +7,14 @@
             <breadcrumbs
               class="product-Breadcrumb hidden-xs"
             />
-            <product-gallery
-              :offline="getOfflineImage"
-              :gallery="getProductGallery"
-              :configuration="getCurrentProductConfiguration"
-              :product="getCurrentProduct"
-            />
+            <no-ssr>
+              <product-gallery
+                :offline="getOfflineImage"
+                :gallery="getProductGallery"
+                :configuration="getCurrentProductConfiguration"
+                :product="getCurrentProduct"
+              />
+            </no-ssr>
           </div>
           <div class="col-xs-12 col-md-5 data">
             <h1
@@ -54,7 +56,7 @@
                     >{{ getOptionLabel(option) }}</span>
                   </div>
                   <div class="row top-xs m0 pt15 pb40 variants-wrapper">
-                    <div v-if="option.label == 'Color'">
+                    <div v-if="option.label === 'Color'">
                       <color-selector
                         v-for="filter in getAvailableFilters[option.attribute_code]"
                         :key="filter.id"
@@ -63,7 +65,7 @@
                         @change="changeFilter"
                       />
                     </div>
-                    <div class="sizes" v-else-if="option.label == 'Size'">
+                    <div class="sizes" v-else-if="option.label === 'Size'">
                       <size-selector
                         class="mr10 mb10"
                         v-for="filter in getAvailableFilters[option.attribute_code]"
@@ -84,7 +86,7 @@
                       />
                     </div>
                     <span
-                      v-if="option.label == 'Size'"
+                      v-if="option.label === 'Size'"
                       @click="openSizeGuide"
                       class="p0 ml30 inline-flex middle-xs no-underline h5 action size-guide pointer cl-secondary"
                     >
@@ -167,15 +169,6 @@
               <h1 class="ProductDescription-Title">Care and use</h1>
               <p>Costa DISHWASHER HOT TRAVEL CUP Instructions</p>
             </div>  -->
-
-            <!-- <div class="row py40 add-to-buttons">
-              <div class="col-xs-6 col-sm-3 col-md-6">
-                <AddToWishlist :product="getCurrentProduct" />
-              </div>
-              <div class="col-xs-6 col-sm-3 col-md-6">
-                <AddToCompare :product="getCurrentProduct" />
-              </div>
-            </div> -->
           </div>
         </section>
       </div>
@@ -205,32 +198,19 @@
 </template>
 
 <script>
-import i18n from '@vue-storefront/i18n'
-import VueOfflineMixin from 'vue-offline/mixin'
 import config from 'config'
-import RelatedProducts from 'theme/components/core/blocks/Product/Related.vue'
-import Reviews from 'theme/components/core/blocks/Reviews/Reviews.vue'
 import AddToCart from 'theme/components/core/AddToCart.vue'
 import GenericSelector from 'theme/components/core/GenericSelector'
 import ColorSelector from 'theme/components/core/ColorSelector.vue'
 import SizeSelector from 'theme/components/core/SizeSelector.vue'
 import Breadcrumbs from 'theme/components/core/Breadcrumbs.vue'
-import ProductAttribute from 'theme/components/core/ProductAttribute.vue'
 import ProductQuantity from 'theme/components/core/ProductQuantity.vue'
 import ProductLinks from 'theme/components/core/ProductLinks.vue'
 import ProductCustomOptions from 'theme/components/core/ProductCustomOptions.vue'
 import ProductBundleOptions from 'theme/components/core/ProductBundleOptions.vue'
 import ProductGallery from 'theme/components/core/ProductGallery'
-import Spinner from 'theme/components/core/Spinner'
-import PromotedOffers from 'theme/components/theme/blocks/PromotedOffers/PromotedOffers'
 import focusClean from 'theme/components/theme/directives/focusClean'
-import WebShare from 'theme/components/theme/WebShare'
-import BaseInputNumber from 'theme/components/core/blocks/Form/BaseInputNumber'
-import SizeGuide from 'theme/components/core/blocks/Product/SizeGuide'
-import AddToWishlist from 'theme/components/core/blocks/Wishlist/AddToWishlist'
-import AddToCompare from 'theme/components/core/blocks/Compare/AddToCompare'
 import { mapGetters } from 'vuex'
-import LazyHydrate from 'vue-lazy-hydration'
 import { ProductOption } from '@vue-storefront/core/modules/catalog/components/ProductOption.ts'
 import { getAvailableFiltersByProduct, getSelectedFiltersByProduct } from '@vue-storefront/core/modules/catalog/helpers/filters'
 import { isOptionAvailableAsync } from '@vue-storefront/core/modules/catalog/helpers/index'
@@ -244,33 +224,21 @@ import { catalogHooksExecutors } from '@vue-storefront/core/modules/catalog-next
 import ProductPrice from 'theme/components/core/ProductPrice.vue'
 import { doPlatformPricesSync } from '@vue-storefront/core/modules/catalog/helpers'
 import { filterChangedProduct } from '@vue-storefront/core/modules/catalog/events'
-import { Carousel, Slide } from 'vue-carousel'
 import NoSSR from 'vue-no-ssr'
 
 export default {
   components: {
     AddToCart,
-    AddToCompare,
-    AddToWishlist,
     Breadcrumbs,
     ColorSelector,
     GenericSelector,
-    ProductAttribute,
     ProductBundleOptions,
     ProductCustomOptions,
     ProductGallery,
     ProductLinks,
-    PromotedOffers,
-    RelatedProducts,
-    Reviews,
     SizeSelector,
-    WebShare,
-    SizeGuide,
-    LazyHydrate,
     ProductQuantity,
     ProductPrice,
-    Carousel: () => import('vue-carousel').then((Slider) => Slider.Carousel),
-    Slide: () => import('vue-carousel').then((Slider) => Slider.Slide),
     'no-ssr': NoSSR
   },
   mixins: [ProductOption],
