@@ -26,7 +26,7 @@
             class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary"
           >
             <router-link
-              class="block px25 py20 cl-accent no-underline"
+              class="block px25 py20 cl-accent no-underline home"
               :to="localizedRoute('/')"
               exact
             >
@@ -43,6 +43,28 @@
               exact
             >
               {{ $t('Our Range') }}
+            </router-link>
+          </li>
+          <li
+            class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary"
+          >
+            <router-link
+              class="block px25 py20 cl-accent no-underline"
+              :to="localizedRoute('/i/faq')"
+              exact
+            >
+              {{ $t('FAQ') }}
+            </router-link>
+          </li>
+          <li
+            class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary"
+          >
+            <router-link
+              class="block px25 py20 cl-accent no-underline"
+              :to="localizedRoute('/i/contact-us')"
+              exact
+            >
+              {{ $t('Contact us') }}
             </router-link>
           </li>
           <li
@@ -137,10 +159,21 @@
               v-if="!currentUser && isCurrentMenuShowed"
               href="#"
               @click.prevent="closeMenu"
-              class="block w-100 px25 py20 cl-accent no-underline fs-medium-small"
+              class="block w-100 px25 py20 cl-accent no-underline fs-medium-small account"
             >
               {{ $t('My account') }}
             </a>
+          </li>
+          <li
+            class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary"
+          >
+            <router-link
+              class="block px25 py20 cl-accent no-underline"
+              :to="localizedRoute('/our-range.html')"
+              exact
+            >
+              <img src="/assets/W10logomobile.png" alt="">
+            </router-link>
           </li>
         </ul>
       </div>
@@ -307,7 +340,7 @@ $color-mine-shaft: color(mine-shaft);
 
   .close-btn {
     i {
-      color: $color-gainsboro;
+      color: #000000;
     }
     &:hover,
     &:focus {
@@ -317,5 +350,26 @@ $color-mine-shaft: color(mine-shaft);
     }
   }
 
+}
+@media (max-width: 767px) {
+  .sidebar-menu__container {
+    background: #fff;
+  }
+  .sidebar-menu__list {
+    .home {
+      color: #6D1F37;
+      font-family: 'BrandonMedium';
+      font-size: 20px;
+    }
+    li {
+      a {
+        font-family: 'BrandonMedium';
+        font-size: 20px;
+      }
+    }
+    .account {
+      background: #fff;
+    }
+  }
 }
 </style>

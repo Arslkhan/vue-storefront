@@ -26,7 +26,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
   .whishlist-count {
     top: 7px;
     left: 50%;
@@ -34,4 +34,12 @@ export default {
     min-height: 16px;
     border-radius: 10px;
   }
+  @media (max-width: 1199px) and (min-width: 768px) {
+  button {
+    padding: 18px 7px;
+    img {
+      width: 27px;
+    }
+  }
+}
 </style>

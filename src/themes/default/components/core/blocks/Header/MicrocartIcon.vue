@@ -1,7 +1,7 @@
 <template>
   <button
     type="button"
-    class="relative bg-cl-transparent brdr-none inline-flex"
+    class="relative bg-cl-transparent brdr-none inline-flex inner-button"
     @click="openMicrocart"
     data-testid="openMicrocart"
     :aria-label="$t('Open microcart')"
@@ -44,12 +44,24 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang='scss'>
   .minicart-count {
     top: 7px;
     left: 50%;
     min-width: 16px;
     min-height: 16px;
     border-radius: 10px;
+  }
+  @media (max-width: 1199px) and (min-width: 768px) {
+     button {
+       padding: 0;
+     }
+    .inner-button {
+      padding: 18px 7px;
+      img {
+        width: 25px;
+        padding-top: 2px;
+      }
+    }
   }
 </style>
