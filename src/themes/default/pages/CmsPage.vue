@@ -224,4 +224,30 @@ export default {
       }
     }
   }
+  .main-terms {
+      padding-bottom: 27px;
+    .termh2 {
+      color: #6D1F37;
+      font-family: 'BrandonMedium';
+    }
+    ol li::marker {
+      color: #fff;
+    }
+    ol {
+      padding: 0;
+    }
+    p {
+      font-family: 'BrandonMedium';
+    }
+    .terms-top {
+      margin-top: 50px;
+    }
+    strong {
+      font-weight: 400;
+    }
+    span {
+      line-height: 25px;
+    }
+
+  }
 </style>
