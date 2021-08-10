@@ -49,16 +49,45 @@ export default {
     line-height: 1.6;
   }
 }
-.return-main {
-  padding: 0 0 83px 0;
-  h3 {
+.main-returns {
+  padding: 0 0 29px 0;
+  h4 {
     font-family: 'Brandon_reg';
   }
   p {
-    font-family: 'Raleway-Regular';
+    font-family: 'BrandonMedium';
+    font-size: 20px;
+    line-height: 28px;
   }
-  span {
+  .returns-head {
     color: #6E2138;
+    font-family: 'Brandon_bld';
+    font-size: 32px;
+    margin-bottom: 0;
+  }
+  .group-p p {
+    margin: 0;
+  }
+  .days-year {
+    margin-top: 32px;
+  }
+  .paragraph2 {
+    display: none;
+  }
+  a.underline:after, a:not(.no-underline):hover:after {
+    content: none;
+  }
+  a{
+    color: #6E2138;
+    cursor: pointer;
+    text-decoration: underline;
+    }
+  .unused {
+    a{
+      color: #6E2138;
+      cursor: pointer;
+      text-decoration: none;
+    }
   }
 }
 .privacy-main {
