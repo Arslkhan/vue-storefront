@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import homeOverlay from 'theme/components/core/homeOverlay.vue'
+import homeOverlay from 'theme/components/core/homeOverlay1.vue'
 import { mapState } from 'vuex'
 import AsyncSidebar from 'theme/components/theme/blocks/AsyncSidebar/AsyncSidebar.vue'
 import MainHeader from 'theme/components/core/blocks/Header/Header.vue'
