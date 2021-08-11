@@ -48,8 +48,10 @@ export default {
   header {
     display: none;
   }
-  img {
-    width: 100%;
+  @media (max-width: 580px) {
+    img {
+      width: 100%;
+    }
   }
   .container {
     width: 1513px;
