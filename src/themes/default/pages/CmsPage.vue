@@ -10,35 +10,38 @@
       </div>
     </header>
 
-    <div class="container-fluid pb60" v-if="cmsPageContent.title === PageName" v-html="cmsPageContent.content" />
+    <div
+      class="container-fluid pb60"
+      v-if="cmsPageContent.title === PageName"
+      v-html="cmsPageContent.content"
+    />
     <div class="container pb60" v-else v-html="cmsPageContent.content" />
-   
   </div>
 </template>
 
 <script>
-import CmsPage from '@vue-storefront/core/pages/CmsPage'
+import CmsPage from "@vue-storefront/core/pages/CmsPage";
 
 export default {
-  data () {
+  data() {
     return {
-      PageName: 'Contact Us'
-    }
+      PageName: "Contact Us",
+    };
   },
   computed: {
-    cmsPageContent () {
-      return this.$store.state.cmsPage.current
-    }
+    cmsPageContent() {
+      return this.$store.state.cmsPage.current;
+    },
   },
-  mixins: [CmsPage]
-}
+  mixins: [CmsPage],
+};
 </script>
 <style lang="scss">
 #cms-page {
   .container-fluid {
     padding: 0;
     margin-top: -15px;
-}
+  }
   .contact-us-info {
     height: 100vh;
   }
@@ -69,19 +72,19 @@ export default {
 .main-returns {
   padding: 0 0 29px 0;
   h4 {
-    font-family: 'Brandon_reg';
+    font-family: "Brandon_reg";
   }
   p {
-    font-family: 'BrandonMedium';
+    font-family: "BrandonMedium";
     font-size: 20px;
     line-height: 28px;
   }
   .returns-head {
-    color: #6E2138;
-    font-family: 'Brandon_bld';
+    color: #6e2138;
+    font-family: "Brandon_bld";
     font-size: 32px;
     margin-bottom: 0;
-    text-transform: capitalize;
+    text-transform: uppercase;
   }
   .group-p p {
     margin: 0;
@@ -92,17 +95,18 @@ export default {
   .paragraph2 {
     display: none;
   }
-  a.underline:after, a:not(.no-underline):hover:after {
+  a.underline:after,
+  a:not(.no-underline):hover:after {
     content: none;
   }
-  a{
-    color: #6E2138;
+  a {
+    color: #6e2138;
     cursor: pointer;
     text-decoration: underline;
-    }
+  }
   .unused {
-    a{
-      color: #6E2138;
+    a {
+      color: #6e2138;
       cursor: pointer;
       text-decoration: none;
     }
@@ -113,240 +117,293 @@ export default {
     margin: 0;
     font-size: 16px;
     font-weight: 100;
-    font-family: 'Raleway-Regular';
+    font-family: "Raleway-Regular";
     padding-bottom: 83px;
     line-height: 1.8;
   }
   p {
     font-weight: bold;
-    font-family: 'Raleway-Regular';
+    font-family: "Raleway-Regular";
   }
 }
 .terms-and-condition {
-  p, h2, ul, li, span {
-        font-family: 'Raleway-Regular';
+  p,
+  h2,
+  ul,
+  li,
+  span {
+    font-family: "Raleway-Regular";
   }
   p {
     line-height: 1.8;
   }
 }
-  .contact-main {
-    .head {
-      color: #6E2138;
-      margin: 0;
-      padding-top: 8px;
-      // font-size: 47px;
-      font-size: clamp(36px, 6.2vw, 72px);
-      font-family: 'Brandon_bld';
-      position: absolute;
-      left: 43%;
-      @media (max-width: 500px) {
-        left: 35%;
+.contact-main {
+  .head {
+    color: #6e2138;
+    margin: 0;
+    padding-top: 8px;
+    // font-size: 47px;
+    font-size: clamp(36px, 6.2vw, 72px);
+    font-family: "Brandon_bld";
+    position: absolute;
+    left: 43%;
+    @media (max-width: 500px) {
+      left: 35%;
+    }
+  }
+  p {
+    img {
+      width: 100%;
+    }
+  }
+  .message {
+    color: #6d1f37;
+    font-size: 24px;
+    font-family: "Brandon_reg";
+    text-align: center;
+    font-weight: 700;
+    padding-bottom: 10px;
+  }
+  .form {
+    .main-fields {
+      padding: 0px 170px;
+      @media (max-width: 1199px) {
+        padding: 0px 80px;
       }
-    }
-    p {
-      img {
-        width: 100%;
+      @media (max-width: 767px) {
+        padding: 0px 30px;
       }
-    }
-    .message {
-      color: #6D1F37;
-      font-size: 24px;
-      font-family: 'Brandon_reg';
-      text-align: center;
-      font-weight: 700;
-      padding-bottom: 10px;
-    }
-    .form {
-      .main-fields {
-        padding: 0px 170px;
-        @media(max-width: 1199px) {
-          padding: 0px 80px;
+      .main-fields-1 {
+        display: flex;
+        @media (max-width: 767px) {
+          flex-direction: column;
         }
-        @media(max-width: 767px) {
-         padding: 0px 30px;
-        }
-        .main-fields-1 {
-          display: flex;
-        @media(max-width: 767px) {
-         flex-direction: column;
-        }
-          #fname {
-            margin-right: 8px;
-            @media(max-width: 767px) {
-              margin: 0;
-            }
+        #fname {
+          margin-right: 8px;
+          @media (max-width: 767px) {
+            margin: 0;
           }
+        }
         #lname {
-            margin-left: 8px;
-            @media(max-width: 767px) {
-               margin: 0;
-            }
+          margin-left: 8px;
+          @media (max-width: 767px) {
+            margin: 0;
           }
-        }
-        .main-fields-2 {
-          display: flex;
-          margin-top: 9px;
-          @media(max-width: 767px) {
-            flex-direction: column;
-            margin-top: 0;
-          }
-          #email {
-            margin-right: 8px;
-            @media(max-width: 767px) {
-              margin: 0;
-            }
-          }
-         #phone {
-            margin-left: 8px;
-            @media(max-width: 767px) {
-              margin: 0;
-            }
-          }
-        }
-        input {
-          border: 1px solid #828282;
-          border-left: none;
-          border-right: none;
-          border-top: none;
-          width: 100%;
-          outline: none;
-          user-select: none;
-          font-family: 'Brandon_reg';
-          font-weight: 700;
-          font-size: 24px;
-          @media screen and (max-width:767px) {
-            font-size: 18px;
-          }
-        }
-        input::placeholder {
-          font-weight: bold;
         }
       }
-      #message {
+      .main-fields-2 {
+        display: flex;
+        margin-top: 9px;
+        @media (max-width: 767px) {
+          flex-direction: column;
+          margin-top: 0;
+        }
+        #email {
+          margin-right: 8px;
+          @media (max-width: 767px) {
+            margin: 0;
+          }
+        }
+        #phone {
+          margin-left: 8px;
+          @media (max-width: 767px) {
+            margin: 0;
+          }
+        }
+      }
+      input {
         border: 1px solid #828282;
         border-left: none;
         border-right: none;
         border-top: none;
         width: 100%;
-        margin-top: 15px;
         outline: none;
         user-select: none;
-        resize: unset;
-        font-size: 24px;
-        font-family: 'Brandon_reg';
+        font-family: "Brandon_reg";
         font-weight: 700;
-        @media screen and (max-width:767px) {
-            font-size: 18px;
-          }
+        font-size: 24px;
+        @media screen and (max-width: 767px) {
+          font-size: 18px;
+        }
       }
-      #message::placeholder {
+      input::placeholder {
         font-weight: bold;
       }
     }
-    .buttonmessage {
-      display: flex;
-      justify-content: center;
+    #message {
+      border: 1px solid #828282;
+      border-left: none;
+      border-right: none;
+      border-top: none;
       width: 100%;
-      margin-top: 90px;
-       @media screen and (max-width:1024px) {
-        margin-top: 60px;
-      }
-      @media screen and (max-width:767px) {
-        margin-top: 40px;
-      }
-
-      button {
-        background: #6D1F37;
-        height: 61px;
-        width: 100%;
-        max-width: 251px;
-        border-radius: 50px;
-        border: none;
-        color: #fff;
-        font-family: 'Brandon_bld';
+      margin-top: 15px;
+      outline: none;
+      user-select: none;
+      resize: unset;
+      font-size: 24px;
+      font-family: "Brandon_reg";
+      font-weight: 700;
+      @media screen and (max-width: 767px) {
         font-size: 18px;
-        font-weight: 900;
-        display: flex;
-        justify-content: center;
-        align-items: center;
       }
     }
-    .return-text-form {
+    #message::placeholder {
+      font-weight: bold;
+    }
+  }
+  .buttonmessage {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 90px;
+    @media screen and (max-width: 1024px) {
+      margin-top: 60px;
+    }
+    @media screen and (max-width: 767px) {
+      margin-top: 40px;
+    }
+
+    button {
+      background: #6d1f37;
+      height: 61px;
+      width: 100%;
+      max-width: 251px;
+      border-radius: 50px;
+      border: none;
+      color: #fff;
+      font-family: "Brandon_bld";
+      font-size: 18px;
+      font-weight: 900;
       display: flex;
       justify-content: center;
-      width: 100%;
-      margin-top: 20px;
-      padding-bottom: 30px;
-      p {
-        font-family: 'BrandonMedium';
+      align-items: center;
+    }
+  }
+  .return-text-form {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    padding-bottom: 30px;
+    p {
+      font-family: "BrandonMedium";
+      font-size: 24px;
+      @media screen and (max-width: 767px) {
+        font-size: 18px;
+      }
+      a {
+        color: #6d1f37;
+        font-family: "BrandonMedium";
         font-size: 24px;
-        @media screen and (max-width:767px) {
-            font-size: 18px;
+        padding-left: 3px;
+        cursor: pointer;
+        font-weight: 700;
+        @media screen and (max-width: 767px) {
+          font-size: 18px;
         }
-        a {
-          color: #6D1F37;
-          font-family: 'BrandonMedium';
-          font-size: 24px;
-          padding-left: 3px;
-          cursor: pointer;
-          font-weight: 700;
-          @media screen and (max-width:767px) {
-            font-size: 18px;
-         }
-        }
-        a.underline:after, a:not(.no-underline):hover:after  {
-          content: none;
-        }
+      }
+      a.underline:after,
+      a:not(.no-underline):hover:after {
+        content: none;
       }
     }
   }
-  .main-terms {
-      padding-bottom: 178px;
-    .termh2 {
-      color: #6D1F37;
-      font-family: 'BrandonMedium';
-      font-weight: bold;
-      font-size: 40px;
-    }
-    ol li::marker {
-      color: #fff;
-    }
-    ol {
-      padding: 0;
-      margin-top: 0;
-      margin-bottom: 0;
-      span {
-        font-size: 22px;
-        font-family: 'BrandonMedium';
-        font-weight: 500 !important;
-        line-height: 28.6px;
-      }
-    }
-    p {
-      font-family: 'BrandonMedium';
+}
+.main-terms {
+  padding-bottom: 178px;
+  .termh2 {
+    color: #6d1f37;
+    font-family: "BrandonMedium";
+    font-weight: bold;
+    font-size: 40px;
+  }
+  ol li::marker {
+    color: #fff;
+  }
+  ol {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    span {
       font-size: 22px;
+      font-family: "BrandonMedium";
       font-weight: 500 !important;
-      margin: 0;
       line-height: 28.6px;
     }
-    .terms-top {
-      margin-top: 50px;
-      font-size: 20px;
-      margin-bottom: 0;
-    }
-    strong {
-      font-weight: 400;
-    }
-    span {
-      line-height: 25px;
-    }
-    .term-top2, .term-top3, .term-top4 {
-      margin: 0;
-      font-size: 22px;
-      font-family: 'BrandonMedium';
-      font-weight: 500 !important;
-    }
-
   }
+  p {
+    font-family: "BrandonMedium";
+    font-size: 22px;
+    font-weight: 500 !important;
+    margin: 0;
+    line-height: 28.6px;
+  }
+  .terms-top {
+    margin-top: 50px;
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+  strong {
+    font-weight: 400;
+  }
+  span {
+    line-height: 25px;
+  }
+  .term-top2,
+  .term-top3,
+  .term-top4 {
+    margin: 0;
+    font-size: 22px;
+    font-family: "BrandonMedium";
+    font-weight: 500 !important;
+  }
+}
+.main-policy {
+  padding: 0 0 116px 0;
+  .img-costa {
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  h2 {
+    color: #6e2138;
+    font-family: "Brandon_bld";
+    font-size: 35px;
+    margin-bottom: 58px;
+    text-transform: capitalize;
+  }
+  p {
+    font-family: "BrandonMedium";
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 28px;
+    margin: 0;
+  }
+  p.Headingtop {
+    margin: 44px 0 0 0;
+    font-family: "Brandon_bld";
+    /* font-weight: 900; */
+  }
+  p.paragraph2,
+  p.paragraph5 {
+    margin: 0 0 38px 0;
+  }
+  p.paragraph7 {
+    margin: 58px 0 38px 0;
+  }
+  p.opt,
+  p.paragraph10,
+  .paragraphcali,
+  .paragraphsome,
+  .cookies14,
+  .cookies126,
+  .cookies12once,
+  .cookies12promo,
+  .cookies12legal {
+    margin: 0 0 38px 0;
+  }
+}
 </style>
