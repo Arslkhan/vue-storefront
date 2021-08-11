@@ -9,8 +9,8 @@
         </div>
       </div>
     </header>
-    <div class="container pb60" v-if="!isContactUsPage" v-html="cmsPageContent.content" />
-    <div class="container-fluid pb60" v-if="isContactUsPage" v-html="cmsPageContent.content" />
+    <div class="container pb60" v-html="cmsPageContent.content" />
+<!--    <div class="container-fluid pb60" v-if="isContactUsPage" v-html="cmsPageContent.content" />-->
   </div>
 </template>
 

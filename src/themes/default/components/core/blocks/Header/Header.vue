@@ -42,13 +42,11 @@
             >
               Contact us
             </router-link>
-            <router-link
-              class="inline-flex weight-500 relative no-underline"
-              :to="localizedRoute('/our-range.html')"
-              exact
+            <a
+              class="inline-flex weight-500 relative no-underline" href="http://w10.world/"
             >
               <img src="/assets/W10 logo.png" alt="w10logo">
-            </router-link>
+            </a>
           </div>
           <div class="col-xs-2 visible-xs hidden">
             <wishlist-icon class="p15 icon pointer" />
@@ -237,7 +235,7 @@ $color-icon-hover: color(secondary, $colors-background);
     }
     .icons-group {
       align-self: baseline;
-      @media (max-width: 1199px) and (min-width: 768px) { 
+      @media (max-width: 1199px) and (min-width: 768px) {
         padding: 0;
       }
       @media (max-width: 767px) {
@@ -270,7 +268,7 @@ $color-icon-hover: color(secondary, $colors-background);
       @media (max-width: 767px) {
         display: none;
       }
-      @media (max-width: 1199px) and (min-width: 768px) { 
+      @media (max-width: 1199px) and (min-width: 768px) {
         padding: 0;
       }
       span {
@@ -280,7 +278,7 @@ $color-icon-hover: color(secondary, $colors-background);
           width: 26px;
           fill: #fff;
           cursor: pointer;
-          @media (max-width: 1199px) and (min-width: 768px) { 
+          @media (max-width: 1199px) and (min-width: 768px) {
             width: 22px;
           }
         }
