@@ -9,8 +9,10 @@
         </div>
       </div>
     </header>
-    <div class="container pb60" v-html="cmsPageContent.content" />
-<!--    <div class="container-fluid pb60" v-if="isContactUsPage" v-html="cmsPageContent.content" />-->
+
+    <div class="container-fluid pb60" v-if="cmsPageContent.title === PageName" v-html="cmsPageContent.content" />
+    <div class="container pb60" v-else v-html="cmsPageContent.content" />
+   
   </div>
 </template>
 
@@ -18,18 +20,14 @@
 import CmsPage from '@vue-storefront/core/pages/CmsPage'
 
 export default {
+  data () {
+    return {
+      PageName: 'Contact Us'
+    }
+  },
   computed: {
     cmsPageContent () {
       return this.$store.state.cmsPage.current
-    }
-  },
-  methods: {
-    isContactUsPage () {
-      if (this.cmsPageContent.title) {
-        let contactName = this.cmsPageContent.title;
-        return contactName.toLowerCase().includes('contact us')
-      }
-      return ''
     }
   },
   mixins: [CmsPage]
