@@ -14,7 +14,7 @@
           </div>
           getCategoryProductsTotal {{getCategoryProductsTotal}}
           <p class="col-xs-12 col-md-6 m0 pb0 cl-secondary items hidden-xs">
-            {{ $t('{getCategoryProductsTotal} items', { count: getCategoryProductsTotal }) }}
+            {{ getCategoryProductsTotal + ' items' }}
           </p>
           <div class="sorting col-sm-2 col-md-6 align-right">
             <label class="mr10">{{ $t('Sort By') }}:</label>
