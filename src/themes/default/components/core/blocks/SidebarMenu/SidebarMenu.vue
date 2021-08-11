@@ -167,13 +167,12 @@
           <li
             class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary"
           >
-            <router-link
+            <a
               class="block px25 py20 cl-accent no-underline"
-              :to="localizedRoute('/our-range.html')"
-              exact
+              href="https://w10.world/" target="_blank"
             >
-              <img src="/assets/W10logomobile.png" alt="">
-            </router-link>
+              <img src="/assets/W10logomobile.png" alt="w10world">
+            </a>
           </li>
         </ul>
       </div>
