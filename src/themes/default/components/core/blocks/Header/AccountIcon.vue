@@ -12,7 +12,7 @@
   >
     <button
       type="button"
-      class="bg-cl-transparent brdr-none p0"
+      class="bg-cl-transparent brdr-none p0 button-acc"
     >
       <!-- <i class="material-icons block">account_circle</i> -->
       <img src="/assets/fonts/user.svg" alt="account">
@@ -122,5 +122,16 @@ $color-icon-hover: color(secondary, $colors-background);
     // }
   }
 
+}
+@media (max-width: 1199px) and (min-width: 768px) {
+  .button-acc {
+    padding: 0;
+  }
+  button {
+    padding: 18px 7px;
+    img {
+      width: 24px;
+    }
+  }
 }
 </style>

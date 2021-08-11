@@ -15,12 +15,12 @@
           <div class="col-xs-2 visible-xs hidden">
             <search-icon class="p15 icon pointer" />
           </div>
-          <div class="col-md-5 col-xs-7 center-xs pt5 logo-group">
+          <div class="col-md-3 col-xs-7 center-xs pt5 logo-group">
             <div>
               <logo width="auto" height="66px" class="logo-main" />
             </div>
           </div>
-          <div class="col-md-4 hidden-xs center-xs headerlink">
+          <div class="col-md-7 hidden-xs center-xs headerlink">
             <router-link
               class="inline-flex weight-500 relative no-underline"
               :to="localizedRoute('/our-range.html')"
@@ -28,13 +28,13 @@
             >
               Our Range
             </router-link>
-            <!-- <router-link
+            <router-link
               class="inline-flex weight-500 relative no-underline"
-              :to="localizedRoute('/about-us')"
+              :to="localizedRoute('/i/faq')"
               exact
             >
-              About us
-            </router-link> -->
+              FAQ
+            </router-link>
             <router-link
               class="inline-flex weight-500 relative no-underline"
               :to="localizedRoute('/i/contact-us')"
@@ -42,11 +42,16 @@
             >
               Contact us
             </router-link>
+            <a
+              class="inline-flex weight-500 relative no-underline" href="http://w10.world/"
+            >
+              <img src="/assets/W10 logo.png" alt="w10logo">
+            </a>
           </div>
           <div class="col-xs-2 visible-xs hidden">
             <wishlist-icon class="p15 icon pointer" />
           </div>
-          <div class="col-md-3 col-xs-4 end-xs icons-group">
+          <div class="col-md-2 col-xs-4 end-xs icons-group">
             <div class="inline-flex">
               <search-icon class="p15 icon pointer hidden" />
               <wishlist-icon class="p15 icon hidden-xs pointer wishicon" />
@@ -214,6 +219,7 @@ $color-icon-hover: color(secondary, $colors-background);
     .headerlink {
       display: flex;
       justify-content: space-evenly;
+      align-items: center;
       @media (max-width: 767px) {
         display: none;
       }
@@ -229,6 +235,9 @@ $color-icon-hover: color(secondary, $colors-background);
     }
     .icons-group {
       align-self: baseline;
+      @media (max-width: 1199px) and (min-width: 768px) {
+        padding: 0;
+      }
       @media (max-width: 767px) {
         align-self: center;
         flex-basis: 28%;
@@ -259,13 +268,19 @@ $color-icon-hover: color(secondary, $colors-background);
       @media (max-width: 767px) {
         display: none;
       }
+      @media (max-width: 1199px) and (min-width: 768px) {
+        padding: 0;
+      }
       span {
         padding: 0 9px;
         cursor: pointer;
         img {
           width: 26px;
           fill: #fff;
-           cursor: pointer;
+          cursor: pointer;
+          @media (max-width: 1199px) and (min-width: 768px) {
+            width: 22px;
+          }
         }
       }
     }
@@ -324,6 +339,9 @@ header {
     .main-logo {
     img  {
       max-width: 270px;
+      @media(max-width: 1275px) {
+        max-width: 232px;
+      }
     }
   }
 }

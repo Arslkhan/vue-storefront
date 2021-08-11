@@ -1,9 +1,9 @@
 <template>
   <div class="default-layout">
     <overlay v-if="overlayActive" />
-     <div v-if="route=='/'" class="overlayHome">
-        <homeOverlay />
-    </div>
+<!--    <div v-if="currPath && currPath === '/'" class="overlayHome">-->
+<!--      <homeOverlay/>-->
+<!--    </div>-->
     <loader />
     <div id="viewport" class="w-100 relative">
       <main-header />
@@ -80,7 +80,10 @@ export default {
       isSidebarOpen: state => state.ui.sidebar,
       isMicrocartOpen: state => state.ui.microcart,
       isWishlistOpen: state => state.ui.wishlist
-    })
+    }),
+    currPath () {
+      return this.$router.currentRoute.path
+    }
   },
   methods: {
     onOrderConfirmation (payload) {
