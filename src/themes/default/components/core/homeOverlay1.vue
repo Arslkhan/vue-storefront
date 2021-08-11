@@ -74,15 +74,24 @@ export default {
         align-items: center;
         justify-content: center;
         height: 100vh;
+         @media screen and (max-width:767px){
+           height: 50.2vh;
+        }
 
     }
     .overlay-Right{
         background: #6D1F37;
         width: 50%;
+        @media screen and (max-width:767px){
+           width: 100%;
+        }
     }
     .overlay-Left{
         background: #000000;
         width: 50%;
+        @media screen and (max-width:767px){
+           width: 100%;
+        }
     }
     .w10Logo{
         width: 280px;
