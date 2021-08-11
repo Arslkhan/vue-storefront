@@ -1,9 +1,9 @@
 <template>
   <div class="default-layout">
     <overlay v-if="overlayActive" />
-    <div v-if="currPath && currPath === '/'" class="overlayHome">
-      <homeOverlay/>
-    </div>
+<!--    <div v-if="currPath && currPath === '/'" class="overlayHome">-->
+<!--      <homeOverlay/>-->
+<!--    </div>-->
     <loader />
     <div id="viewport" class="w-100 relative">
       <main-header />
