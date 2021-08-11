@@ -83,6 +83,7 @@ export default {
     font-family: 'Brandon_bld';
     font-size: 32px;
     margin-bottom: 0;
+    text-transform: capitalize;
   }
   .group-p p {
     margin: 0;
@@ -138,7 +139,7 @@ export default {
       padding-top: 8px;
       // font-size: 47px;
       font-size: clamp(36px, 6.2vw, 72px);
-      font-family: 'BrandonMedium';
+      font-family: 'Brandon_bld';
       position: absolute;
       left: 43%;
       @media (max-width: 500px) {
@@ -153,7 +154,7 @@ export default {
     .message {
       color: #6D1F37;
       font-size: 24px;
-      font-family: 'BrandonMedium';
+      font-family: 'Brandon_reg';
       text-align: center;
       font-weight: 700;
       padding-bottom: 10px;
@@ -265,8 +266,9 @@ export default {
         border-radius: 50px;
         border: none;
         color: #fff;
-        font-family: 'BrandonMedium';
-        font-size: 17px;
+        font-family: 'Brandon_bld';
+        font-size: 18px;
+        font-weight: 900;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -290,6 +292,7 @@ export default {
           font-size: 24px;
           padding-left: 3px;
           cursor: pointer;
+          font-weight: 700;
           @media screen and (max-width:767px) {
             font-size: 18px;
          }
@@ -301,28 +304,50 @@ export default {
     }
   }
   .main-terms {
-      padding-bottom: 27px;
+      padding-bottom: 178px;
     .termh2 {
       color: #6D1F37;
       font-family: 'BrandonMedium';
+      font-weight: bold;
+      font-size: 40px;
     }
     ol li::marker {
       color: #fff;
     }
     ol {
       padding: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      span {
+        font-size: 22px;
+        font-family: 'BrandonMedium';
+        font-weight: 500 !important;
+        line-height: 28.6px;
+      }
     }
     p {
       font-family: 'BrandonMedium';
+      font-size: 22px;
+      font-weight: 500 !important;
+      margin: 0;
+      line-height: 28.6px;
     }
     .terms-top {
       margin-top: 50px;
+      font-size: 20px;
+      margin-bottom: 0;
     }
     strong {
       font-weight: 400;
     }
     span {
       line-height: 25px;
+    }
+    .term-top2, .term-top3, .term-top4 {
+      margin: 0;
+      font-size: 22px;
+      font-family: 'BrandonMedium';
+      font-weight: 500 !important;
     }
 
   }
