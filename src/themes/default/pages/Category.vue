@@ -12,6 +12,7 @@
             <label class="mr10">{{ $t('Columns') }}:</label>
             <columns @change-column="columnChange" />
           </div>
+          getCategoryProductsTotal {{getCategoryProductsTotal}}
           <p class="col-xs-12 col-md-6 m0 pb0 cl-secondary items hidden-xs">
             {{ $t('{count} items', { count: getCategoryProductsTotal }) }}
           </p>
