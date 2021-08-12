@@ -38,6 +38,37 @@ export default {
 </script>
 <style lang="scss">
 #cms-page {
+  .Faq-Page{
+    .faq-mainHeading{
+      font-family: 'BrandonMedium';
+      font-style: normal;
+      font-weight: 700;
+      font-size: 40px;
+      color: #6D1F37;
+      @media(max-width:767px){
+        font-size: 32px;
+      }
+    }
+    .faq-subHeadings{
+      font-family: 'BrandonMedium';
+      font-style: normal;
+      font-weight: 500;
+      font-size: 24px;
+      color: #000000;
+    }
+    p, ol, ul{
+      font-family: 'BrandonMedium';
+      font-style: normal;
+      font-size: 20px;
+      color: #000000;
+    }
+    .Faq-Table{
+      width: 100%;
+      .table-h span {
+        font-weight: 700 !important;
+      }
+    }
+  }
   .container-fluid {
     padding: 0;
     margin-top: -15px;
