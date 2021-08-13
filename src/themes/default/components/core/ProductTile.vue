@@ -239,7 +239,7 @@ $color-white: color(white);
     @media screen and (min-width: 768px) {
       padding-bottom: calc(300% / (276.5 / 92));
     }
-    opacity: 0.8;
+    opacity: 1;
     will-change: opacity, transform;
     transition: 0.3s opacity $motion-main, 0.3s transform $motion-main;
   }
