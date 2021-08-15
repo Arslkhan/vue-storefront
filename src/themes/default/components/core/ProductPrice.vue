@@ -78,7 +78,7 @@ export default {
     },
     initialPrice () {
       return {
-        default: this.product.price_incl_tax || this.product.priceInclTax || 0,
+        default: this.product.price || this.product.price || 0,
         original: this.product.original_price_incl_tax || this.product.originalPriceInclTax || 0,
         special: this.product.special_price || this.product.specialPrice || 0
       }
@@ -99,7 +99,7 @@ $color-primary: color(primary);
 
 #product .price .cl-mine-shaft {
   font-family: 'Raleway-Regular';
-  font-weight:300 !important; 
+  font-weight:300 !important;
   color: #404042 !important;
    @media (max-width: 767px) {
     font-size: 50px !important;
