@@ -28,7 +28,7 @@
       <div class="container-mobile">
         <div class="row m0">
           <p class="col-xs-4 col-md-6 m0 pb0 cl-secondary items items-mobile hidden-md">
-            {{ $t('{count} items', { count: getCategoryProductsTotal }) }}
+            {{ getCategoryProductsTotal + ' items' }}
           </p>
           <button
             class="col-xs-2 mt25 mr15 p15 mobile-filters-button bg-cl-th-accent brdr-none cl-white h5 sans-serif fs-medium-small"
