@@ -128,6 +128,7 @@ export default {
   $color-black: color(black);
   $color-puerto-rico: color(puerto-rico);
   $color-hover: color(tertiary, $colors-background);
+  $color-light-grey: color(light-grey);
 
   .base-input {
     min-height: 4.5rem;
@@ -139,7 +140,7 @@ export default {
     &:hover,
     &:focus {
       outline: none;
-      border-color: $color-puerto-rico;
+      border-color: $color-light-grey;
     }
 
     &:disabled,
@@ -163,7 +164,7 @@ export default {
   input:focus ~ label, input:not(.empty) ~ label{
     top: -10px;
     font-size:14px;
-    color:$color-puerto-rico;
+    color:$color-light-grey;
   }
 
   .icon {
