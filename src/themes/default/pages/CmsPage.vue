@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     successMessage () {
-      return '<div data-v-53963ae7="" class="col-xs-12 confirmation"><h3 data-v-53963ae7="" class="py15 px10 my40 weight-600 flex cl-white light-grey brdr-rad"><i data-v-53963ae7="" class="material-icons">check_circle_outline</i> Your message has successfully been sent.</h3></div>'
+      return '<div data-v-53963ae7="" class="col-xs-12 confirmation"><h3 data-v-53963ae7="" class="py15 px10 my40 weight-600 flex cl-white lightGreybar brdr-rad"><i data-v-53963ae7="" class="material-icons">check_circle_outline</i> Your message has successfully been sent.</h3></div>'
     },
     sendEmail (letter, success, failure) {
       this.$store.dispatch('mailer/sendEmail', letter)
@@ -212,7 +212,9 @@ export default {
       }
     }
   }
-
+  .lightGreybar {
+    color: #c0c0c0;
+  }
   .container-fluid {
     padding: 0;
     margin-top: -15px;
