@@ -55,7 +55,7 @@
       <h3 class="m0 pt40 mb30 weight-400 summary-heading">
         {{ $t('Shopping summary') }}
       </h3>
-      <div v-for="(segment, index) in totals" :key="index" class="row py20" v-if="segment.code !== 'grand_total' && segment.code !== 'shipping'">
+      <div v-for="(segment, index) in totals" :key="index" class="row py20" v-if="segment.code !== 'grand_total' && segment.code !== 'shipping' && segment.code !== 'tax'">
         <div class="col-xs">
           {{ segment.title }}
           <button v-if="appliedCoupon && segment.code === 'discount'" type="button"
