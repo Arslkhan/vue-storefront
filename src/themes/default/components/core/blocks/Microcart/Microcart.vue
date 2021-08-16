@@ -65,7 +65,7 @@
             </i>
           </button>
         </div>
-        <div v-if="segment.value != null" class="col-xs align-right">
+        <div v-if="segment.value != null && segment.code !== 'shipping'" class="col-xs align-right">
           {{ segment.value | price(storeView) }}
         </div>
       </div>
@@ -90,14 +90,14 @@
         </div>
       </div>
 
-      <div class="row pt30 pb20 weight-700 middle-xs" v-for="(segment, index) in totals" :key="index" v-if="segment.code === 'grand_total'">
+<!--      <div class="row pt30 pb20 weight-700 middle-xs" v-for="(segment, index) in totals" :key="index" v-if="segment.code === 'grand_total' && segment.code !== 'shipping'">
         <div class="col-xs h4 total-price-label">
           {{ segment.title }}
         </div>
         <div class="col-xs align-right h2 total-price-value">
           {{ segment.value | price(storeView) }}
         </div>
-      </div>
+      </div>-->
     </div>
 
     <div
