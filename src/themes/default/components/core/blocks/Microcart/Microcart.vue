@@ -56,7 +56,7 @@
         {{ $t('Shopping summary') }}
       </h3>
       <div v-for="(segment, index) in totals" :key="index" class="row py20" v-if="segment.code !== 'grand_total'">
-        <template v-if="segment.title !== 'shipping'">
+        <template v-if="segment.code !== 'shipping'">
           <div class="col-xs" >
             {{ segment.title }}
             <button v-if="appliedCoupon && segment.code === 'discount'" type="button" class="p0 brdr-none bg-cl-transparent close delete-button ml10" @click="clearCoupon">
