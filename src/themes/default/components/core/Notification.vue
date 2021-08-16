@@ -111,7 +111,7 @@ $color-action: color(black);
   }
 }
 .success {
-  background: $color-success;
+  background: #d3d3d3;
 }
 .error {
   background: $color-error;
