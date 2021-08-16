@@ -65,9 +65,9 @@
             </i>
           </button>
         </div>
-<!--        <div v-if="segment.value != null && segment.code !== 'shipping'" class="col-xs align-right">-->
-<!--          {{ segment.value | price(storeView) }}-->
-<!--        </div>-->
+        <div v-if="segment.value != null && segment.code !== 'shipping' && segment.value !== 0.00" class="col-xs align-right">
+          {{ segment.value | price(storeView) }}
+        </div>
       </div>
       <div class="row py20">
         <div v-if="OnlineOnly && !addCouponPressed" class="col-xs-12">
