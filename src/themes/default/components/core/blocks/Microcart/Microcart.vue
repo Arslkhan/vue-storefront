@@ -55,20 +55,19 @@
       <h3 class="m0 pt40 mb30 weight-400 summary-heading">
         {{ $t('Shopping summary') }}
       </h3>
-      <div v-for="(segment, index) in totals" :key="index" class="row py20" v-if="segment.code !== 'grand_total'">
-        <template v-if="segment.code !== 'shipping'">
-          <div class="col-xs" >
-            {{ segment.title }}
-            <button v-if="appliedCoupon && segment.code === 'discount'" type="button" class="p0 brdr-none bg-cl-transparent close delete-button ml10" @click="clearCoupon">
-              <i class="material-icons cl-accent">
-                close
-              </i>
-            </button>
-          </div>
-          <div v-if="segment.value != null" class="col-xs align-right">
-            {{ segment.value | price(storeView) }}
-          </div>
-        </template>
+      <div v-for="(segment, index) in totals" :key="index" class="row py20" v-if="segment.code !== 'grand_total' && segment.code !== 'shipping'">
+        <div class="col-xs">
+          {{ segment.title }}
+          <button v-if="appliedCoupon && segment.code === 'discount'" type="button"
+                  class="p0 brdr-none bg-cl-transparent close delete-button ml10" @click="clearCoupon">
+            <i class="material-icons cl-accent">
+              close
+            </i>
+          </button>
+        </div>
+        <div v-if="segment.value != null" class="col-xs align-right">
+          {{ segment.value | price(storeView) }}
+        </div>
       </div>
       <div class="row py20">
         <div v-if="OnlineOnly && !addCouponPressed" class="col-xs-12">
