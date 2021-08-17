@@ -57,7 +57,7 @@
       <span
         class="lh30 cl-secondary shown-price"
         v-if="!product.special_price && parseFloat(product.price_incl_tax) > 0 && !onlyImage"
-      >{{ product.price_incl_tax | price(storeView) }}</span>
+      >{{ product.price | price(storeView) }}</span>
     </router-link>
   </div>
 </template>

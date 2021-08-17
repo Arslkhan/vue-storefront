@@ -45,7 +45,7 @@
             <div class="h6 pt5 cl-error" v-if="hasProductErrors">
               {{ product.errors | formatProductMessages }}
             </div>
-            <div class="h6 pt5 cl-success" v-if="hasProductInfo && !hasProductErrors">
+            <div class="h6 pt5 theme-color" v-if="hasProductInfo && !hasProductErrors">
               {{ product.info | formatProductMessages }}
             </div>
           </div>
@@ -321,7 +321,9 @@ export default {
   .blend {
     flex: 0 0 150px;
   }
-
+  .theme-color {
+    color: #c0c0c0;
+  }
   .image {
     mix-blend-mode: multiply;
     vertical-align: top;

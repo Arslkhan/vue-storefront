@@ -103,7 +103,7 @@ $color-action: color(black);
   justify-content: space-between;
 
   .notification-action {
-    background: rgba($color-action, .2);
+    background: #c0c0c0;
   }
 
   #notificationAction2 {
@@ -111,13 +111,13 @@ $color-action: color(black);
   }
 }
 .success {
-  background: $color-success;
+  background: #c0c0c0;
 }
 .error {
   background: $color-error;
 }
 .warning {
-  background: $color-warning;
+  background: #c0c0c0;
 }
 .info {
   background: $color-info;
@@ -125,13 +125,13 @@ $color-action: color(black);
 .action-border {
   border-right: 2px solid transparent;
   &.border-success {
-    border-right-color: $color-success;
+    border-right-color: #c0c0c0;
   }
   &.border-error {
     border-color: $color-error;
   }
   &.border-warning {
-    border-color: $color-warning;
+    border-color: #c0c0c0;
   }
   &.border-info {
     border-color: $color-info;
