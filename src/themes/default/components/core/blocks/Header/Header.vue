@@ -218,6 +218,13 @@ $color-icon-hover: color(secondary, $colors-background);
       display: flex;
       justify-content: space-evenly;
       align-items: center;
+      flex-basis: 53%;
+      max-width: 53%;
+      padding-right: 0;
+      @media(max-width: 910px) {
+        flex-basis: 48%;
+        max-width: 48%;
+      }
       @media (max-width: 767px) {
         display: none;
       }
@@ -233,8 +240,16 @@ $color-icon-hover: color(secondary, $colors-background);
     }
     .icons-group {
       align-self: baseline;
+      padding-left: 0;
+      padding-left: 0;
+      flex-basis: 21%;
+      max-width: 21%;
       @media (max-width: 1199px) and (min-width: 768px) {
         padding: 0;
+      }
+      @media(max-width: 910px) {
+        flex-basis: 25%;
+        max-width: 25%;
       }
       @media (max-width: 767px) {
         align-self: center;
