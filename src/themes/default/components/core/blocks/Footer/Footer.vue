@@ -51,6 +51,15 @@
               <a href="https://www.instagram.com/costacoffee/?hl=en" target="_blank"> <span><img src="/assets/fonts/insta.svg" alt="instagram"></span></a>
             </div>
           </div>
+          <div class="accepted-cards col-md-12">
+            <span><img src="/assets/fonts/amex.svg" alt="amex"></span>
+            <span><img src="/assets/fonts/discover.svg" alt="discover"></span>
+            <span><img src="/assets/fonts/diners.svg" alt="diners"></span>
+            <span><img src="/assets/fonts/jcb.svg" alt="jcb"></span>
+            <span><img src="/assets/fonts/mastercard.svg" alt="mastercard"></span>
+            <span><img src="/assets/fonts/visa.svg" alt="visa"></span>
+            <span><img src="/assets/fonts/pp-acceptance-medium.webp" alt="acceptanc-medium"></span>
+          </div>
         </div>
       </div>
     </div>
@@ -219,7 +228,20 @@ $color-secondary: color(secondary);
     }
   }
 }
-
+.accepted-cards {
+  display: flex;
+  justify-content: center;
+  padding-top: 12px;
+  span {
+    img {
+      width: 50px;
+      margin-left: 3px;
+      @media (max-width:420px) {
+        width: 35px;
+      }
+    }
+  }
+}
 // .social-icon {
 //   width: 40px;
 //   height: 40px;
