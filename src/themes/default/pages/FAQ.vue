@@ -86,47 +86,54 @@
       </div>
 
       <button class="accordion">
-        <span>4. How do I remove I silicone /rubber smell</span>
+        <span>4.  Will there be a chemical reaction when storing acidic tea/coffee in the stainless steel products?</span>
       </button>
       <div class="panel">
-        <p>We would recommend the following cleaning method to aid in removing the rubber smell, or watch it in action here.</p>
-        <p>Materials:</p>
-        <p>• Water</p>
-        <p>• Vinegar</p>
-        <p>Instructions:</p>
-        <p>1. Detach the silicone parts, mouthpiece and stopper from the product’s body.</p>
-        <p>2. Fill a bowl with vinegar and water with a ratio of 1:10.</p>
-        <p>3. Soak them into the bowl for 1 to 3 hours.</p>
-        <p>4. Rinse thoroughly and wipe dry with a clean towel.</p>
+        <p>As the acidic contents in tea and coffee is low, the food-grade Stainless Steel is safe to store them for hours. However, we would recommend to first rinse the </p>
+        <p>tumbler/mug with water (best with hot water) to remove residues that may pick up the washing liquid during cleaning.</p>
       </div>
       <button class="accordion">
-        <span>5. Will there be a chemical reaction when storing acidic tea/coffee in the stainless steel products?</span>
+        <span>5. What drinks should I not use in my cup?</span>
       </button>
       <div class="panel">
-        <p>W10 products are made of 304 food-grade Stainless Steel (commonly known as 18/10 or 18/8 stainless steel), and the material we</p>
-        <p>used, contains 18%-20% Chromium and 8%-10% Nickel. 304 food-grade Stainless Steel is widely used in household and cookware</p>
-        <p>products, because of its durability and corrosion-resistance features.</p>
-        <p>As the acidic contents in tea and coffee is low, the food-grade Stainless Steel is safe to store them for hours. However, we would</p>
-        <p>recommend to first rinse the tumbler/mug with water (best with hot water) to remove residues that may pick up the washing</p>
-        <p>liquid during cleaning.</p>
+        <p>See individual cup/bottle instructions but stainless steel products are not suitable for use with carbonated drinks, dry ice, water soluble vitamins, dairy </p>
+        <p>products, fruit juice, and drinks /soups with a high salt content.</p>
       </div>
       <button class="accordion">
         <span>6. Is my Cup dishwasher safe ?</span>
       </button>
       <div class="panel">
-        <p />
+        <p>
+          Follow the care instructions, supplied with your product and shown online.
+          Putting your cup in the dishwasher may reduce the life of the cup,
+        </p>
+        <p>it is always better to hand wash your cup. </p>
+        <p>The body of the cup, if it states dishwasher safe on the instructions, maybe placed on the top rack only.</p>
+        <p>Do not put your lid through the dishwasher, as this could degrade the materials, and could cause the seal to break </p>
       </div>
       <button class="accordion">
         <span>7. Is my cup recyclable?</span>
       </button>
       <div class="panel">
-        <p />
+        <p>Recycling Facilities differ. Before discarding your old reusable cup, we'd strongly recommend contacting your local council/government to confirm</p>
+        <p>recyclability. All our products are made from BPA free & FDA/EU approved materials.</p>
       </div>
       <button class="accordion">
         <span>8. All cups differ slightly but what are the basic things to be aware of when using a travel mug?</span>
       </button>
       <div class="panel">
-        <p />
+        <p>• If possible do not fill with liquids over 90°C (194°F). Extremely hot liquids can cause pressure build up, which can lead to ejection of liquid and scalding.</p>
+        <p>• Always let your drink cool to a drinkable temperature before putting on your lid, to avoid pressure build-up. Always open the lid on the cup/bottle in an upright position away from the face. Hot liquid can cause serious injury.</p>
+        <p>• Do not shake your cup / bottle, and keep upright at all times.</p>
+        <p>• Do not over-fill. </p>
+        <p>• Ensure your lid is fully tightened  (pushed-on) before use.</p>
+        <p>• It is difficult to judge the temperature of your beverage through the insulated walls so please be careful.</p>
+        <p>• KEEP OUT OF REACH OF CHILDREN.</p>
+        <p>• Do not Microwave.</p>
+        <p>• Do not Freeze.</p>
+        <p>• Do not soak. </p>
+        <p>• Hand clean before first use and wash after each use.</p>
+        <p>• Do not use any cleaning brushes made of metal or hard plastic, and never rinse using scouring agents, solutions or bleaches</p>
       </div>
       <div class="endpara">
         <span>Should you have any product questions, please email</span><a>contactus@W10.co</a>
