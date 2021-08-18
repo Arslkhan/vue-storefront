@@ -30,7 +30,7 @@
             </router-link>
             <router-link
               class="inline-flex weight-500 relative no-underline"
-              :to="localizedRoute('/i/faq')"
+              :to="localizedRoute('/faq')"
               exact
             >
               FAQ
