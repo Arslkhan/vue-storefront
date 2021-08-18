@@ -6,6 +6,7 @@ const Category = () => import(/* webpackChunkName: "vsf-category" */ 'theme/page
 const CategoryHome = () => import(/* webpackChunkName: "vsf-category" */ 'theme/pages/Main.vue')
 const CmsPage = () => import(/* webpackChunkName: "vsf-cms" */ 'theme/pages/CmsPage.vue')
 const Checkout = () => import(/* webpackChunkName: "vsf-checkout" */ 'theme/pages/Checkout.vue')
+const FAQ = () => import(/* webpackChunkName: "vsf-checkout" */ 'theme/pages/FAQ.vue')
 const Compare = () => import(/* webpackChunkName: "vsf-compare" */ 'theme/pages/Compare.vue')
 const MyAccount = () => import(/* webpackChunkName: "vsf-my-account" */ 'theme/pages/MyAccount.vue')
 const Static = () => import(/* webpackChunkName: "vsf-static" */ 'theme/pages/Static.vue')
@@ -15,6 +16,7 @@ let routes = [
   // { name: 'home', path: '/', component: Home, alias: '/pwa.html' },
   { name: 'cat-home', path: '/', component: CategoryHome },
   { name: 'checkout', path: '/checkout', component: Checkout },
+  { name: 'faq', path: '/faq', component: FAQ },
   { name: 'legal', path: '/legal', component: Static, props: { page: 'lorem', title: 'Legal Notice' }, meta: { title: 'Legal Notice', description: 'Legal Notice - example of description usage' } },
   { name: 'privacy', path: '/privacy', component: Static, props: { page: 'lorem', title: 'Privacy' } },
   { name: 'magazine', path: '/magazine', component: Static, props: { page: 'lorem', title: 'Magazine' } },

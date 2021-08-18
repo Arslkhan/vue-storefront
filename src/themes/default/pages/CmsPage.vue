@@ -348,6 +348,20 @@ export default {
       left: 35%;
     }
   }
+  .button-under-text {
+    color: #6d1f37;
+    font-size: 28px;
+    font-family: Brandon_reg;
+    text-align: center;
+    font-weight: 700;
+    a {
+      color: #6d1f37;
+      font-size: 28px;
+      font-family: Brandon_reg;
+      text-align: center;
+      font-weight: 700;
+    }
+  }
 
   p {
     img {
