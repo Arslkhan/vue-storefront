@@ -53,7 +53,7 @@
             <div class="inline-flex">
               <search-icon class="p15 icon pointer hidden" />
               <wishlist-icon class="p15 icon hidden-xs pointer wishicon" />
-              <compare-icon class="p15 icon hidden-xs pointer" />
+<!--              <compare-icon class="p15 icon hidden-xs pointer" />-->
               <microcart-icon class="p15 icon pointer carticon" />
               <account-icon class="p15 icon hidden-xs pointer" />
             </div>
