@@ -68,16 +68,25 @@
               125 MORTLAKE HIGH STREET,
               LONDON, SW14 8SN</span>
           </div>
+          <div class="accepted-cards col-md-12">
+            <span><img src="/assets/fonts/amex.svg" alt="amex"></span>
+            <span><img src="/assets/fonts/discover.svg" alt="discover"></span>
+            <span><img src="/assets/fonts/diners.svg" alt="diners"></span>
+            <span><img src="/assets/fonts/jcb.svg" alt="jcb"></span>
+            <span><img src="/assets/fonts/mastercard.svg" alt="mastercard"></span>
+            <span><img src="/assets/fonts/visa.svg" alt="visa"></span>
+            <span><img src="/assets/fonts/pp-acceptance-medium.webp" alt="acceptanc-medium"></span>
+          </div>
         </div>
       </div>
+      <back-to-top bottom="20px" right="20px" visibleoffset="200">
+        <button type="button" class="btn-top button no-outline brdr-none cl-white bg-cl-mine-shaft :bg-cl-th-secondary py10 px10">
+          <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
+            <path d="M23.245 20l-11.245-14.374-11.219 14.374-.781-.619 12-15.381 12 15.391-.755.609z" fill="white" />
+          </svg>
+        </button>
+      </back-to-top>
     </div>
-    <back-to-top bottom="20px" right="20px" visibleoffset="200">
-      <button type="button" class="btn-top button no-outline brdr-none cl-white bg-cl-mine-shaft :bg-cl-th-secondary py10 px10">
-        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd">
-          <path d="M23.245 20l-11.245-14.374-11.219 14.374-.781-.619 12-15.381 12 15.391-.755.609z" fill="white" />
-        </svg>
-      </button>
-    </back-to-top>
   </footer>
 </template>
 
@@ -300,6 +309,20 @@ $color-secondary: color(secondary);
   }
 }
 
+.accepted-cards {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+  span {
+    img {
+      width: 50px;
+      margin-left: 3px;
+      @media (max-width:420px) {
+        width: 35px;  
+      }
+    }
+  }
+}
 // .social-icon {
 //   width: 40px;
 //   height: 40px;

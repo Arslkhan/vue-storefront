@@ -15,7 +15,10 @@
       class="bg-cl-transparent brdr-none p0 button-acc"
     >
       <!-- <i class="material-icons block">account_circle</i> -->
-      <img src="/assets/fonts/user.svg" alt="account">
+      <div class="innerbutton">
+        <span>Sign in</span>
+        <img src="/assets/fonts/user.svg" alt="account">
+      </div>
     </button>
 
     <no-ssr>
@@ -52,11 +55,11 @@ export default {
       navigation: [
         { title: this.$t('My profile'), link: '/my-account' },
         { title: this.$t('My shipping details'), link: '/my-account/shipping-details' },
-        { title: this.$t('My newsletter'), link: '/my-account/newsletter' },
+        // { title: this.$t('My newsletter'), link: '/my-account/newsletter' },
         { title: this.$t('My orders'), link: '/my-account/orders' },
-        { title: this.$t('My loyalty card'), link: '#' },
-        { title: this.$t('My product reviews'), link: '#' },
-        { title: this.$t('My Recently viewed products'), link: '/my-account/recently-viewed' }
+        // { title: this.$t('My loyalty card'), link: '#' },
+        // { title: this.$t('My product reviews'), link: '#' },
+        // { title: this.$t('My Recently viewed products'), link: '/my-account/recently-viewed' }
       ]
     }
   },
@@ -123,15 +126,29 @@ $color-icon-hover: color(secondary, $colors-background);
   }
 
 }
+.innerbutton {
+  display: flex;
+  align-items: center;
+  span {
+    color: #fff;
+    font-family: 'Brandon_bld';
+    font-size: 18px;
+    margin-right: 12px;
+    @media (max-width: 1243px) {
+      margin-right: 6px;
+      font-size: 16px;
+    }
+  }
+}
 @media (max-width: 1199px) and (min-width: 768px) {
   .button-acc {
     padding: 0;
   }
   button {
     padding: 18px 7px;
-    img {
-      width: 24px;
+      img {
+        width: 24px;
+      }
     }
   }
-}
 </style>
