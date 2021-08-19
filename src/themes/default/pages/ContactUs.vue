@@ -32,9 +32,11 @@
       <!-- <fieldset>
         <input placeholder="Your Web Site (optional)" type="url" tabindex="4" required>
       </fieldset> -->
-      <fieldset>
-        <textarea placeholder="Message" tabindex="5" required />
-      </fieldset>
+      <div class="message-field">
+        <fieldset>
+          <textarea placeholder="Message" tabindex="5" required />
+        </fieldset>
+      </div>
       <fieldset class="button">
         <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">
           Send Message
@@ -55,7 +57,7 @@ fieldset {
   border: none;
   width: 100%;
 }
-.name-fields,.email-phone {
+.name-fields,.email-phone,.message-field {
   display: flex;
   @media (max-width: 600px) {
     flex-flow: column;
@@ -101,7 +103,7 @@ textarea {
   border-left: none;
   border-right: none;
   border-top: none;
-  width: 97.6%;
+  width: 100%;
   margin-top: 15px;
   outline: 0;
   resize: unset;
