@@ -442,7 +442,8 @@ export default {
         border-top: none;
         width: 100%;
         outline: none;
-        user-select: none;
+        user-select: unset;
+        -webkit-user-select: unset;
         font-family: "Brandon_reg";
         font-weight: 700;
         font-size: 24px;
