@@ -225,47 +225,10 @@ a.underline:after, a:not(.no-underline):hover:after {
           }
         }
       }
-
-      input {
-        border: 1px solid #828282;
-        border-left: none;
-        border-right: none;
-        border-top: none;
-        width: 100%;
-        outline: none;
-        user-select: unset;
-        -webkit-user-select: unset;
-        font-family: "Brandon_reg";
-        font-weight: 700;
-        font-size: 24px;
-        @media screen and (max-width: 767px) {
-          font-size: 18px;
-        }
-      }
-
       input::placeholder {
         font-weight: bold;
       }
     }
-
-    #message {
-      border: 1px solid #828282;
-      border-left: none;
-      border-right: none;
-      border-top: none;
-      width: 100%;
-      margin-top: 15px;
-      outline: none;
-      user-select: none;
-      resize: unset;
-      font-size: 24px;
-      font-family: "Brandon_reg";
-      font-weight: 700;
-      @media screen and (max-width: 767px) {
-        font-size: 18px;
-      }
-    }
-
     #message::placeholder {
       font-weight: bold;
     }
