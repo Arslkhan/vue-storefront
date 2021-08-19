@@ -156,12 +156,14 @@ export default {
           confirmation: true,
           subject: this.contactFormSubject
         };
+        if (firstName && lastName && email && phone && message) {
+          this.sendEmail(
+            data,
+            this.onSuccess,
+            this.onFailure
+          )
+        }
 
-        this.sendEmail(
-          data,
-          this.onSuccess,
-          this.onFailure
-        )
 
         console.log('firstName', data);
         // form.submit();
