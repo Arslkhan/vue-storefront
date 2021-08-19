@@ -153,7 +153,7 @@ export default {
     console.log('contactFormWouldBe', contactForm);
   },
   mounted () {
-    if (this.cmsPageContent.title === this.PageName) {
+    // if (this.cmsPageContent.title === this.PageName) {
       this.form = document.querySelector('div#contact-us-form');
       this.submitBtn = document.querySelector('button.button-contact');
       this.successBtnBox = document.querySelector('div.buttonmessage');
@@ -198,7 +198,7 @@ export default {
       // let formData = new FormData(contactForm)
       // console.log('formSHouldBe', contactForm, formData);
       console.log('its a contact Us page.');
-    }
+    // }
   },
   mixins: [EmailForm]
 }
