@@ -211,6 +211,9 @@ export default {
     background: url(/assets/Polygondown.svg) #F2F2F2 no-repeat 98% 47%;
     font-family: 'BrandonMedium';
     background-size: 12px;
+    span {
+      font-size: 20px;
+    }
 }
 
 /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
@@ -235,6 +238,7 @@ export default {
     color: #000000;
     font-weight: 500;
     line-height: 28.6px;
+    font-size: 20px;
     margin: 0;
   }
 }
