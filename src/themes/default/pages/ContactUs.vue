@@ -38,7 +38,7 @@
         </fieldset>
       </div>
       <fieldset class="button">
-        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" @click="">
+        <button name="submit" type="button" id="contact-submit" data-submit="...Sending" @click="submitForm()">
           Send Message
         </button>
       </fieldset>
@@ -199,7 +199,6 @@ export default {
       // let contactForm = document.getElementById('contact-us-form');
       // let formData = new FormData(contactForm)
       // console.log('formSHouldBe', contactForm, formData);
-      console.log('its a contact Us page.');
     // }
   },
   mixins: [EmailForm]

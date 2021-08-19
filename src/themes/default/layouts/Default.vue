@@ -86,6 +86,14 @@ export default {
     }
   },
   methods: {
+    async pullCartSync () {
+      await this.$store.dispatch('cart/sync', {
+        forceClientState: false,
+        forceSync: true
+      })
+      await this.$store.dispatch('cart/syncTotals', { forceServerSync: true })
+      this.$forceUpdate()
+    },
     onOrderConfirmation (payload) {
       this.loadOrderConfirmation = true
       this.ordersData = payload
@@ -102,6 +110,9 @@ export default {
   },
   serverPrefetch () {
     return this.fetchMenuData()
+  },
+  mounted () {
+    this.pullCartSync()
   },
   beforeMount () {
     // Progress bar on top of the page
