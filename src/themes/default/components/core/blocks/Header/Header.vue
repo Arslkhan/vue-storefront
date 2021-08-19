@@ -37,7 +37,7 @@
             </router-link>
             <router-link
               class="inline-flex weight-500 relative no-underline"
-              :to="localizedRoute('/i/contact-us')"
+              :to="localizedRoute('/contact-us')"
               exact
             >
               Contact us
@@ -378,6 +378,9 @@ a.underline:after, a:not(.no-underline):hover:after {
     .main-logo {
     img  {
       max-width: 270px;
+      @media (max-width:1325px) and (min-width: 1274px) {
+        max-width: 256px;
+      }
       @media(max-width: 1275px) {
         max-width: 232px;
       }
