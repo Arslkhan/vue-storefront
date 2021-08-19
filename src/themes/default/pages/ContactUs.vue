@@ -200,7 +200,7 @@ export default {
       console.log('its a contact Us page.');
     }
   },
-  mixins: [CmsPage, EmailForm]
+  mixins: [EmailForm]
 }
 </script>
 
