@@ -38,7 +38,7 @@
         </fieldset>
       </div>
       <fieldset class="button">
-        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending" @click="">
           Send Message
         </button>
       </fieldset>
@@ -80,6 +80,37 @@ export default {
     }
   },
   methods: {
+    submitForm () {
+      // document.querySelector('button.button-contact').onclick = () => {
+        // let firstName = document.querySelector("input[name='fname']");
+        let firstName = document.getElementById('fname').value;
+        let lastName = document.getElementById('lname').value;
+        let email = document.getElementById('email').value;
+        let phone = document.getElementById('phone').value;
+        let message = document.getElementById('message').value;
+        console.log('firstName', firstName, lastName, email, phone, message);
+        let formBodyText = this.formBodyText({ firstName, lastName, email, phone, subject: this.contactFormSubject })
+        let data = {
+          sourceAddress: this.sourceAddress,
+          replyAddress: email,
+          targetAddress: this.contactFormEmailAddress,
+          emailText: formBodyText,
+          confirmation: true,
+          subject: this.contactFormSubject
+        };
+        if (firstName && lastName && email && phone && message) {
+          this.sendEmail(
+            data,
+            this.onSuccess,
+            this.onFailure
+          )
+        }
+
+
+        console.log('firstName', data);
+        // form.submit();
+      // }
+    },
     successMessage () {
       return '<div data-v-53963ae7="" class="col-xs-12 confirmation"><h3 data-v-53963ae7="" class="py15 px10 my40 weight-600 flex cl-white lightGreybar brdr-rad"><i data-v-53963ae7="" class="material-icons">check_circle_outline</i> Your message has successfully been sent.</h3></div>'
     },
@@ -165,35 +196,6 @@ export default {
       //   // Now you can use formData.get('foo'), for example.
       //   // Don't forget e.preventDefault() if you want to stop normal form .submission
       // });
-      document.querySelector('button.button-contact').onclick = () => {
-        // let firstName = document.querySelector("input[name='fname']");
-        let firstName = document.getElementById('fname').value;
-        let lastName = document.getElementById('lname').value;
-        let email = document.getElementById('email').value;
-        let phone = document.getElementById('phone').value;
-        let message = document.getElementById('message').value;
-        console.log('firstName', firstName, lastName, email, phone, message);
-        let formBodyText = this.formBodyText({ firstName, lastName, email, phone, subject: this.contactFormSubject })
-        let data = {
-          sourceAddress: this.sourceAddress,
-          replyAddress: email,
-          targetAddress: this.contactFormEmailAddress,
-          emailText: formBodyText,
-          confirmation: true,
-          subject: this.contactFormSubject
-        };
-        if (firstName && lastName && email && phone && message) {
-          this.sendEmail(
-            data,
-            this.onSuccess,
-            this.onFailure
-          )
-        }
-
-
-        console.log('firstName', data);
-        // form.submit();
-      }
       // let contactForm = document.getElementById('contact-us-form');
       // let formData = new FormData(contactForm)
       // console.log('formSHouldBe', contactForm, formData);
