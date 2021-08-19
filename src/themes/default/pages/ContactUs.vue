@@ -12,30 +12,35 @@
     <p class="message" style="font-size: 28px;">
       <strong>SEND A MESSAGE OR CALL US ON 0800 012 6406</strong>
     </p>
-    <div id="contact-us-form" class="form">
-      <div class="main-fields">
-        <div class="main-fields-1">
-          <input id="fname" name="fname" type="text" placeholder="First Name" required> <input id="lname" name="lname" required="" type="text" placeholder="Last Name">
-        </div>
-        <div class="main-fields-2">
-          <input id="email" name="email" type="text" placeholder="Email Address" required> <input id="phone" name="phone" required="" type="text" placeholder="Phone Number">
-        </div>
-        <textarea id="message" cols="50" name="message" required="" rows="4" placeholder="Message" />
+    <form id="contact" action="" method="">
+      <div class="name-fields">
+        <fieldset>
+          <input placeholder="First Name" type="text" tabindex="1" required autofocus>
+        </fieldset>
+        <fieldset>
+          <input placeholder="Last Name" type="text" tabindex="1" required autofocus>
+        </fieldset>
       </div>
-      <!-- <div class="main-fields">
-&nbsp;
-      </div> -->
-    </div>
-    <div class="buttonmessage">
-      <button class="button-contact">
-        Send Message
-      </button>
-    </div>
-    <div class="return-text-form">
-      <p class="anchor">
-&nbsp;
-      </p>
-    </div>
+      <div class="email-phone">
+        <fieldset>
+          <input placeholder="Email Address" type="email" tabindex="2" required>
+        </fieldset>
+        <fieldset>
+          <input placeholder="Phone Number" type="tel" tabindex="3" required>
+        </fieldset>
+      </div>
+      <!-- <fieldset>
+        <input placeholder="Your Web Site (optional)" type="url" tabindex="4" required>
+      </fieldset> -->
+      <fieldset>
+        <textarea placeholder="Message" tabindex="5" required />
+      </fieldset>
+      <fieldset class="button">
+        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">
+          Send Message
+        </button>
+      </fieldset>
+    </form>
   </div>
 </template>
 
@@ -46,6 +51,77 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+fieldset {
+  border: none;
+  width: 100%;
+}
+.name-fields,.email-phone {
+  display: flex;
+  @media (max-width: 600px) {
+    flex-flow: column;
+  }
+}
+#contact {
+  padding: 0 170px;
+  @media (max-width: 992px) {
+    padding: 0 52px 0 28px;
+  }
+}
+#contact-submit {
+  background: #6d1f37;
+  height: 61px;
+  width: 100%;
+  max-width: 251px;
+  border-radius: 50px;
+  border: none;
+  color: #fff;
+  font-family: Brandon_bld;
+  font-size: 18px;
+  font-weight: 900;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+input {
+  border: 1px solid #828282;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  width: 100%;
+  outline: 0;
+  font-family: Brandon_reg;
+  font-weight: 700;
+  font-size: 20px;
+}
+textarea {
+  border: 1px solid #828282;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  width: 97.6%;
+  margin-top: 15px;
+  outline: 0;
+  resize: unset;
+  font-size: 20px;
+  font-family: Brandon_reg;
+  font-weight: 700;
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}
+.button {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 90px;
+  padding-bottom: 60px;
+}
+a.underline:after, a:not(.no-underline):hover:after {
+  content: none;
+}
 .contact-main {
     margin-top: -15px;
   .head {
