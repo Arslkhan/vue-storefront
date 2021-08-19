@@ -146,7 +146,7 @@ export default {
         let email = document.getElementById('email').value;
         let phone = document.getElementById('phone').value;
         let message = document.getElementById('message').value;
-
+        console.log('firstName', firstName, lastName, email, phone, message);
         let formBodyText = this.formBodyText({ firstName, lastName, email, phone, subject: this.contactFormSubject })
         let data = {
           sourceAddress: this.sourceAddress,
