@@ -44,7 +44,7 @@
               <h5>
                 <router-link
                   class="inline-flex weight-500 relative no-underline"
-                  :to="localizedRoute('/i/contact-us')"
+                  :to="localizedRoute('/contact-us')"
                   exact
                 >
                   Contact us
