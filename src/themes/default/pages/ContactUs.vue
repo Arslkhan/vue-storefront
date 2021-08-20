@@ -304,16 +304,16 @@ export default {
       })
     }
   },
-  updated () {
-    let contactForm = document.querySelector('div#contact-us-form');
-    console.log('contactFormWouldBe', contactForm);
-  },
+  // updated () {
+  //   let contactForm = document.querySelector('div#contact-us-form');
+  //   console.log('contactFormWouldBe', contactForm);
+  // },
   mounted () {
     // if (this.cmsPageContent.title === this.PageName) {
-    this.form = document.querySelector('div#contact-us-form');
-    this.submitBtn = document.querySelector('button.button-contact');
-    this.successBtnBox = document.querySelector('div.buttonmessage');
-    console.log('submitBtn', this.successBtnBox);
+    // this.form = document.querySelector('div#contact-us-form');
+    // this.submitBtn = document.querySelector('button.button-contact');
+    // this.successBtnBox = document.querySelector('div.buttonmessage');
+    // console.log('submitBtn', this.successBtnBox);
     // form.addEventListener('submit', (e) => {
     //   e.preventDefault();
     //   const formData = new FormData(e.target);
