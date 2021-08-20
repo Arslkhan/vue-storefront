@@ -86,15 +86,15 @@ export default {
     }
   },
   methods: {
-    async pullCartSync () {
-      console.log('pullCartSync called')
-      await this.$store.dispatch('cart/sync', {
-        forceClientState: false,
-        forceSync: true
-      })
-      await this.$store.dispatch('cart/syncTotals', { forceServerSync: true })
-      this.$forceUpdate()
-    },
+    // async pullCartSync () {
+    //   console.log('pullCartSync called')
+    //   await this.$store.dispatch('cart/sync', {
+    //     forceClientState: false,
+    //     forceSync: true
+    //   })
+    //   await this.$store.dispatch('cart/syncTotals', { forceServerSync: true })
+    //   this.$forceUpdate()
+    // },
     onOrderConfirmation (payload) {
       this.loadOrderConfirmation = true
       this.ordersData = payload
@@ -113,8 +113,8 @@ export default {
     return this.fetchMenuData()
   },
   mounted () {
-    this.pullCartSync()
-    console.log('mounted called default')
+    // this.pullCartSync()
+    // console.log('mounted called default')
   },
   beforeMount () {
     // Progress bar on top of the page
