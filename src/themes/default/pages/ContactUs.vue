@@ -125,7 +125,7 @@
 <!--        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">-->
 <!--          Send Message-->
 <!--        </button>-->
-        <button-full :disabled="$v.$invalid" type="submit">
+        <button-full :disabled="$v.$invalid" id="contact-submit" type="submit">
           {{ $t('Send Message') }}
         </button-full>
       </fieldset>
