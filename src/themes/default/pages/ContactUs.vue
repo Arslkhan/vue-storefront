@@ -12,21 +12,93 @@
     <p class="message" style="font-size: 28px;">
       <strong>SEND A MESSAGE OR CALL US ON 0800 012 6406</strong>
     </p>
-    <form id="contact" action="" method="">
+    <form @submit.prevent="submitForm">
       <div class="name-fields">
         <fieldset>
-          <input placeholder="First Name" type="text" tabindex="1" required autofocus v-model="firstName">
+<!--          <input placeholder="First Name" type="text" tabindex="1" required autofocus v-model="firstName">-->
+          <base-input
+            type="text"
+            name="first-name"
+            v-model="firstName"
+            @blur="$v.firstName.$touch()"
+            :placeholder="$t('First name')"
+            :validations="[
+              {
+                condition: !$v.firstName.required && $v.firstName.$error,
+                text: $t('Field is required.')
+              },
+              {
+                condition: !$v.firstName.minLength,
+                text: $t('Name must have at least 2 letters.')
+              },
+              {
+                condition: !$v.firstName.alpha && $v.firstName.$error,
+                text: $t('Accepts only alphabet characters.')
+              }
+            ]"
+          />
         </fieldset>
         <fieldset>
-          <input placeholder="Last Name" type="text" tabindex="1" required autofocus v-model="lastName">
+<!--          <input placeholder="Last Name" type="text" tabindex="1" required autofocus v-model="lastName">-->
+          <base-input
+            type="text"
+            name="last-name"
+            autocomplete="last-name"
+            v-model="lastName"
+            @blur="$v.lastName.$touch()"
+            :placeholder="$t('Last name')"
+            :validations="[
+              {
+                condition: !$v.lastName.required && $v.lastName.$error,
+                text: $t('Field is required.')
+              },
+              {
+                condition: !$v.lastName.alpha && $v.lastName.$error,
+                text: $t('Accepts only alphabet characters.')
+              }
+            ]"
+          />
         </fieldset>
       </div>
       <div class="email-phone">
         <fieldset>
-          <input placeholder="Email Address" type="email" tabindex="2" required v-model="email">
+<!--          <input placeholder="Email Address" type="email" tabindex="2" required v-model="email">-->
+          <base-input
+            type="email"
+            name="email"
+            autocomplete="email"
+            v-model="email"
+            @blur="$v.email.$touch()"
+            focus
+            :placeholder="$t('Email Address')"
+            :validations="[
+            {
+              condition: !$v.email.required && $v.email.$error,
+              text: $t('Field is required.')
+            },
+            {
+              condition: !$v.email.email && $v.email.$error,
+              text: $t('Please provide valid e-mail address.')
+            }
+          ]"
+          />
         </fieldset>
         <fieldset>
-          <input placeholder="Phone Number" type="tel" tabindex="3" required v-model="phone">
+<!--          <input placeholder="Phone Number" type="tel" tabindex="3" required v-model="phone">-->
+          <base-input
+            type="text"
+            name="phone"
+            :placeholder="`${$t('Phone Number')} *`"
+            v-model.trim="phone"
+            :validations="[
+              {
+                condition: $v.phone.$error && !$v.phone.required,
+                text: $t('Field is required')
+              }
+            ]"
+            autocomplete="tel"
+            @blur="$v.phone.$touch()"
+          />
         </fieldset>
       </div>
       <!-- <fieldset>
@@ -34,13 +106,28 @@
       </fieldset> -->
       <div class="message-field">
         <fieldset>
-          <textarea placeholder="Message" tabindex="5" required v-model="message"/>
+<!--          <textarea placeholder="Message" tabindex="5" required v-model="message"/>-->
+          <base-textarea
+            type="text"
+            :placeholder="$t('Message')"
+            v-model="message"
+            @blur="$v.message.$touch()"
+            :validations="[
+                  {
+                    condition: $v.message.$error && !$v.message.required,
+                    text: $t('Field is required')
+                  }
+                ]"
+          />
         </fieldset>
       </div>
       <fieldset class="button">
-        <button name="submit" type="button" id="contact-submit" data-submit="...Sending" @click="submitForm()">
-          Send Message
-        </button>
+<!--        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">-->
+<!--          Send Message-->
+<!--        </button>-->
+        <button-full :disabled="$v.$invalid" type="submit">
+          {{ $t('Send Message') }}
+        </button-full>
       </fieldset>
     </form>
   </div>
@@ -52,20 +139,55 @@ import { MailerModule } from '@vue-storefront/core/modules/mailer'
 import { EmailForm } from '@vue-storefront/core/modules/mailer/components/EmailForm'
 import i18n from '@vue-storefront/i18n'
 import config from 'config';
+import BaseInput from 'theme/components/core/blocks/Form/BaseInput.vue'
+import ButtonFull from 'theme/components/theme/ButtonFull'
+import { required, email, minLength, alpha } from 'vuelidate/lib/validators'
+import BaseTextarea from 'theme/components/core/blocks/Form/BaseTextarea'
 
 export default {
   data () {
     return {
       PageName: 'Contact Us',
       firstName: '',
+      firstNameError: false,
       lastName: '',
+      lastNameError: false,
       email: '',
+      emailError: false,
       phone: '',
+      phoneError: false,
       message: '',
+      messageError: false,
       form: null,
       submitBtn: null,
       successBtnBox: null
     };
+  },
+  components: {
+    ButtonFull,
+    BaseInput,
+    BaseTextarea
+  },
+  validations: {
+    email: {
+      required,
+      email
+    },
+    firstName: {
+      minLength: minLength(2),
+      required,
+      alpha
+    },
+    lastName: {
+      required,
+      alpha
+    },
+    phone: {
+      required
+    },
+    message: {
+      required
+    }
   },
   beforeCreate () {
     registerModule(MailerModule)
@@ -93,6 +215,15 @@ export default {
       let email = this.email
       let phone = this.phone
       let message = this.message
+      if (this.firstName === '') {
+        this.firstNameError = true
+        this.$store.dispatch('notification/spawnNotification', {
+          type: 'error',
+          message: this.$t('Please fix the validation errors'),
+          action1: { label: this.$t('OK') }
+        })
+        return
+      }
       console.log('firstName', firstName, lastName, email, phone, message);
       let formBodyText = this.formBodyText({firstName, lastName, email, phone, subject: this.contactFormSubject})
       let data = {
