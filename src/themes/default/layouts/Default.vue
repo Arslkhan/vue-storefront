@@ -87,6 +87,7 @@ export default {
   },
   methods: {
     async pullCartSync () {
+      console.log('pullCartSync called')
       await this.$store.dispatch('cart/sync', {
         forceClientState: false,
         forceSync: true
@@ -113,6 +114,7 @@ export default {
   },
   mounted () {
     this.pullCartSync()
+    console.log('mounted called')
   },
   beforeMount () {
     // Progress bar on top of the page
