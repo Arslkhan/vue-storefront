@@ -215,16 +215,7 @@ export default {
       let email = this.email
       let phone = this.phone
       let message = this.message
-      if (this.firstName === '') {
-        this.firstNameError = true
-        this.$store.dispatch('notification/spawnNotification', {
-          type: 'error',
-          message: this.$t('Please fix the validation errors'),
-          action1: { label: this.$t('OK') }
-        })
-        return
-      }
-      console.log('firstName', firstName, lastName, email, phone, message);
+      console.log('firstName', firstName, lastName, email, phone, message, this.sourceAddress);
       let formBodyText = this.formBodyText({firstName, lastName, email, phone, subject: this.contactFormSubject})
       let data = {
         sourceAddress: this.sourceAddress,
@@ -234,7 +225,7 @@ export default {
         confirmation: true,
         subject: this.contactFormSubject
       };
-      if (firstName && lastName && email && phone && message) {
+      if (!this.$v.$invalid) {
         this.sendEmail(
           data,
           this.onSuccess,

@@ -96,12 +96,13 @@ export default {
   $color-black: color(black);
   $color-puerto-rico: color(puerto-rico);
   $color-hover: color(tertiary, $colors-background);
+  $color-light-grey: color(light-grey);
 
   textarea {
     &:hover,
     &:focus {
       outline: none;
-      border-color: $color-puerto-rico;
+      border-color: $color-light-grey;
     }
     resize: none;
     background: inherit;
@@ -121,7 +122,7 @@ export default {
   textarea:not(.empty) ~ label {
     top: -10px;
     font-size: 14px;
-    color: $color-puerto-rico;
+    color: $color-light-grey;
   }
 
   .icon {
