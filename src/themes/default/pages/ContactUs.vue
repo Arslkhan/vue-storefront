@@ -15,7 +15,6 @@
     <form id="contact" @submit.prevent="submitForm">
       <div class="name-fields">
         <fieldset>
-<!--          <input placeholder="First Name" type="text" tabindex="1" required autofocus v-model="firstName">-->
           <base-input
             type="text"
             name="first-name"
@@ -39,7 +38,6 @@
           />
         </fieldset>
         <fieldset>
-<!--          <input placeholder="Last Name" type="text" tabindex="1" required autofocus v-model="lastName">-->
           <base-input
             type="text"
             name="last-name"
@@ -62,7 +60,6 @@
       </div>
       <div class="email-phone">
         <fieldset>
-<!--          <input placeholder="Email Address" type="email" tabindex="2" required v-model="email">-->
           <base-input
             type="email"
             name="email"
@@ -84,11 +81,10 @@
           />
         </fieldset>
         <fieldset>
-<!--          <input placeholder="Phone Number" type="tel" tabindex="3" required v-model="phone">-->
           <base-input
             type="text"
             name="phone"
-            :placeholder="`${$t('Phone Number')} *`"
+            :placeholder="`${$t('Phone Number')}`"
             v-model.trim="phone"
             :validations="[
               {
@@ -101,12 +97,8 @@
           />
         </fieldset>
       </div>
-      <!-- <fieldset>
-        <input placeholder="Your Web Site (optional)" type="url" tabindex="4" required>
-      </fieldset> -->
       <div class="message-field">
         <fieldset>
-<!--          <textarea placeholder="Message" tabindex="5" required v-model="message"/>-->
           <base-textarea
             type="text"
             :placeholder="$t('Message')"
@@ -122,9 +114,6 @@
         </fieldset>
       </div>
       <fieldset class="button">
-<!--        <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">-->
-<!--          Send Message-->
-<!--        </button>-->
         <button-full :disabled="$v.$invalid" id="contact-submit" type="submit">
           {{ $t('Send Message') }}
         </button-full>
@@ -147,17 +136,11 @@ import BaseTextarea from 'theme/components/core/blocks/Form/BaseTextarea'
 export default {
   data () {
     return {
-      PageName: 'Contact Us',
       firstName: '',
-      firstNameError: false,
       lastName: '',
-      lastNameError: false,
       email: '',
-      emailError: false,
       phone: '',
-      phoneError: false,
       message: '',
-      messageError: false,
       form: null,
       submitBtn: null,
       successBtnBox: null
@@ -208,8 +191,6 @@ export default {
   },
   methods: {
     submitForm () {
-      // document.querySelector('button.button-contact').onclick = () => {
-      // let firstName = document.querySelector("input[name='fname']");
       let firstName = this.firstName
       let lastName = this.lastName
       let email = this.email
@@ -233,8 +214,6 @@ export default {
         )
       }
       console.log('firstName', data);
-      // form.submit();
-      // }
     },
     successMessage () {
       return '<div data-v-53963ae7="" class="col-xs-12 confirmation"><h3 data-v-53963ae7="" class="py15 px10 my40 weight-600 flex cl-white lightGreybar brdr-rad"><i data-v-53963ae7="" class="material-icons">check_circle_outline</i> Your message has successfully been sent.</h3></div>'
@@ -303,28 +282,6 @@ export default {
         action1: { label: this.$t('OK') }
       })
     }
-  },
-  // updated () {
-  //   let contactForm = document.querySelector('div#contact-us-form');
-  //   console.log('contactFormWouldBe', contactForm);
-  // },
-  mounted () {
-    // if (this.cmsPageContent.title === this.PageName) {
-    // this.form = document.querySelector('div#contact-us-form');
-    // this.submitBtn = document.querySelector('button.button-contact');
-    // this.successBtnBox = document.querySelector('div.buttonmessage');
-    // console.log('submitBtn', this.successBtnBox);
-    // form.addEventListener('submit', (e) => {
-    //   e.preventDefault();
-    //   const formData = new FormData(e.target);
-    //   console.log('FormDataWouldBe', formData);
-    //   // Now you can use formData.get('foo'), for example.
-    //   // Don't forget e.preventDefault() if you want to stop normal form .submission
-    // });
-    // let contactForm = document.getElementById('contact-us-form');
-    // let formData = new FormData(contactForm)
-    // console.log('formSHouldBe', contactForm, formData);
-    // }
   },
   mixins: [EmailForm]
 }
