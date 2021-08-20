@@ -12,7 +12,7 @@
     <p class="message" style="font-size: 28px;">
       <strong>SEND A MESSAGE OR CALL US ON 0800 012 6406</strong>
     </p>
-    <form @submit.prevent="submitForm">
+    <form id="contact" @submit.prevent="submitForm">
       <div class="name-fields">
         <fieldset>
 <!--          <input placeholder="First Name" type="text" tabindex="1" required autofocus v-model="firstName">-->
