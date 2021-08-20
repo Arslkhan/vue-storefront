@@ -15,18 +15,18 @@
     <form id="contact" action="" method="">
       <div class="name-fields">
         <fieldset>
-          <input placeholder="First Name" type="text" tabindex="1" required autofocus>
+          <input placeholder="First Name" type="text" tabindex="1" required autofocus v-model="firstName">
         </fieldset>
         <fieldset>
-          <input placeholder="Last Name" type="text" tabindex="1" required autofocus>
+          <input placeholder="Last Name" type="text" tabindex="1" required autofocus v-model="lastName">
         </fieldset>
       </div>
       <div class="email-phone">
         <fieldset>
-          <input placeholder="Email Address" type="email" tabindex="2" required>
+          <input placeholder="Email Address" type="email" tabindex="2" required v-model="email">
         </fieldset>
         <fieldset>
-          <input placeholder="Phone Number" type="tel" tabindex="3" required>
+          <input placeholder="Phone Number" type="tel" tabindex="3" required v-model="phone">
         </fieldset>
       </div>
       <!-- <fieldset>
@@ -34,7 +34,7 @@
       </fieldset> -->
       <div class="message-field">
         <fieldset>
-          <textarea placeholder="Message" tabindex="5" required />
+          <textarea placeholder="Message" tabindex="5" required v-model="message"/>
         </fieldset>
       </div>
       <fieldset class="button">
@@ -57,6 +57,11 @@ export default {
   data () {
     return {
       PageName: 'Contact Us',
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      message: '',
       form: null,
       submitBtn: null,
       successBtnBox: null
@@ -82,33 +87,31 @@ export default {
   methods: {
     submitForm () {
       // document.querySelector('button.button-contact').onclick = () => {
-        // let firstName = document.querySelector("input[name='fname']");
-        let firstName = document.getElementById('fname').value;
-        let lastName = document.getElementById('lname').value;
-        let email = document.getElementById('email').value;
-        let phone = document.getElementById('phone').value;
-        let message = document.getElementById('message').value;
-        console.log('firstName', firstName, lastName, email, phone, message);
-        let formBodyText = this.formBodyText({ firstName, lastName, email, phone, subject: this.contactFormSubject })
-        let data = {
-          sourceAddress: this.sourceAddress,
-          replyAddress: email,
-          targetAddress: this.contactFormEmailAddress,
-          emailText: formBodyText,
-          confirmation: true,
-          subject: this.contactFormSubject
-        };
-        if (firstName && lastName && email && phone && message) {
-          this.sendEmail(
-            data,
-            this.onSuccess,
-            this.onFailure
-          )
-        }
-
-
-        console.log('firstName', data);
-        // form.submit();
+      // let firstName = document.querySelector("input[name='fname']");
+      let firstName = this.firstName
+      let lastName = this.lastName
+      let email = this.email
+      let phone = this.phone
+      let message = this.message
+      console.log('firstName', firstName, lastName, email, phone, message);
+      let formBodyText = this.formBodyText({firstName, lastName, email, phone, subject: this.contactFormSubject})
+      let data = {
+        sourceAddress: this.sourceAddress,
+        replyAddress: email,
+        targetAddress: this.contactFormEmailAddress,
+        emailText: formBodyText,
+        confirmation: true,
+        subject: this.contactFormSubject
+      };
+      if (firstName && lastName && email && phone && message) {
+        this.sendEmail(
+          data,
+          this.onSuccess,
+          this.onFailure
+        )
+      }
+      console.log('firstName', data);
+      // form.submit();
       // }
     },
     successMessage () {
@@ -185,20 +188,20 @@ export default {
   },
   mounted () {
     // if (this.cmsPageContent.title === this.PageName) {
-      this.form = document.querySelector('div#contact-us-form');
-      this.submitBtn = document.querySelector('button.button-contact');
-      this.successBtnBox = document.querySelector('div.buttonmessage');
-      console.log('submitBtn', this.successBtnBox);
-      // form.addEventListener('submit', (e) => {
-      //   e.preventDefault();
-      //   const formData = new FormData(e.target);
-      //   console.log('FormDataWouldBe', formData);
-      //   // Now you can use formData.get('foo'), for example.
-      //   // Don't forget e.preventDefault() if you want to stop normal form .submission
-      // });
-      // let contactForm = document.getElementById('contact-us-form');
-      // let formData = new FormData(contactForm)
-      // console.log('formSHouldBe', contactForm, formData);
+    this.form = document.querySelector('div#contact-us-form');
+    this.submitBtn = document.querySelector('button.button-contact');
+    this.successBtnBox = document.querySelector('div.buttonmessage');
+    console.log('submitBtn', this.successBtnBox);
+    // form.addEventListener('submit', (e) => {
+    //   e.preventDefault();
+    //   const formData = new FormData(e.target);
+    //   console.log('FormDataWouldBe', formData);
+    //   // Now you can use formData.get('foo'), for example.
+    //   // Don't forget e.preventDefault() if you want to stop normal form .submission
+    // });
+    // let contactForm = document.getElementById('contact-us-form');
+    // let formData = new FormData(contactForm)
+    // console.log('formSHouldBe', contactForm, formData);
     // }
   },
   mixins: [EmailForm]
