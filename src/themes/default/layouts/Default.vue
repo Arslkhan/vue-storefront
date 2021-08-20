@@ -114,7 +114,7 @@ export default {
   },
   mounted () {
     this.pullCartSync()
-    console.log('mounted called')
+    console.log('mounted called default')
   },
   beforeMount () {
     // Progress bar on top of the page

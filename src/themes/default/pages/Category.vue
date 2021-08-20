@@ -138,6 +138,10 @@ export default {
       loading: true
     }
   },
+  mounted () {
+    this.pullCartSync()
+    console.log('mounted called category')
+  },
   computed: {
     ...mapGetters({
       getCurrentSearchQuery: 'category-next/getCurrentSearchQuery',
@@ -175,6 +179,15 @@ export default {
     }
   },
   methods: {
+    async pullCartSync () {
+      console.log('pullCartSync called')
+      await this.$store.dispatch('cart/sync', {
+        forceClientState: false,
+        forceSync: true
+      })
+      await this.$store.dispatch('cart/syncTotals', { forceServerSync: true })
+      this.$forceUpdate()
+    },
     openFilters () {
       this.mobileFilters = true
     },
