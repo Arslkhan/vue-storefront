@@ -133,7 +133,7 @@
         <p>• Do not use any cleaning brushes made of metal or hard plastic, and never rinse using scouring agents, solutions or bleaches</p>
       </div>
       <div class="endpara">
-        <span>Should you have any product questions, please email</span><a href="/contact-us">contactus@W10.co</a>
+        <span>Should you have any product questions, please </span><a href="/contact-us">contact us</a>
       </div>
     </div>
   </div>
