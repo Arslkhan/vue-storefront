@@ -396,16 +396,16 @@ $color-secondary: color(secondary);
 //     padding-bottom: 30px;
 //   }
 // }
-#fbicon:hover {
+#fbicon {
   fill:  #3b5998;
 }
-#twitter:hover {
+#twitter {
   fill: #00acee;
 }
-#youtube:hover {
+#youtube {
   fill: rgb(255, 0, 0);
 }
-#insta:hover {
+#insta {
   fill: #fbad50;
 }
 a.underline:after, a:not(.no-underline):hover:after {

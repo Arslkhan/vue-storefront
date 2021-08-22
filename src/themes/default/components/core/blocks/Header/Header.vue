@@ -351,16 +351,16 @@ header {
     font-size: 12px;
   }
 }
-#fbicon:hover {
+#fbicon {
   fill:  #3b5998;
 }
-#twitter:hover {
+#twitter {
   fill: #00acee;
 }
-#youtube:hover {
+#youtube {
   fill: rgb(255, 0, 0);
 }
-#insta:hover {
+#insta {
   fill: #fbad50;
 }
 // #instacircle:hover {
