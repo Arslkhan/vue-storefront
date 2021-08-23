@@ -30,7 +30,7 @@ export default {
     addProductToWhishlist (product) {
       this.$store.dispatch('notification/spawnNotification', {
         type: 'success',
-        message: i18n.t('Product {productName} has been added to wishlist!', { productName: htmlDecode(product.name) }),
+        message: i18n.t('Product ' + htmlDecode(product.name) + ' has been added to wishlist!', { productName: htmlDecode(product.name) }),
         action1: { label: i18n.t('OK') }
       }, { root: true })
       this.addToWishlist(product)
@@ -38,7 +38,7 @@ export default {
     removeProductFromWhishList (product) {
       this.$store.dispatch('notification/spawnNotification', {
         type: 'success',
-        message: i18n.t('Product {productName} has been removed from wishlist!', { productName: htmlDecode(product.name) }),
+        message: i18n.t('Product ' + htmlDecode(product.name) + ' has been removed from wishlist!', { productName: htmlDecode(product.name) }),
         action1: { label: i18n.t('OK') }
       }, { root: true })
       this.removeFromWishlist(product)
