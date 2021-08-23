@@ -64,9 +64,7 @@
             </div>
           </div>
           <div class="address-bar col-md-12">
-            <span>TIDEWAY YARD UNIT T04, <br/>
-              125 MORTLAKE HIGH STREET, <br/>
-              LONDON, SW14 8SN</span>
+            <span>TIDEWAY YARD UNIT T04, 125 MORTLAKE HIGH STREET, LONDON, SW14 8SN</span>
           </div>
           <div class="accepted-cards col-md-12">
             <span><img src="/assets/fonts/amex.svg" alt="amex"></span>
@@ -398,16 +396,16 @@ $color-secondary: color(secondary);
 //     padding-bottom: 30px;
 //   }
 // }
-#fbicon:hover {
+#fbicon {
   fill:  #3b5998;
 }
-#twitter:hover {
+#twitter {
   fill: #00acee;
 }
-#youtube:hover {
+#youtube {
   fill: rgb(255, 0, 0);
 }
-#insta:hover {
+#insta {
   fill: #fbad50;
 }
 a.underline:after, a:not(.no-underline):hover:after {
