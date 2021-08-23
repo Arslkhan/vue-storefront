@@ -23,7 +23,7 @@
             <h4>
               {{ $t('Your Account') }}
             </h4>
-            <p v-html="this.$t('You can log to your account using e-mail and password defined earlier. On your account you can <b>edit your profile data,</b> check <b>history of transactions,</b> edit <b>subscription to newsletter.</b>')" />
+            <p v-html="this.$t('You can log to your account using e-mail and password defined earlier. On your account you can <b>edit your profile data</b> and check <b>history of transactions,</b> edit <b>subscription to newsletter.</b>')" />
           </div>
           <div class="col-md-6 pt30 bg-cl-secondary thank-you-improvment">
             <h3>
