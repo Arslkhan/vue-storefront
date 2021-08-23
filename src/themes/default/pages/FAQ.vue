@@ -132,6 +132,15 @@
         <p>• Hand clean before first use and wash after each use.</p>
         <p>• Do not use any cleaning brushes made of metal or hard plastic, and never rinse using scouring agents, solutions or bleaches</p>
       </div>
+      <button class="accordion">
+        <span>9. How will your goods be shipped  and what is the cost ? </span>
+      </button>
+      <div class="panel">
+        <p>For Domestic deliveries in the UK we use Hermes and the prices are as follows:</p>
+        <p>• £3.50     48 Hour Tracked</p>
+        <p>• £4.50     24 Hour Tracked</p>
+        <p>For International deliveries we use a tracked DHL service and the cost will be advised at checkout.</p>
+      </div>
       <div class="endpara">
         <span>Should you have any product questions, please email</span><a href="/contact-us">contactus@W10.co</a>
       </div>
