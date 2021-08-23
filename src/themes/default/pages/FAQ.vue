@@ -89,15 +89,13 @@
         <span>4.  Will there be a chemical reaction when storing acidic tea/coffee in the stainless steel products?</span>
       </button>
       <div class="panel">
-        <p>As the acidic contents in tea and coffee is low, the food-grade Stainless Steel is safe to store them for hours. However, we would recommend to first rinse the </p>
-        <p>tumbler/mug with water (best with hot water) to remove residues that may pick up the washing liquid during cleaning.</p>
+        <p>As the acidic contents in tea and coffee is low, the food-grade Stainless Steel is safe to store them for hours. However, we would recommend to first rinse the umbler/mug with water (best with hot water) to remove residues that may pick up the washing liquid during cleaning.</p>
       </div>
       <button class="accordion">
         <span>5. What drinks should I not use in my cup?</span>
       </button>
       <div class="panel">
-        <p>See individual cup/bottle instructions but stainless steel products are not suitable for use with carbonated drinks, dry ice, water soluble vitamins, dairy </p>
-        <p>products, fruit juice, and drinks /soups with a high salt content.</p>
+        <p>See individual cup/bottle instructions but stainless steel products are not suitable for use with carbonated drinks, dry ice, water soluble vitamins, dairy products, fruit juice, and drinks /soups with a high salt content.</p>
       </div>
       <button class="accordion">
         <span>6. Is my Cup dishwasher safe ?</span>
@@ -115,8 +113,7 @@
         <span>7. Is my cup recyclable?</span>
       </button>
       <div class="panel">
-        <p>Recycling Facilities differ. Before discarding your old reusable cup, we'd strongly recommend contacting your local council/government to confirm</p>
-        <p>recyclability. All our products are made from BPA free & FDA/EU approved materials.</p>
+        <p>Recycling Facilities differ. Before discarding your old reusable cup, we'd strongly recommend contacting your local council/government to confirm recyclability. All our products are made from BPA free & FDA/EU approved materials.</p>
       </div>
       <button class="accordion">
         <span>8. All cups differ slightly but what are the basic things to be aware of when using a travel mug?</span>
@@ -136,7 +133,7 @@
         <p>• Do not use any cleaning brushes made of metal or hard plastic, and never rinse using scouring agents, solutions or bleaches</p>
       </div>
       <div class="endpara">
-        <span>Should you have any product questions, please email</span><a>contactus@W10.co</a>
+        <span>Should you have any product questions, please email</span><a href="/contact-us">contactus@W10.co</a>
       </div>
     </div>
   </div>

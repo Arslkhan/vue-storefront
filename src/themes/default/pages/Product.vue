@@ -126,6 +126,7 @@
                 :disabled="isAddToCartDisabled"
                 class="col-xs-12 col-sm-4 col-md-6 addTo-Cart"
               />
+              <AddToWishlist class="wishlist" :product="getCurrentProduct" />
             </div>
 
           <div class="productDescription">
@@ -225,6 +226,7 @@ import ProductPrice from 'theme/components/core/ProductPrice.vue'
 import { doPlatformPricesSync } from '@vue-storefront/core/modules/catalog/helpers'
 import { filterChangedProduct } from '@vue-storefront/core/modules/catalog/events'
 import NoSSR from 'vue-no-ssr'
+import AddToWishlist from 'theme/components/core/blocks/Wishlist/AddToWishlist'
 
 export default {
   components: {
@@ -239,7 +241,8 @@ export default {
     SizeSelector,
     ProductQuantity,
     ProductPrice,
-    'no-ssr': NoSSR
+    'no-ssr': NoSSR,
+    AddToWishlist
   },
   mixins: [ProductOption],
   directives: { focusClean },

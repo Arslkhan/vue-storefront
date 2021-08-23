@@ -50,7 +50,7 @@
           >
             <router-link
               class="block px25 py20 cl-accent no-underline"
-              :to="localizedRoute('/i/faq')"
+              :to="localizedRoute('/faq')"
               exact
             >
               {{ $t('FAQ') }}
@@ -61,7 +61,7 @@
           >
             <router-link
               class="block px25 py20 cl-accent no-underline"
-              :to="localizedRoute('/i/contact-us')"
+              :to="localizedRoute('/contact-us')"
               exact
             >
               {{ $t('Contact us') }}
