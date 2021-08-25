@@ -45,7 +45,6 @@
             <base-input
               type="text"
               name="last-name"
-              autocomplete="last-name"
               v-model="lastName"
               @blur="$v.lastName.$touch()"
               :placeholder="$t('Last name')"
