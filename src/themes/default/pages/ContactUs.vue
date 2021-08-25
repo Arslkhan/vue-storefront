@@ -126,7 +126,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 confirmation">
-            <h3 class="py15 px10 my40 weight-600 flex cl-white bg-cl-puerto-rico brdr-rad"><i class="material-icons">check_circle_outline</i>
+            <h3 class="py15 px10 my40 weight-600 flex cl-white color-success brdr-rad"><i class="material-icons">check_circle_outline</i>
               {{ $t('Your message has successfully been sent.') }}</h3>
             <!-- <router-link :to="localizedRoute('/')" :title="$t('Home')" class="no-underline inline-flex">{{ $t('Home') }}</router-link> -->
           </div>
@@ -296,6 +296,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.color-success {
+  background-color: #c0c0c0;
+}
+
 fieldset {
   border: none;
   width: 100%;
