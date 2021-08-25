@@ -3,7 +3,9 @@
     <p class="head">
       Contact us
     </p>
-    <p><img src="/assets/contactbanner.png" alt="facebook"></p>
+    <p class="contactUsP">
+      <img src="/assets/contactbanner.png" alt="contact-us">
+    </p>
     <div class="main-fields">
       <p class="button-under-text" style="font-size: 28px; text-align: center;">
         RETURNS? PLEASE REFER TO OUR <a style="font-weight: 800; text-decoration: underline;" href="/i/returns-policy">RETURNS
@@ -391,6 +393,7 @@ a.underline:after, a:not(.no-underline):hover:after {
     font-family: "Brandon_bld";
     position: absolute;
     left: 43%;
+    z-index: 9999;
     @media (max-width: 500px) {
       left: 35%;
     }
@@ -415,10 +418,19 @@ a.underline:after, a:not(.no-underline):hover:after {
     }
   }
 
-  p {
+  .contactUsP {
     img {
       width: 100%;
+      height: auto;
+      position: absolute;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
     }
+    padding-bottom: 40.5%;
+    position: relative;
   }
 
   .message {
