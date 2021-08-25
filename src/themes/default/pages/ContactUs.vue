@@ -6,22 +6,24 @@
     <p><img src="/assets/contactbanner.png" alt="facebook"></p>
     <div class="main-fields">
       <p class="button-under-text" style="font-size: 28px; text-align: center;">
-        RETURNS? PLEASE REFER TO OUR <a style="font-weight: 800; text-decoration: underline;" href="/i/returns-policy">RETURNS POLICY PAGE</a>
+        RETURNS? PLEASE REFER TO OUR <a style="font-weight: 800; text-decoration: underline;" href="/i/returns-policy">RETURNS
+        POLICY PAGE</a>
       </p>
     </div>
-    <p class="message" style="font-size: 28px;">
-      <strong>SEND A MESSAGE OR CALL US ON 0800 012 6406</strong>
-    </p>
-    <form id="contact" @submit.prevent="submitForm">
-      <div class="name-fields">
-        <fieldset>
-          <base-input
-            type="text"
-            name="first-name"
-            v-model="firstName"
-            @blur="$v.firstName.$touch()"
-            :placeholder="$t('First name')"
-            :validations="[
+    <template v-if="!messageSent">
+      <p class="message" style="font-size: 28px;">
+        <strong>SEND A MESSAGE OR CALL US ON 0800 012 6406</strong>
+      </p>
+      <form id="contact" @submit.prevent="submitForm">
+        <div class="name-fields">
+          <fieldset>
+            <base-input
+              type="text"
+              name="first-name"
+              v-model="firstName"
+              @blur="$v.firstName.$touch()"
+              :placeholder="$t('First name')"
+              :validations="[
               {
                 condition: !$v.firstName.required && $v.firstName.$error,
                 text: $t('Field is required.')
@@ -35,17 +37,17 @@
                 text: $t('Accepts only alphabet characters.')
               }
             ]"
-          />
-        </fieldset>
-        <fieldset>
-          <base-input
-            type="text"
-            name="last-name"
-            autocomplete="last-name"
-            v-model="lastName"
-            @blur="$v.lastName.$touch()"
-            :placeholder="$t('Last name')"
-            :validations="[
+            />
+          </fieldset>
+          <fieldset>
+            <base-input
+              type="text"
+              name="last-name"
+              autocomplete="last-name"
+              v-model="lastName"
+              @blur="$v.lastName.$touch()"
+              :placeholder="$t('Last name')"
+              :validations="[
               {
                 condition: !$v.lastName.required && $v.lastName.$error,
                 text: $t('Field is required.')
@@ -55,20 +57,20 @@
                 text: $t('Accepts only alphabet characters.')
               }
             ]"
-          />
-        </fieldset>
-      </div>
-      <div class="email-phone">
-        <fieldset>
-          <base-input
-            type="email"
-            name="email"
-            autocomplete="email"
-            v-model="email"
-            @blur="$v.email.$touch()"
-            focus
-            :placeholder="$t('Email Address')"
-            :validations="[
+            />
+          </fieldset>
+        </div>
+        <div class="email-phone">
+          <fieldset>
+            <base-input
+              type="email"
+              name="email"
+              autocomplete="email"
+              v-model="email"
+              @blur="$v.email.$touch()"
+              focus
+              :placeholder="$t('Email Address')"
+              :validations="[
             {
               condition: !$v.email.required && $v.email.$error,
               text: $t('Field is required.')
@@ -78,47 +80,59 @@
               text: $t('Please provide valid e-mail address.')
             }
           ]"
-          />
-        </fieldset>
-        <fieldset>
-          <base-input
-            type="text"
-            name="phone"
-            :placeholder="`${$t('Phone Number')}`"
-            v-model.trim="phone"
-            :validations="[
+            />
+          </fieldset>
+          <fieldset>
+            <base-input
+              type="text"
+              name="phone"
+              :placeholder="`${$t('Phone Number')}`"
+              v-model.trim="phone"
+              :validations="[
               {
                 condition: $v.phone.$error && !$v.phone.required,
                 text: $t('Field is required')
               }
             ]"
-            autocomplete="tel"
-            @blur="$v.phone.$touch()"
-          />
-        </fieldset>
-      </div>
-      <div class="message-field">
-        <fieldset>
-          <base-textarea
-            type="text"
-            :placeholder="$t('Message')"
-            v-model="message"
-            @blur="$v.message.$touch()"
-            :validations="[
+              autocomplete="tel"
+              @blur="$v.phone.$touch()"
+            />
+          </fieldset>
+        </div>
+        <div class="message-field">
+          <fieldset>
+            <base-textarea
+              type="text"
+              :placeholder="$t('Message')"
+              v-model="message"
+              @blur="$v.message.$touch()"
+              :validations="[
                   {
                     condition: $v.message.$error && !$v.message.required,
                     text: $t('Field is required')
                   }
                 ]"
-          />
+            />
+          </fieldset>
+        </div>
+        <fieldset class="button">
+          <button-full :disabled="$v.$invalid" id="contact-submit" type="submit">
+            {{ $t('Send Message') }}
+          </button-full>
         </fieldset>
+      </form>
+    </template>
+    <template v-else>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 confirmation">
+            <h3 class="py15 px10 my40 weight-600 flex cl-white bg-cl-puerto-rico brdr-rad"><i class="material-icons">check_circle_outline</i>
+              {{ $t('Your message has successfully been sent.') }}</h3>
+            <!-- <router-link :to="localizedRoute('/')" :title="$t('Home')" class="no-underline inline-flex">{{ $t('Home') }}</router-link> -->
+          </div>
+        </div>
       </div>
-      <fieldset class="button">
-        <button-full :disabled="$v.$invalid" id="contact-submit" type="submit">
-          {{ $t('Send Message') }}
-        </button-full>
-      </fieldset>
-    </form>
+    </template>
   </div>
 </template>
 
@@ -141,6 +155,7 @@ export default {
       email: '',
       phone: '',
       message: '',
+      messageSent: '',
       form: null,
       submitBtn: null,
       successBtnBox: null
@@ -196,8 +211,7 @@ export default {
       let email = this.email
       let phone = this.phone
       let message = this.message
-      console.log('firstName', firstName, lastName, email, phone, message, this.sourceAddress);
-      let formBodyText = this.formBodyText({firstName, lastName, email, phone, subject: this.contactFormSubject})
+      let formBodyText = this.formBodyText({ firstName, lastName, email, phone, subject: this.contactFormSubject, message })
       let data = {
         sourceAddress: this.sourceAddress,
         replyAddress: email,
@@ -213,10 +227,6 @@ export default {
           this.onFailure
         )
       }
-      console.log('firstName', data);
-    },
-    successMessage () {
-      return '<div data-v-53963ae7="" class="col-xs-12 confirmation"><h3 data-v-53963ae7="" class="py15 px10 my40 weight-600 flex cl-white lightGreybar brdr-rad"><i data-v-53963ae7="" class="material-icons">check_circle_outline</i> Your message has successfully been sent.</h3></div>'
     },
     sendEmail (letter, success, failure) {
       this.$store.dispatch('mailer/sendEmail', letter)
@@ -237,7 +247,7 @@ export default {
           if (failure) failure(i18n.t('Could not send an email. Please try again later.'))
         })
     },
-    formBodyText ({ firstName, lastName, email, phone, subject }) {
+    formBodyText ({ firstName, lastName, email, phone, subject, message }) {
       let html = '';
 
       html += 'Name: ' + firstName + ' ' + lastName + '\r\n\r\n'
@@ -248,16 +258,14 @@ export default {
       if (this.subject) {
         html += 'Subject: ' + subject + '\r\n\r\n'
       }
-      html += 'Message: ' + subject + '\r\n\r\n'
+      html += 'Message: ' + message + '\r\n\r\n'
 
       return html
     },
 
     onSuccess (message) {
+      console.log('messageForSuccess', message);
       this.messageSent = true
-      this.form.remove();
-      this.submitBtn.remove();
-      this.successBtnBox.innerHTML = this.successMessage();
 
       if (config.mailer.sendConfirmation) {
         let confirmationHtml = '';
@@ -292,18 +300,21 @@ fieldset {
   border: none;
   width: 100%;
 }
-.name-fields,.email-phone,.message-field {
+
+.name-fields, .email-phone, .message-field {
   display: flex;
   @media (max-width: 600px) {
     flex-flow: column;
   }
 }
+
 #contact {
   padding: 0 170px;
   @media (max-width: 992px) {
     padding: 0 52px 0 28px;
   }
 }
+
 #contact-submit {
   background: #6d1f37;
   height: 61px;
@@ -322,6 +333,7 @@ fieldset {
   -ms-flex-align: center;
   align-items: center;
 }
+
 input {
   border: 1px solid #828282;
   border-left: none;
@@ -333,6 +345,7 @@ input {
   font-weight: 700;
   font-size: 20px;
 }
+
 textarea {
   border: 1px solid #828282;
   border-left: none;
@@ -349,6 +362,7 @@ textarea {
     width: 100%;
   }
 }
+
 .button {
   display: flex;
   justify-content: center;
@@ -356,11 +370,14 @@ textarea {
   margin-top: 90px;
   padding-bottom: 60px;
 }
+
 a.underline:after, a:not(.no-underline):hover:after {
   content: none;
 }
+
 .contact-main {
-    margin-top: -15px;
+  margin-top: -15px;
+
   .head {
     color: #6e2138;
     margin: 0;
@@ -374,21 +391,23 @@ a.underline:after, a:not(.no-underline):hover:after {
       left: 35%;
     }
   }
+
   .main-fields {
-      .button-under-text {
-    color: #6d1f37;
-    font-size: 28px;
-    font-family: "Brandon_reg";
-    text-align: center;
-    font-weight: 700;
-    a {
+    .button-under-text {
       color: #6d1f37;
       font-size: 28px;
       font-family: "Brandon_reg";
       text-align: center;
       font-weight: 700;
-      text-decoration: underline;
-     }
+
+      a {
+        color: #6d1f37;
+        font-size: 28px;
+        font-family: "Brandon_reg";
+        text-align: center;
+        font-weight: 700;
+        text-decoration: underline;
+      }
     }
   }
 
@@ -460,10 +479,12 @@ a.underline:after, a:not(.no-underline):hover:after {
           }
         }
       }
+
       input::placeholder {
         font-weight: bold;
       }
     }
+
     #message::placeholder {
       font-weight: bold;
     }
