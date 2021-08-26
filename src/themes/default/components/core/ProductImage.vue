@@ -11,25 +11,17 @@
       :alt="alt"
       class="product-image__placeholder"
     >
-    <img
-      v-if="!lowerQualityImageError || isOnline"
-      v-show="showLowerQuality"
-      v-lazy="image.loading"
-      :alt="alt"
-      @load="imageLoaded('lower', true)"
-      @error="imageLoaded('lower', false)"
-      ref="lQ"
-      class="product-image__thumb"
-    >
-    <img
-      v-if="!highQualityImageError || isOnline"
-      v-show="showHighQuality"
-      v-lazy="image.src"
-      :alt="alt"
-      @load="imageLoaded('high', true)"
-      @error="imageLoaded('high', false)"
-      class="product-image__thumb"
-    >
+    <template v-if="!highQualityImageError || isOnline">
+      <img
+        v-show="showHighQuality"
+        v-lazy="image.src"
+        :alt="alt"
+        @load="highQualityImage = true"
+        @error="highQualityImageError = false"
+        class="product-image__thumb"
+        :src="image.src"
+      >
+    </template>
   </div>
 </template>
 
