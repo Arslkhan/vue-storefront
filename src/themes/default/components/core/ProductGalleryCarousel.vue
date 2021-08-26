@@ -150,25 +150,25 @@ export default {
       currentColor: 0,
       currentPage: 0,
       hideImageAtIndex: null,
-       setting: {
-        "lazyLoad" : 'onDemand',
-        "responsive": [
+      setting: {
+        'lazyLoad': 'onDemand',
+        'responsive': [
           {
-            "breakpoint": 1199,
-            "settings": {
-              "slidesToShow": 4,
+            'breakpoint': 1199,
+            'settings': {
+              'slidesToShow': 4
             }
           },
           {
-            "breakpoint": 991,
-            "settings": {
-              "slidesToShow": 3,
+            'breakpoint': 991,
+            'settings': {
+              'slidesToShow': 3
             }
           },
-           {
-            "breakpoint": 767,
-            "settings": {
-              "slidesToShow": 4,
+          {
+            'breakpoint': 767,
+            'settings': {
+              ' "slidesToShow"': 4
             }
           }
         ]
@@ -298,15 +298,34 @@ export default {
 <style lang="scss">
 .mainGallery-Carousel{
   .slick-next{
+    right: -10px;
+    @media screen and (max-width:374px) {
+      right: -16px;
+    }
     &:before{
-      content:none;
+      color: transparent;
+      background: url('/assets/right-arrow-svg.svg');
     }
   }
   .slick-prev{
     &:before{
-      content:none;
+      color: transparent;
+      background: url('/assets/left-arrow-svg.svg');
+    }
+    @media screen and (max-width:480px) {
+      left:-15px;
     }
   }
+  //   .slick-next{
+  //     &:before{
+  //       content:none;
+  //     }
+  //   }
+  //   .slick-prev{
+  //     &:before{
+  //       content:none;
+  //     }
+  //   }
 }
 
 .thumbnail-arrows{
