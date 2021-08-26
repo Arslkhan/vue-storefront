@@ -3,7 +3,9 @@
     <p class="head">
       Contact us
     </p>
-    <p><img src="/assets/contactbanner.png" alt="facebook"></p>
+    <p class="contactUsP">
+      <img src="/assets/contactbanner.png" alt="contact-us">
+    </p>
     <div class="main-fields">
       <p class="button-under-text" style="font-size: 28px; text-align: center;">
         RETURNS? PLEASE REFER TO OUR <a style="font-weight: 800; text-decoration: underline;" href="/i/returns-policy">RETURNS
@@ -43,7 +45,6 @@
             <base-input
               type="text"
               name="last-name"
-              autocomplete="last-name"
               v-model="lastName"
               @blur="$v.lastName.$touch()"
               :placeholder="$t('Last name')"
@@ -126,7 +127,7 @@
       <div class="container">
         <div class="row">
           <div class="col-xs-12 confirmation">
-            <h3 class="py15 px10 my40 weight-600 flex cl-white bg-cl-puerto-rico brdr-rad"><i class="material-icons">check_circle_outline</i>
+            <h3 class="py15 px10 my40 weight-600 flex cl-white color-success brdr-rad"><i class="material-icons">check_circle_outline</i>
               {{ $t('Your message has successfully been sent.') }}</h3>
             <!-- <router-link :to="localizedRoute('/')" :title="$t('Home')" class="no-underline inline-flex">{{ $t('Home') }}</router-link> -->
           </div>
@@ -296,6 +297,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.color-success {
+  background-color: #c0c0c0;
+}
+
 fieldset {
   border: none;
   width: 100%;
@@ -387,6 +392,7 @@ a.underline:after, a:not(.no-underline):hover:after {
     font-family: "Brandon_bld";
     position: absolute;
     left: 43%;
+    z-index: 9999;
     @media (max-width: 500px) {
       left: 35%;
     }
@@ -411,10 +417,19 @@ a.underline:after, a:not(.no-underline):hover:after {
     }
   }
 
-  p {
+  .contactUsP {
     img {
       width: 100%;
+      height: auto;
+      position: absolute;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
     }
+    padding-bottom: 40.5%;
+    position: relative;
   }
 
   .message {
