@@ -330,7 +330,7 @@ export default {
     }
   }
   .slick-next{
-    right: -10px;
+    right: -22px;
     @media screen and (max-width:374px) {
       right: -16px;
     }
