@@ -93,6 +93,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+   .product-image--height{
+     padding-bottom: 100% !important;
+     .product-image__thumb{
+       height:100%;
+       width:100%
+     }
+   }
   .product-image{
     position: relative;
     width: 100%;
