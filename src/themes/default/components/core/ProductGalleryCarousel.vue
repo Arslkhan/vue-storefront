@@ -296,9 +296,6 @@ export default {
 </style>
 
 <style lang="scss">
-.mainGallery-Carousel .slick-next {
-  right: -22px;
-}
 .mainGallery-Carousel{
   .slick-next{
     right: -10px;
