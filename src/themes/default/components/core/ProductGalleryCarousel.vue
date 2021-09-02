@@ -298,7 +298,7 @@ export default {
 <style lang="scss">
 .mainGallery-Carousel{
   .slick-next{
-    right: -10px;
+    right: -22px;
     @media screen and (max-width:374px) {
       right: -16px;
     }
@@ -349,7 +349,7 @@ export default {
     }
   }
   .slick-next{
-    right: -22px;
+    right: -10px;
     @media screen and (max-width:374px) {
       right: -16px;
     }

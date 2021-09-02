@@ -52,7 +52,7 @@
       <product v-for="product in productsInCart" :key="product.server_item_id || product.id" :product="product" />
     </ul>
     <div v-if="productsInCart.length" class="summary px40 cl-accent serif">
-      <h3 class="m0 pt40 mb30 weight-400 summary-heading">
+      <h3 class="m0 pt40 mb10 weight-400 summary-heading">
         {{ $t('Shopping summary') }}
       </h3>
       <div v-for="(segment, index) in totals" :key="index" class="row py20" v-if="segment.code !== 'grand_total' && segment.code !== 'shipping' && segment.code !== 'tax'">
