@@ -42,7 +42,7 @@
             >
               Contact us
             </router-link>
-            <a class="inline-flex weight-500 relative no-underline" href="http://w10.world/" target="_blank">
+            <a class="inline-flex weight-500 relative no-underline" href="http://w10.world/">
               <img src="/assets/W10 logo.png" alt="w10logo">
             </a>
           </div>
