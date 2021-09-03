@@ -258,20 +258,27 @@ export default {
 
   h4 {
     font-family: "Brandon_reg";
+    font-size: 24px;
   }
 
   p {
     font-family: "BrandonMedium";
     font-size: 20px;
     line-height: 28px;
+    color: #333333;
   }
-
+  strong {
+    font-size: 24px;
+    font-weight: 500;
+    font-family: 'Brandon_bld';
+  }
   .returns-head {
     color: #6e2138;
     font-family: "Brandon_bld";
     font-size: 32px;
     margin-bottom: 0;
     text-transform: uppercase;
+    font-weight: bold;
   }
 
   .group-p p {
