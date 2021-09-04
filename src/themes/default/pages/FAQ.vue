@@ -89,13 +89,13 @@
         <span>4.  Will there be a chemical reaction when storing acidic tea/coffee in the stainless steel products?</span>
       </button>
       <div class="panel">
-        <p>As the acidic contents in tea and coffee is low, the food-grade Stainless Steel is safe to store them for hours. However, we would recommend to first rinse the umbler/mug with water (best with hot water) to remove residues that may pick up the washing liquid during cleaning.</p>
+        <p>As the acidic contents in tea and coffee is low, the food-grade Stainless Steel is safe to store them for hours. However, we would recommend to first rinse the tumbler/mug with water (best with hot water) to remove residues that may pick up the washing liquid during cleaning.</p>
       </div>
       <button class="accordion">
         <span>5. What drinks should I not use in my cup?</span>
       </button>
       <div class="panel">
-        <p>See individual cup/bottle instructions but stainless steel products are not suitable for use with carbonated drinks, dry ice, water soluble vitamins, dairy products, fruit juice, and drinks /soups with a high salt content.</p>
+        <p>See individual cup/bottle instructions but stainless steel products are not suitable for flammable, corrosive or chemical substances, carbonated drinks, dry ice, water soluble vitamins, fruit juice, and drinks /soups with a high salt content. Do not leave residual liquids in your cup for prolonged periods. Dairy products are acidic </p>
       </div>
       <button class="accordion">
         <span>6. Is my Cup dishwasher safe ?</span>
@@ -243,7 +243,7 @@ export default {
     font-family: 'BrandonMedium';
     color: #000000;
     font-weight: 500;
-    line-height: 28.6px;
+    line-height: 36.6px;
     font-size: 20px;
     margin: 0;
   }

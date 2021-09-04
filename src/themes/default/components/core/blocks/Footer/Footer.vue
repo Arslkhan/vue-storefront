@@ -304,13 +304,14 @@ $color-secondary: color(secondary);
     font-family: 'BrandonMedium';
     font-size: 20px;
     font-weight: 500;
+    letter-spacing: 2px;
   }
 }
 
 .accepted-cards {
   display: flex;
   justify-content: center;
-  padding-top: 20px;
+  padding-top: 30px;
   span {
     img {
       width: 50px;
