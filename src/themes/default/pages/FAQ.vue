@@ -23,8 +23,7 @@
         <span>2. Can I use my own coffee cup in coffee shops?</span>
       </button>
       <div class="panel">
-        <p>Incentives for bringing your own cup are becoming more and more common. With up to 50p/ 50c discount each time you choose to re-use,</p>
-        <p>re-uses, you could have paid for your reusable cup!</p>
+        <p>Incentives for bringing your own cup are becoming more and more common. With up to 50p/50c discount each time you choose to re-use, means that with as few as twenty re-uses, you could have paid for your reusable cup!</p>
         <p>Here’s the current discount table of the main coffee chains:</p>
         <table>
           <tr>
@@ -40,7 +39,7 @@
           <tr>
             <td>Café Nero</td>
             <td>Yes</td>
-            <td>2 stamps per coffee on our loyalty</td>
+            <td>2 stamps per coffee on our loyalty card</td>
           </tr>
           <tr>
             <td>Costa Coffee</td>
@@ -76,13 +75,13 @@
       <div class="panel">
         <p>We would recommend the following cleaning method to aid in removing the tea/coffee stains:</p>
         <p>Materials:</p>
-        <p>• Baking Soda, 1 tablespoon</p>
-        <p>• Hot Boiling Water</p>
+        <p>1. Baking Soda, 1 tablespoon</p>
+        <p>2. Hot Boiling Water</p>
         <p>Instructions:</p>
-        <p>1. Place baking soda into the tumbler/mug and fill it with hot boiling water.</p>
-        <p>2. Place the silicone ring and silicone gasket into the tumbler/mug.</p>
-        <p>3. Close it with the lid and set it aside to soak for 1 hour.</p>
-        <p>4. Discard water. Rinse and wash tumbler thoroughly with a soft sponge and gentle dish-washing soap.</p>
+        <p>• Place baking soda into the Tumbler/mug and fill it with hot boiling water.</p>
+        <p>• Place the silicone ring and silicone gasket into the Tumbler/mug.</p>
+        <p>• Close it with the lid and set it aside to soak for 1 hour.</p>
+        <p>• Discard water. Rinse and wash Tumbler thoroughly with a soft sponge and gentle dish-washing soap.</p>
       </div>
 
       <button class="accordion">
@@ -95,7 +94,7 @@
         <span>5. What drinks should I not use in my cup?</span>
       </button>
       <div class="panel">
-        <p>See individual cup/bottle instructions but stainless steel products are not suitable for flammable, corrosive or chemical substances, carbonated drinks, dry ice, water soluble vitamins, fruit juice, and drinks /soups with a high salt content. Do not leave residual liquids in your cup for prolonged periods. Dairy products are acidic </p>
+        <p>See individual cup/bottle instructions but stainless steel products are not suitable for for flammable, corrosive or chemical substances, carbonated drinks, dry ice, water soluble vitamins, fruit juice, and drinks /soups with a high salt content. Do not leave residual liquids in your cup for prolonged periods. Dairy products are acidic. </p>
       </div>
       <button class="accordion">
         <span>6. Is my Cup dishwasher safe ?</span>
@@ -107,7 +106,7 @@
         </p>
         <p>it is always better to hand wash your cup. </p>
         <p>The body of the cup, if it states dishwasher safe on the instructions, maybe placed on the top rack only.</p>
-        <p>Do not put your lid through the dishwasher, as this could degrade the materials, and could cause the seal to break </p>
+        <p>Do not put your lid through the dishwasher, as this could degrade the materials, and could cause the seal to break. </p>
       </div>
       <button class="accordion">
         <span>7. Is my cup recyclable?</span>
