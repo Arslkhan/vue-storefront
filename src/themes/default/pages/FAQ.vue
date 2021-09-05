@@ -271,13 +271,16 @@ table {
             font-family: 'BrandonMedium';
             padding: 0 0 0 34px;
             font-size: 17px;
+            @media (max-width: 767px) {
+              adding: 0 0 0 10px;
+            }
         }
         a {
             color: #404042;
             font-size: 17px;
             text-decoration: underline;
             font-family: 'BrandonMedium';
-            padding: 0 0 0 10px;
+            //padding: 0 0 0 10px;
             cursor: pointer;
         }
     }

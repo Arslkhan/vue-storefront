@@ -362,7 +362,7 @@ export default {
     margin-bottom: 0;
 
     span {
-      font-size: 22px;
+      font-size: 20px;
       font-family: "BrandonMedium";
       font-weight: 500 !important;
       line-height: 28.6px;
