@@ -23,7 +23,7 @@
         <span>2. Can I use my own coffee cup in coffee shops?</span>
       </button>
       <div class="panel">
-        <p>Incentives for bringing your own cup are becoming more and more common. With up to 50p/50c discount each time you choose to re-use, means that with as few as twenty re-uses, you could have paid for your reusable cup!</p>
+        <p>Incentives for bringing your own cup are becoming more and more common. With up to 50p discount each time you choose to re-use, means that with as few as twenty re-uses, you could have paid for your reusable cup!</p>
         <p>Here’s the current discount table of the main coffee chains:</p>
         <table>
           <tr>
