@@ -313,7 +313,7 @@ export default {
   }
   .main-fields {
     padding-top: 58%;
-    // @media (max-width: 350px) { 
+    // @media (max-width: 350px) {
     //   padding-top: 182px;
     // }
   }
@@ -431,14 +431,14 @@ a.underline:after, a:not(.no-underline):hover:after {
     color: #6e2138;
     margin: 0;
     padding-top: 8px;
-    // font-size: 47px;
-    font-size: clamp(36px, 6.2vw, 72px);
+     font-size: 44px;
+    //font-size: clamp(36px, 6.2vw, 72px);
     font-family: "Brandon_bld";
     position: absolute;
     left: 43%;
     z-index: 1;
     @media (max-width: 500px) {
-      left: 35%;
+      left: 28%;
     }
   }
 
