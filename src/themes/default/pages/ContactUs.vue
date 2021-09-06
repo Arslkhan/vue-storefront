@@ -4,7 +4,8 @@
       Contact us
     </p>
     <p class="contactUsP">
-      <img src="/assets/contactbanner.png" alt="contact-us">
+      <img src="/assets/contactbanner.png" alt="contact-us" class="Desktop-banner">
+      <img src="/assets/contact-mobile.png" alt="contact-us" class="mobile-banner">
     </p>
     <div class="main-fields">
       <p class="button-under-text" style="font-size: 28px; text-align: center;">
@@ -297,6 +298,49 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@media (min-width: 768px)  {
+  .mobile-banner {
+    display: none;
+  }
+  .head {
+    left: 45% !important;
+  }
+}
+@media (max-width: 767px) {
+  .mobile-banner {
+    display: block;
+    top: 123% !important;
+  }
+  .main-fields {
+    padding-top: 58%;
+    // @media (max-width: 350px) { 
+    //   padding-top: 182px;
+    // }
+  }
+  .button-under-text {
+    font-size: 20px !important;
+    font-family: 'BrandonMedium' !important;
+    padding: 0 20px;
+    line-height: 1.8;
+    a {
+      font-size: 20px !important;
+      font-family: 'BrandonMedium' !important;
+    }
+  }
+  .message {
+    margin-top: -13px;
+    strong {
+      font-size: 20px !important;
+      font-family: 'BrandonMedium' !important;
+      line-height: 0;
+      padding: 0 20px;
+
+    }
+  }
+  .Desktop-banner {
+    display: none;
+  }
+}
 .color-success {
   background-color: #c0c0c0;
 }
@@ -392,7 +436,7 @@ a.underline:after, a:not(.no-underline):hover:after {
     font-family: "Brandon_bld";
     position: absolute;
     left: 43%;
-    z-index: 9999;
+    z-index: 1;
     @media (max-width: 500px) {
       left: 35%;
     }

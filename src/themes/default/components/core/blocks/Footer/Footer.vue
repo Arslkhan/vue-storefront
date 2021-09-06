@@ -64,7 +64,7 @@
             </div>
           </div>
           <div class="address-bar col-md-12">
-            <span>TIDEWAY YARD UNIT T04, 125 MORTLAKE HIGH STREET, LONDON, SW14 8SN</span>
+            <span>TIDEWAY YARD UNIT T04,&nbsp;125 MORTLAKE HIGH STREET,&nbsp;&nbsp;LONDON,&nbsp;SW14 8SN</span>
           </div>
           <div class="accepted-cards col-md-12">
             <span><img src="/assets/fonts/amex.svg" alt="amex"></span>
