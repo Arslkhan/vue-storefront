@@ -302,6 +302,9 @@ export default {
   .mobile-banner {
     display: none;
   }
+  .head {
+    left: 45% !important;
+  }
 }
 @media (max-width: 767px) {
   .mobile-banner {
@@ -325,10 +328,13 @@ export default {
     }
   }
   .message {
-    display: none;
+    margin-top: -13px;
     strong {
-      // font-size: 20px !important;
-      // font-family: 'BrandonMedium' !important;
+      font-size: 20px !important;
+      font-family: 'BrandonMedium' !important;
+      line-height: 0;
+      padding: 0 20px;
+
     }
   }
   .Desktop-banner {
