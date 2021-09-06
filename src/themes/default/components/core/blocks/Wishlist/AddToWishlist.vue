@@ -3,10 +3,10 @@
     <slot>
       <i class="pr5 material-icons">{{ favoriteIcon }}</i>
       <template v-if="!isOnWishlist">
-        {{ $t('Add to favorite') }}
+        {{ $t(' ') }}
       </template>
       <template v-else>
-        {{ $t('Remove') }}
+        {{ $t(' ') }}
       </template>
     </slot>
   </button>
