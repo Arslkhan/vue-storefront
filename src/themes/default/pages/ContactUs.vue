@@ -472,7 +472,7 @@ a.underline:after, a:not(.no-underline):hover:after {
       top: 50%;
       left: 50%;
     }
-    padding-bottom: 40.5%;
+    padding-bottom: 30.5%;
     position: relative;
   }
 
