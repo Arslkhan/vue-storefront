@@ -1,5 +1,5 @@
 <template>
-  <button @click="isOnWishlist ? removeProductFromWhishList(product) : addProductToWhishlist(product)" class="p0 inline-flex middle-xs bg-cl-transparent brdr-none action h5 pointer cl-secondary" type="button" data-testid="addToWishlist">
+  <button @click="isOnWishlist ? removeProductFromWhishList(product) : addProductToWhishlist(product)" style="margin-left: 10px;" class="p0 inline-flex middle-xs bg-cl-transparent brdr-none action h5 pointer cl-secondary" type="button" data-testid="addToWishlist">
     <slot>
       <i class="pr5 material-icons">{{ favoriteIcon }}</i>
       <template v-if="!isOnWishlist">

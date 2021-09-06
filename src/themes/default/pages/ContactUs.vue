@@ -1,7 +1,7 @@
 <template>
   <div class="contact-main">
     <p class="head">
-      Contact us
+      Contact Us
     </p>
     <p class="contactUsP">
       <img src="/assets/contact-us-large-screen.jpg" alt="contact-us" class="Desktop-banner">
