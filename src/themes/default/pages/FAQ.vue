@@ -94,7 +94,7 @@
         <span>5. What drinks should I not use in my cup?</span>
       </button>
       <div class="panel">
-        <p>See individual cup/bottle instructions but stainless steel products are not suitable for for flammable, corrosive or chemical substances, carbonated drinks, dry ice, water soluble vitamins, fruit juice, and drinks /soups with a high salt content. Do not leave residual liquids in your cup for prolonged periods. Dairy products are acidic. </p>
+        <p>See individual cup/bottle instructions but stainless steel products are not suitable for flammable, corrosive or chemical substances, carbonated drinks, dry ice, water soluble vitamins, fruit juice, and drinks /soups with a high salt content. Do not leave residual liquids in your cup for prolonged periods. Dairy products are acidic. </p>
       </div>
       <button class="accordion">
         <span>6. Is my Cup dishwasher safe ?</span>
