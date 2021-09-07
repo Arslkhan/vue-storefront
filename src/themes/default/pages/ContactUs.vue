@@ -4,7 +4,7 @@
       Contact Us
     </p>
     <p class="contactUsP">
-      <img src="/assets/contact-us-large-screen.jpg" alt="contact-us" class="Desktop-banner">
+      <img src="/assets/contact-us-banner-image.jpg" alt="contact-us" class="Desktop-banner">
       <img src="/assets/contact-mobile.png" alt="contact-us" class="mobile-banner">
     </p>
     <div class="main-fields">
