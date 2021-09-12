@@ -1,7 +1,7 @@
 <template>
   <div class="contact-main">
     <p class="head">
-      Contact Us
+      Contact us
     </p>
     <p class="contactUsP">
       <img src="/assets/contact_us_image.jpg" alt="contact-us" class="Desktop-banner">
@@ -309,10 +309,10 @@ export default {
 @media (max-width: 767px) {
   .mobile-banner {
     display: block;
-    top: 123% !important;
+    top: 164% !important;
   }
   .main-fields {
-    padding-top: 58%;
+    padding-top: 65%;
     // @media (max-width: 350px) {
     //   padding-top: 182px;
     // }
