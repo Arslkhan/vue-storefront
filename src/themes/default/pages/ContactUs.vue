@@ -472,7 +472,7 @@ a.underline:after, a:not(.no-underline):hover:after {
       top: 50%;
       left: 50%;
     }
-    padding-bottom: 17%;
+    padding-bottom: 27%;
     position: relative;
     @media (max-width: 767px) {
       padding-bottom: 30.5%;
