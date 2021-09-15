@@ -238,44 +238,24 @@ export default {
         )
       }
     },
-    async sendEmail (letter, success, failure) {
-      try {
-        let contactEmail_URL = config.contactEmail
-        const response = await fetch(
-          `${contactEmail_URL}`,
-          {
-            method: 'post',
-            mode: 'cors',
-            headers: {
-              Accept: 'application/json, text/plain, */*',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(letter)
+    sendEmail (letter, success, failure) {
+      this.$store.dispatch('contactEmail/sendContactEmail', letter)
+        .then(res => {
+          if (res.ok) {
+            if (success) success(i18n.t('Email has successfully been sent'))
+          } else {
+            return res.json()
           }
-        );
-        const jsonRes = await response.json();
-        console.log('Contact us email response', jsonRes);
-      } catch (error) {
-        console.log(error);
-      }
-
-      // this.$store.dispatch('mailer/sendEmail', letter)
-      //   .then(res => {
-      //     if (res.ok) {
-      //       if (success) success(i18n.t('Email has successfully been sent'))
-      //     } else {
-      //       return res.json()
-      //     }
-      //   })
-      //   .then(errorResponse => {
-      //     if (errorResponse) {
-      //       const errorMessage = errorResponse.result
-      //       if (failure) failure(i18n.t(errorMessage))
-      //     }
-      //   })
-      //   .catch(() => {
-      //     if (failure) failure(i18n.t('Could not send an email. Please try again later.'))
-      //   })
+        })
+        .then(errorResponse => {
+          if (errorResponse) {
+            const errorMessage = errorResponse.result
+            if (failure) failure(i18n.t(errorMessage))
+          }
+        })
+        .catch(() => {
+          if (failure) failure(i18n.t('Could not send an email. Please try again later.'))
+        })
     },
     formBodyText ({ firstName, lastName, email, phone, subject, message }) {
       let html = '';
