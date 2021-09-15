@@ -12,6 +12,7 @@ const vinylModuleStore = {
   },
   actions: {
     async sendContactEmail ({}, systemData) {
+      console.log('sendContactEmail', systemData, contactEmail_URL)
       try {
         const response = await fetch(
           `${contactEmail_URL}`,
