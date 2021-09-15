@@ -44,7 +44,7 @@ const vinylModuleStore = {
 
 export const contactEmail: StorefrontModule = function ({ store}) {
   console.log('contactEmail Module Registered');
-  store.registerModule('contactEmail', vinylModuleStore);
+  store.registerModule('contact-email', vinylModuleStore);
   coreHooks.afterAppInit(async () => {
     console.log('App HAVE BEEN initialized');
   });
