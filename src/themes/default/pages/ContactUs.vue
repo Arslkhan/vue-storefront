@@ -240,12 +240,19 @@ export default {
       }
     },
     async sendEmail (letter, success, failure) {
-      const emailResponse = await axios.post('https://secure.w10.world/rest/default/V1/w10/contactus', letter,
+      let contactEmail_URL = config.contactEmail
+      const response = await fetch(
+        `${contactEmail_URL}`,
         {
+          method: 'post',
+          mode: 'cors',
           headers: {
-            'Content-type': 'application/json'
-          }
-        }).then(res => {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(letter)
+        }
+      ).then(res => {
         if (res.ok) {
           if (success) success(i18n.t('Email has successfully been sent'))
         } else {
