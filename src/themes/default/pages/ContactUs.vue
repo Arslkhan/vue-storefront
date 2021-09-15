@@ -240,7 +240,12 @@ export default {
       }
     },
     async sendEmail (letter, success, failure) {
-      const emailResponse = await axios.post('https://secure.w10.world/rest/default/V1/w10/contactus', letter).then(res => {
+      const emailResponse = await axios.post('https://secure.w10.world/rest/default/V1/w10/contactus', letter,
+        {
+          headers: {
+            'Content-type': 'application/json'
+          }
+        }).then(res => {
         if (res.ok) {
           if (success) success(i18n.t('Email has successfully been sent'))
         } else {
