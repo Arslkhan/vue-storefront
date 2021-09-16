@@ -238,15 +238,27 @@ export default {
         )
       }
     },
-    sendEmail (letter, success, failure) {
-      this.$store.dispatch('contact-email/sendContactEmail', letter)
-        .then(res => {
-          if (res.ok) {
-            if (success) success(i18n.t('Email has successfully been sent'))
-          } else {
-            return res.json()
-          }
-        })
+    async sendEmail (letter, success, failure) {
+      let orderDetail_URL = config.contactEmail
+      console.log('orderDetail_URL arsl', orderDetail_URL, letter)
+      const response = await fetch(
+        `${orderDetail_URL}`,
+        {
+          method: 'post',
+          mode: 'cors',
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(letter)
+        }
+      ).then(res => {
+        if (res.ok) {
+          if (success) success(i18n.t('Email has successfully been sent'))
+        } else {
+          return res.json()
+        }
+      })
         .then(errorResponse => {
           if (errorResponse) {
             const errorMessage = errorResponse.result
@@ -256,6 +268,7 @@ export default {
         .catch(() => {
           if (failure) failure(i18n.t('Could not send an email. Please try again later.'))
         })
+      console.log('response arsl', response)
     },
     formBodyText ({ firstName, lastName, email, phone, subject, message }) {
       let html = '';
