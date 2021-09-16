@@ -27,10 +27,10 @@ const vinylModuleStore = {
           }
         );
         console.log('response jsonRes', response)
-        const jsonRes = await response.json();
+        const jsonRes = await response
         console.log('sendContactEmail jsonRes', jsonRes)
-        if (jsonRes.code === 200) {
-          return jsonRes.result;
+        if (jsonRes.status === 200) {
+          return jsonRes;
         }
         console.log(jsonRes);
       } catch (error) {
