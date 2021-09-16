@@ -26,7 +26,9 @@ const vinylModuleStore = {
             body: JSON.stringify(systemData)
           }
         );
+        console.log('response jsonRes', response)
         const jsonRes = await response.json();
+        console.log('sendContactEmail jsonRes', jsonRes)
         if (jsonRes.code === 200) {
           return jsonRes.result;
         }
