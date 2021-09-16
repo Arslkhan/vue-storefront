@@ -268,7 +268,7 @@ export default {
         .catch(() => {
           if (failure) failure(i18n.t('Could not send an email. Please try again later.'))
         })
-      console.log('emailResponse', emailResponse)
+      console.log('response', response)
       // try {
       //   let contactEmail_URL = config.contactEmail
       //   const response = await fetch(
