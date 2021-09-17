@@ -4,7 +4,7 @@
       Contact us
     </p>
     <p class="contactUsP">
-      <img src="/assets/contactbanner.png" alt="contact-us" class="Desktop-banner">
+      <img src="/assets/contact_us_image.jpg" alt="contact-us" class="Desktop-banner">
       <img src="/assets/contact-mobile.png" alt="contact-us" class="mobile-banner">
     </p>
     <div class="main-fields">
@@ -309,11 +309,11 @@ export default {
 @media (max-width: 767px) {
   .mobile-banner {
     display: block;
-    top: 123% !important;
+    top: 164% !important;
   }
   .main-fields {
-    padding-top: 58%;
-    // @media (max-width: 350px) { 
+    padding-top: 65%;
+    // @media (max-width: 350px) {
     //   padding-top: 182px;
     // }
   }
@@ -431,14 +431,14 @@ a.underline:after, a:not(.no-underline):hover:after {
     color: #6e2138;
     margin: 0;
     padding-top: 8px;
-    // font-size: 47px;
-    font-size: clamp(36px, 6.2vw, 72px);
+     font-size: 44px;
+    //font-size: clamp(36px, 6.2vw, 72px);
     font-family: "Brandon_bld";
     position: absolute;
     left: 43%;
     z-index: 1;
     @media (max-width: 500px) {
-      left: 35%;
+      left: 28%;
     }
   }
 
@@ -472,8 +472,11 @@ a.underline:after, a:not(.no-underline):hover:after {
       top: 50%;
       left: 50%;
     }
-    padding-bottom: 40.5%;
+    padding-bottom: 27%;
     position: relative;
+    @media (max-width: 767px) {
+      padding-bottom: 30.5%;
+    }
   }
 
   .message {

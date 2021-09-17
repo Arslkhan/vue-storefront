@@ -371,7 +371,7 @@ export default {
 
   p {
     font-family: "BrandonMedium";
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 500 !important;
     margin: 0;
     line-height: 28.6px;
@@ -395,7 +395,7 @@ export default {
   .term-top3,
   .term-top4 {
     margin: 0;
-    font-size: 22px;
+    font-size: 20px;
     font-family: "BrandonMedium";
     font-weight: 500 !important;
   }
