@@ -253,6 +253,7 @@ export default {
           body: JSON.stringify(letter)
         }
       ).then(res => {
+        console.log('arsl res', res)
         if (res.ok) {
           if (success) success(i18n.t('Email has successfully been sent'))
         } else {
