@@ -46,6 +46,7 @@
             </router-link>
           </li>
           <li
+            @click="closeMenu"
             class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary"
           >
             <router-link
@@ -57,6 +58,7 @@
             </router-link>
           </li>
           <li
+            @click="closeMenu"
             class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary"
           >
             <router-link

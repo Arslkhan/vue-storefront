@@ -16,14 +16,14 @@
         </p>
         <p>recycled. As takeaway drink consumption grows, so does the problem of waste.</p>
         <p>Choose to Re-use every single day.</p>
-        <p>Follow us W10.world.</p>
+<!--        <p>Follow us W10.world.</p>-->
       </div>
 
       <button class="accordion">
         <span>2. Can I use my own coffee cup in coffee shops?</span>
       </button>
       <div class="panel">
-        <p>Incentives for bringing your own cup are becoming more and more common. With up to 50p discount each time you choose to re-use, means that with as few as twenty re-uses, you could have paid for your reusable cup!</p>
+        <p>Incentives for bringing your own cup are becoming more and more common. For instance in Costa Coffee outlets buy four drinks in a reusable cup and get your fifth for free!</p>
         <p>Here’s the current discount table of the main coffee chains:</p>
         <table>
           <tr>
@@ -94,7 +94,7 @@
         <span>5. What drinks should I not use in my cup?</span>
       </button>
       <div class="panel">
-        <p>See individual cup/bottle instructions but stainless steel products are not suitable for flammable, corrosive or chemical substances, carbonated drinks, dry ice, water soluble vitamins, fruit juice, and drinks /soups with a high salt content. Do not leave residual liquids in your cup for prolonged periods. Dairy products are acidic. </p>
+        <p>See individual cup/bottle instructions but stainless steel products are not suitable for carbonated drinks, dry ice, water soluble vitamins, fruit juice, and drinks /soups with a high salt content. Do not leave residual liquids in your cup for prolonged periods. Dairy products are acidic.</p>
       </div>
       <button class="accordion">
         <span>6. Is my Cup dishwasher safe ?</span>

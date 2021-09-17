@@ -87,7 +87,7 @@ export default {
       }
     },
     favoriteIcon () {
-      return this.isOnWishlist ? 'favorite' : 'favorite_border'
+      return this.isOnWishlist ? 'favourite' : 'favourite_border'
     },
     storeView () {
       return currentStoreView()
