@@ -167,6 +167,10 @@
           autocomplete="tel"
           :placeholder="$t('Phone Number')"
           v-model.trim="shippingDetails.phone"
+          :validations="[{
+            condition: !$v.shippingDetails.phone.required && $v.shippingDetails.phone.$error,
+            text: $t('Field is required')
+          }]"
         />
 
         <div class="hidden-xs col-sm-6 mb25" />
@@ -285,6 +289,10 @@ export default {
       city: {
         required,
         unicodeAlpha
+      },
+      phone: {
+        required,
+        minLength: minLength(0)
       }
     }
   }
