@@ -239,7 +239,7 @@ export default {
       }
     },
     sendEmail (letter, success, failure) {
-      this.$store.dispatch('mailer/sendContactEmail', letter)
+      this.$store.dispatch('mailer/sendEmail', letter)
         .then(res => {
           console.log('sendEmail res', res)
           if (res.ok) {
