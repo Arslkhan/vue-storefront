@@ -9,10 +9,10 @@ export const mailerStore: Module<any, any> = {
   namespaced: true,
   actions: {
     async sendEmail (context, letter: MailItem) {
-      // try {
-      //   const res = await fetch(processURLAddress(getApiEndpointUrl(config.mailer.endpoint, 'token')))
-      //   const resData = await res.json()
-        // if (resData.code === 200) {
+      try {
+        const res = await fetch(processURLAddress(getApiEndpointUrl(config.mailer.endpoint, 'token')))
+        const resData = await res.json()
+        if (resData.code === 200) {
           try {
             const res = await fetch(
               processURLAddress(config.mailer.endpoint.send),
@@ -23,55 +23,24 @@ export const mailerStore: Module<any, any> = {
                   Accept: 'application/json',
                   'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(letter)
-              }
-            )
-            return res
-          } catch (e) {
-            Logger.error(e, 'mailer')()
-            throw new Error(e)
-          }
-        // } else {
-        //   throw new Error(resData.code)
-        // }
-      // } catch (e) {
-      //   Logger.error(e, 'mailer')()
-      //   throw new Error(e)
-      // }
-    }
-    /*async sendContactEmail (context, letter: MailItem) {
-      // try {
-        // const res = await fetch(processURLAddress(getApiEndpointUrl(config.mailer.endpoint, 'contact')))
-        // const resData = await res.json()
-        // if (resData.code === 200) {
-          try {
-            const res = await fetch(
-              processURLAddress(config.mailer.endpoint.contact),
-              {
-                method: 'POST',
-                mode: 'cors',
-                headers: {
-                  Accept: 'application/json',
-                  'Content-Type': 'application/json'
-                },
                 body: JSON.stringify({
-                  ...letter
+                  ...letter,
+                  token: resData.result
                 })
               }
             )
-            console.log('emailDetails res', res)
             return res
           } catch (e) {
             Logger.error(e, 'mailer')()
             throw new Error(e)
           }
-        // } else {
-        //   throw new Error(resData.code)
-        // }
-      // } catch (e) {
-      //   Logger.error(e, 'mailer')()
-      //   throw new Error(e)
-      // }
-    }*/
+        } else {
+          throw new Error(resData.code)
+        }
+      } catch (e) {
+        Logger.error(e, 'mailer')()
+        throw new Error(e)
+      }
+    }
   }
 }
