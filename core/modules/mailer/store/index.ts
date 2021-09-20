@@ -43,10 +43,10 @@ export const mailerStore: Module<any, any> = {
       }
     },
     async sendContactEmail (context, letter: MailItem) {
-      try {
-        const res = await fetch(processURLAddress(getApiEndpointUrl(config.mailer.endpoint, 'contact')))
-        const resData = await res.json()
-        if (resData.code === 200) {
+      // try {
+        // const res = await fetch(processURLAddress(getApiEndpointUrl(config.mailer.endpoint, 'contact')))
+        // const resData = await res.json()
+        // if (resData.code === 200) {
           try {
             const res = await fetch(
               processURLAddress(config.mailer.endpoint.contact),
@@ -58,23 +58,23 @@ export const mailerStore: Module<any, any> = {
                   'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                  ...letter,
-                  token: resData.result
+                  ...letter
                 })
               }
             )
+            console.log('emailDetails res', res)
             return res
           } catch (e) {
             Logger.error(e, 'mailer')()
             throw new Error(e)
           }
-        } else {
-          throw new Error(resData.code)
-        }
-      } catch (e) {
-        Logger.error(e, 'mailer')()
-        throw new Error(e)
-      }
+        // } else {
+        //   throw new Error(resData.code)
+        // }
+      // } catch (e) {
+      //   Logger.error(e, 'mailer')()
+      //   throw new Error(e)
+      // }
     }
   }
 }
