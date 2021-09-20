@@ -9,6 +9,7 @@ export const mailerStore: Module<any, any> = {
   namespaced: true,
   actions: {
     async sendEmail (context, letter: MailItem) {
+      console.log('sendEmail test', context, letter)
       // try {
         // const res = await fetch(processURLAddress(getApiEndpointUrl(config.mailer.endpoint, 'token')))
         // const resData = await res.json()
