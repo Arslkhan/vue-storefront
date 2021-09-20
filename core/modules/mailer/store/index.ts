@@ -9,10 +9,10 @@ export const mailerStore: Module<any, any> = {
   namespaced: true,
   actions: {
     async sendEmail (context, letter: MailItem) {
-      try {
-        const res = await fetch(processURLAddress(getApiEndpointUrl(config.mailer.endpoint, 'token')))
-        const resData = await res.json()
-        if (resData.code === 200) {
+      // try {
+      //   const res = await fetch(processURLAddress(getApiEndpointUrl(config.mailer.endpoint, 'token')))
+      //   const resData = await res.json()
+        // if (resData.code === 200) {
           try {
             const res = await fetch(
               processURLAddress(config.mailer.endpoint.send),
@@ -23,10 +23,7 @@ export const mailerStore: Module<any, any> = {
                   Accept: 'application/json',
                   'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                  ...letter,
-                  token: resData.result
-                })
+                body: JSON.stringify(letter)
               }
             )
             return res
@@ -34,15 +31,15 @@ export const mailerStore: Module<any, any> = {
             Logger.error(e, 'mailer')()
             throw new Error(e)
           }
-        } else {
-          throw new Error(resData.code)
-        }
-      } catch (e) {
-        Logger.error(e, 'mailer')()
-        throw new Error(e)
-      }
-    },
-    async sendContactEmail (context, letter: MailItem) {
+        // } else {
+        //   throw new Error(resData.code)
+        // }
+      // } catch (e) {
+      //   Logger.error(e, 'mailer')()
+      //   throw new Error(e)
+      // }
+    }
+    /*async sendContactEmail (context, letter: MailItem) {
       // try {
         // const res = await fetch(processURLAddress(getApiEndpointUrl(config.mailer.endpoint, 'contact')))
         // const resData = await res.json()
@@ -75,6 +72,6 @@ export const mailerStore: Module<any, any> = {
       //   Logger.error(e, 'mailer')()
       //   throw new Error(e)
       // }
-    }
+    }*/
   }
 }
