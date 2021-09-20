@@ -231,7 +231,7 @@ export default {
       }
     },
     sendEmail (letter, success, failure) {
-      this.$store.dispatch('mailer/sendContactEmail', letter)
+      this.$store.dispatch('mailer/send-contact-email', letter)
         .then(res => {
           if (res.ok) {
             if (success) success(i18n.t('Email has successfully been sent'))
