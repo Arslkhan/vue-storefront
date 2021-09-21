@@ -75,13 +75,13 @@
       <div class="panel">
         <p>We would recommend the following cleaning method to aid in removing the tea/coffee stains:</p>
         <p>Materials:</p>
-        <p>1. Baking Soda, 1 tablespoon</p>
-        <p>2. Hot Boiling Water</p>
+        <p>• Baking Soda, 1 tablespoon</p>
+        <p>• Hot Boiling Water</p>
         <p>Instructions:</p>
-        <p>• Place baking soda into the Tumbler/mug and fill it with hot boiling water.</p>
-        <p>• Place the silicone ring and silicone gasket into the Tumbler/mug.</p>
-        <p>• Close it with the lid and set it aside to soak for 1 hour.</p>
-        <p>• Discard water. Rinse and wash Tumbler thoroughly with a soft sponge and gentle dish-washing soap.</p>
+        <p>1. Place baking soda into the tumbler/mug and fill it with hot boiling water.</p>
+        <p>2. Place the silicone ring and silicone gasket into the tumbler/mug.</p>
+        <p>3. Close it with the lid and set it aside to soak for 1 hour.</p>
+        <p>4. Discard water. Rinse and wash tumbler thoroughly with a soft sponge and gentle dish-washing soap.</p>
       </div>
 
       <button class="accordion">
