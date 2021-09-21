@@ -13,6 +13,7 @@ import { CmsModule } from '@vue-storefront/core/modules/cms'
 // import { GoogleTagManagerModule } from './google-tag-manager';
 // import { AmpRendererModule } from './amp-renderer';
 import { PaymentBackendMethodsModule } from './payment-backend-methods'
+import { contactEmail } from './contact-email'
 import { PaymentCashOnDeliveryModule } from './payment-cash-on-delivery'
 import { NewsletterModule } from '@vue-storefront/core/modules/newsletter'
 import { InitialResourcesModule } from '@vue-storefront/core/modules/initial-resources'
@@ -41,6 +42,7 @@ export function registerClientModules () {
   registerModule(InitialResourcesModule)
   // registerModule(DeviceModule)
   registerModule(ExternalCheckout)
+  registerModule(contactEmail)
 }
 
 // Deprecated API, will be removed in 2.0

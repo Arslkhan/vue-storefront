@@ -148,6 +148,7 @@ import BaseInput from 'theme/components/core/blocks/Form/BaseInput.vue'
 import ButtonFull from 'theme/components/theme/ButtonFull'
 import { required, email, minLength, alpha } from 'vuelidate/lib/validators'
 import BaseTextarea from 'theme/components/core/blocks/Form/BaseTextarea'
+import fetch from "isomorphic-fetch";
 
 export default {
   data () {
@@ -214,13 +215,20 @@ export default {
       let phone = this.phone
       let message = this.message
       let formBodyText = this.formBodyText({ firstName, lastName, email, phone, subject: this.contactFormSubject, message })
+      // let data = {
+      //   sourceAddress: this.sourceAddress,
+      //   replyAddress: email,
+      //   targetAddress: this.contactFormEmailAddress,
+      //   emailText: formBodyText,
+      //   confirmation: true,
+      //   subject: this.contactFormSubject
+      // };
       let data = {
-        sourceAddress: this.sourceAddress,
-        replyAddress: email,
-        targetAddress: this.contactFormEmailAddress,
-        emailText: formBodyText,
-        confirmation: true,
-        subject: this.contactFormSubject
+        name: firstName,
+        lastname: lastName,
+        email: email,
+        comment: message,
+        telephone: phone
       };
       if (!this.$v.$invalid) {
         this.sendEmail(
@@ -233,6 +241,7 @@ export default {
     sendEmail (letter, success, failure) {
       this.$store.dispatch('mailer/sendEmail', letter)
         .then(res => {
+          console.log('sendEmail res', res)
           if (res.ok) {
             if (success) success(i18n.t('Email has successfully been sent'))
           } else {
