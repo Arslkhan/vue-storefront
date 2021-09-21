@@ -203,7 +203,7 @@ export default {
       return config.mailer.targetAddress
     },
     contactFormSubject () {
-      return 'General Inquiries'
+      return 'General Enquiries - Costa Store'
     }
   },
   methods: {
