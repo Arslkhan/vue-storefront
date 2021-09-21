@@ -165,7 +165,7 @@
           type="text"
           name="phone-number"
           autocomplete="tel"
-          :placeholder="$t('Phone Number')"
+          :placeholder="$t('Mobile Number *')"
           v-model.trim="shippingDetails.phone"
           :validations="[{
             condition: !$v.shippingDetails.phone.required && $v.shippingDetails.phone.$error,
