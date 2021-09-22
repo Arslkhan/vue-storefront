@@ -73,7 +73,14 @@
           }
         ]"
       />
-
+      <base-checkbox
+        class="col-xs-12 col-md-12 mb10"
+        id="marketing"
+        v-model="marketingPermissionData"
+        @click="marketingPermissionUpdate"
+      >
+        Marketing Permission
+      </base-checkbox>
       <!-- Change password (edit mode) -->
       <base-checkbox
         class="col-xs-12 mb15"
@@ -361,6 +368,8 @@ import BaseSelect from 'theme/components/core/blocks/Form/BaseSelect'
 import BaseInput from 'theme/components/core/blocks/Form/BaseInput'
 import ButtonFull from 'theme/components/theme/ButtonFull'
 import Tooltip from 'theme/components/core/Tooltip'
+import fetch from "isomorphic-fetch";
+import config from 'config';
 
 export default {
   components: {
@@ -371,6 +380,28 @@ export default {
     Tooltip
   },
   mixins: [MyProfile],
+  data () {
+    return {
+      marketingPermissionData: false
+    }
+  },
+  mounted () {
+    console.log('Mounted', this.currentUser)
+    console.log('Mounted', this.currentUser.custom_attributes)
+    const marketing_permission_value = this.currentUser.custom_attributes.filter(customAttributes => {
+      return customAttributes.attribute_code === 'marketing_permission'
+    })
+    console.log('marketing_permission_value ', marketing_permission_value)
+    if (marketing_permission_value.length > 0) {
+      console.log('marketing_permission_value 11', marketing_permission_value?.[0].value)
+      let valAttr = parseInt(marketing_permission_value?.[0].value)
+      if (valAttr === 0) {
+        this.marketingPermissionData = false
+      } else {
+        this.marketingPermissionData = true
+      }
+    }
+  },
   computed: {
     countryOptions () {
       return this.countries.map((item) => {
@@ -382,6 +413,40 @@ export default {
     }
   },
   methods: {
+    async marketingPermissionUpdate () {
+      this.marketingPermissionData = !this.marketingPermissionData
+      console.log('marketingPermissionUpdate qq', typeof this.marketingPermissionData, this.marketingPermissionData)
+      if (this.marketingPermissionData === true) {
+        this.marketingPermissionData = 1;
+      } else {
+        this.marketingPermissionData = 0;
+      }
+      console.log('before send marketingPermissionUpdate qq', this.marketingPermissionData)
+      let sendObj = { allow: this.marketingPermissionData, customerId: this.currentUser.id }
+      console.log('sendObj sendObj', sendObj)
+      try {
+        let marketing_URL = config.updateMarketingDataUrl
+        const response = await fetch(
+          `${marketing_URL}`,
+          {
+            method: 'post',
+            mode: 'cors',
+            headers: {
+              Accept: 'application/json, text/plain, */*',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(sendObj)
+          }
+        );
+        const jsonRes = await response.json();
+        console.log('jsonResjsonResjsonRes', jsonRes);
+        if (jsonRes && jsonRes.code === 200) {
+          // this.marketingPermissionData = !this.marketingPermissionData
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    },
     checkValidation () {
       if (this.changePassword && this.addCompany) {
         return this.$v.$invalid

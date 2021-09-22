@@ -10,7 +10,8 @@ export const Register = {
       lastName: '',
       password: '',
       rPassword: '',
-      conditions: false
+      conditions: false,
+      marketingPermission: true
     }
   },
   methods: {
@@ -23,9 +24,14 @@ export const Register = {
       this.$bus.$emit('modal-hide', 'modal-signup')
     },
     callRegister () {
+      if (this.marketingPermission) {
+        this.marketingPermission = 1;
+      } else {
+        this.marketingPermission = 0;
+      }
       // TODO Move to theme
       this.$bus.$emit('notification-progress-start', i18n.t('Registering the account ...'))
-      this.$store.dispatch('user/register', { email: this.email, password: this.password, firstname: this.firstName, lastname: this.lastName }).then((result) => {
+      this.$store.dispatch('user/register', { email: this.email, password: this.password, firstname: this.firstName, lastname: this.lastName, customAttributes: [{attributeCode: "marketing_permission", value: this.marketingPermission}] }).then((result) => {
         Logger.debug(result, 'user')()
         // TODO Move to theme
         this.$bus.$emit('notification-progress-stop')
