@@ -118,6 +118,13 @@
         />
         <base-checkbox
           class="mb10"
+          id="marketing"
+          v-model="marketingPermission"
+        >
+          Marketing Permission
+        </base-checkbox>
+        <base-checkbox
+          class="mb10"
           id="terms"
           v-model="conditions"
           @blur="$v.conditions.$reset()"
@@ -127,7 +134,7 @@
             text: $t('You must accept the terms and conditions.')
           }]"
         >
-          {{ $t('I accept terms and conditions') }} *
+          I accept your <a href="/i/terms-and-conditions" target="_blank">terms and conditions</a>, <a href="/i/returns" target="_blank">returns</a> and <a href="/i/privacy-policy" target="_blank">privacy policy</a>
         </base-checkbox>
         <button-full :disabled="$v.$invalid" class="mb20" type="submit">
           {{ $t('Register an account') }}
