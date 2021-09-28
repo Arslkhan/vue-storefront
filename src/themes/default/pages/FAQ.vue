@@ -24,49 +24,49 @@
       </button>
       <div class="panel">
         <p>Incentives for bringing your own cup are becoming more and more common. For instance in Costa Coffee outlets buy four drinks in a reusable cup and get your fifth for free!</p>
-        <p>Here’s the current discount table of the main coffee chains:</p>
-        <table>
-          <tr>
-            <th>Chain</th>
-            <th>Reuse</th>
-            <th>Discount</th>
-          </tr>
-          <tr>
-            <td>Pret a Manger</td>
-            <td>Yes</td>
-            <td>£0.50p</td>
-          </tr>
-          <tr>
-            <td>Café Nero</td>
-            <td>Yes</td>
-            <td>2 stamps per coffee on our loyalty card</td>
-          </tr>
-          <tr>
-            <td>Costa Coffee</td>
-            <td>Yes</td>
-            <td>£0.25p (Excludes some franchises)</td>
-          </tr>
-          <tr>
-            <td>Starbucks</td>
-            <td>Yes</td>
-            <td>£0.25p</td>
-          </tr>
-          <tr>
-            <td>Roadchef “Fresh Food Cafe”</td>
-            <td>Yes</td>
-            <td>£0.25p</td>
-          </tr>
-          <tr>
-            <td>Greggs</td>
-            <td>Yes</td>
-            <td>£0.25p</td>
-          </tr>
-          <tr>
-            <td>Benugo</td>
-            <td>Yes</td>
-            <td>£0.25p</td>
-          </tr>
-        </table>
+<!--        <p>Here’s the current discount table of the main coffee chains:</p>-->
+<!--        <table>-->
+<!--          <tr>-->
+<!--            <th>Chain</th>-->
+<!--            <th>Reuse</th>-->
+<!--            <th>Discount</th>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td>Pret a Manger</td>-->
+<!--            <td>Yes</td>-->
+<!--            <td>£0.50p</td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td>Café Nero</td>-->
+<!--            <td>Yes</td>-->
+<!--            <td>2 stamps per coffee on our loyalty card</td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td>Costa Coffee</td>-->
+<!--            <td>Yes</td>-->
+<!--            <td>£0.25p (Excludes some franchises)</td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td>Starbucks</td>-->
+<!--            <td>Yes</td>-->
+<!--            <td>£0.25p</td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td>Roadchef “Fresh Food Cafe”</td>-->
+<!--            <td>Yes</td>-->
+<!--            <td>£0.25p</td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td>Greggs</td>-->
+<!--            <td>Yes</td>-->
+<!--            <td>£0.25p</td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td>Benugo</td>-->
+<!--            <td>Yes</td>-->
+<!--            <td>£0.25p</td>-->
+<!--          </tr>-->
+<!--        </table>-->
       </div>
 
       <button class="accordion">
