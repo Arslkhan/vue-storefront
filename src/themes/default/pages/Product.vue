@@ -451,25 +451,41 @@ export default {
       this.quantityError = error
     }
   },
-  metaInfo () {
-    const storeView = currentStoreView()
+  metaInfo() {
     return {
-      /* link: [
-        { rel: 'amphtml',
-          href: this.$router.resolve(localizedRoute({
-            name: this.getCurrentProduct.type_id + '-product-amp',
-            params: {
-              parentSku: this.getCurrentProduct.parentSku ? this.getCurrentProduct.parentSku : this.getCurrentProduct.sku,
-              slug: this.getCurrentProduct.slug,
-              childSku: this.getCurrentProduct.sku
-            }
-          }, storeView.storeCode)).href
-        }
-      ], */
-      title: htmlDecode(this.getCurrentProduct.meta_title || this.getCurrentProduct.name),
-      meta: this.getCurrentProduct.meta_description ? [{ vmid: 'description', name: 'description', content: htmlDecode(this.getCurrentProduct.meta_description) }] : []
+      title: htmlDecode(this.getCurrentProduct.meta_title || this.getCurrentProduct.name) + ' - ',
+      meta: [
+        { vmid: 'description', name: 'description', content: this.getCurrentProduct.meta_description ? htmlDecode(this.getCurrentProduct.meta_description) : '' },
+        { property: 'og:title', content: htmlDecode(this.getCurrentProduct.meta_title || this.getCurrentProduct.name) + ' - Cups, bottles and reusable drinkware accessories' },
+        { property: 'og:site_name', content: 'Costa Coffee Reusable Cup' },
+        { property: 'og:description', content: this.getCurrentProduct.meta_description ? htmlDecode(this.getCurrentProduct.meta_description) : '' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://costacoffee.w10.world/' + this.$route.path },
+        { property: 'og:image', content: 'https://costacoffee.w10.world/img/0/0/resize/catalog/product/' + this.getCurrentProduct.image },
+        { property: 'og:image:width', content: '800px' },
+        { property: 'og:image:height', content: '800px' }
+      ]
     }
   }
+  // metaInfo () {
+  //   const storeView = currentStoreView()
+  //   return {
+  //     /* link: [
+  //       { rel: 'amphtml',
+  //         href: this.$router.resolve(localizedRoute({
+  //           name: this.getCurrentProduct.type_id + '-product-amp',
+  //           params: {
+  //             parentSku: this.getCurrentProduct.parentSku ? this.getCurrentProduct.parentSku : this.getCurrentProduct.sku,
+  //             slug: this.getCurrentProduct.slug,
+  //             childSku: this.getCurrentProduct.sku
+  //           }
+  //         }, storeView.storeCode)).href
+  //       }
+  //     ], */
+  //     title: htmlDecode(this.getCurrentProduct.meta_title || this.getCurrentProduct.name),
+  //     meta: this.getCurrentProduct.meta_description ? [{ vmid: 'description', name: 'description', content: htmlDecode(this.getCurrentProduct.meta_description) }] : []
+  //   }
+  // }
 }
 </script>
 
