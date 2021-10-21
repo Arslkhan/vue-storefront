@@ -207,6 +207,18 @@ export default {
       return 'General Enquiries - Costa Store'
     }
   },
+  metaInfo () {
+    return {
+      title: 'Contact us - ',
+      meta: [
+        {
+          vmid: 'description',
+          name: 'description',
+          content: 'Call or email us for any issues'
+        }
+      ]
+    };
+  },
   methods: {
     submitForm () {
       let firstName = this.firstName

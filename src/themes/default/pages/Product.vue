@@ -460,7 +460,7 @@ export default {
         { property: 'og:site_name', content: 'Costa Coffee Reusable Cup' },
         { property: 'og:description', content: this.getCurrentProduct.meta_description ? htmlDecode(this.getCurrentProduct.meta_description) : '' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://costacoffee.w10.world/' + this.$route.path },
+        { property: 'og:url', content: 'https://costacoffee.w10.world' + this.$route.path },
         { property: 'og:image', content: 'https://costacoffee.w10.world/img/0/0/resize/catalog/product/' + this.getCurrentProduct.image },
         { property: 'og:image:width', content: '800px' },
         { property: 'og:image:height', content: '800px' }
