@@ -328,6 +328,13 @@ export default {
   async mounted () {
     console.log('getCurrentProduct', this.getCurrentProduct)
     await this.$store.dispatch('recently-viewed/addItem', this.getCurrentProduct)
+    this.setProductPage()
+    // For GTAG
+    let primaryCategory = this.getProductPrimaryCategory()
+    this.$store.commit('google-gtag/SET_PRODUCT_CURRENT', {
+      product: this.getCurrentProduct,
+      category: primaryCategory?.[ 0 ]?.name
+    })
   },
   async asyncData ({ store, route, context }) {
     if (context) context.output.cacheTags.add('product')
@@ -352,9 +359,41 @@ export default {
           this.getQuantity()
         }
       }
+    },
+    currRoute (newVal, oldVal) {
+      if (newVal !== oldVal) {
+        // For GTAG
+        this.setProductPage()
+      }
     }
   },
   methods: {
+    setProductPage () {
+      let primaryCategory = this.getProductPrimaryCategory()
+      let productPayload = {
+        product: this.getCurrentProduct
+      }
+      if (primaryCategory && primaryCategory.length > 0 && primaryCategory[ 0 ]) {
+        productPayload[ 'category' ] = primaryCategory[ 0 ].name
+      }
+      this.$store.commit('google-gtag/SET_PRODUCT_CLICK', productPayload)
+    },
+    getProductPrimaryCategory () {
+      if (
+        this.getCurrentProduct &&
+        typeof this.getCurrentProduct !== 'undefined' &&
+        this.getCurrentProduct.category &&
+        typeof this.getCurrentProduct.category !== 'undefined' &&
+        this.getCurrentProduct.primary_category
+      ) {
+        if (typeof this.getCurrentProduct.category === 'object') {
+          return Object.keys(this.getCurrentProduct.category).filter(c => {
+            return parseInt(this.getCurrentProduct.category[ c ].category_id) === parseInt(this.getCurrentProduct.primary_category)
+          }).map(c => ({ ...this.getCurrentProduct.category[ c ] }))
+        }
+      }
+      return false
+    },
     showDetails (event) {
       this.detailsOpen = true
       event.target.classList.add('hidden')
@@ -412,25 +451,41 @@ export default {
       this.quantityError = error
     }
   },
-  metaInfo () {
-    const storeView = currentStoreView()
+  metaInfo() {
     return {
-      /* link: [
-        { rel: 'amphtml',
-          href: this.$router.resolve(localizedRoute({
-            name: this.getCurrentProduct.type_id + '-product-amp',
-            params: {
-              parentSku: this.getCurrentProduct.parentSku ? this.getCurrentProduct.parentSku : this.getCurrentProduct.sku,
-              slug: this.getCurrentProduct.slug,
-              childSku: this.getCurrentProduct.sku
-            }
-          }, storeView.storeCode)).href
-        }
-      ], */
-      title: htmlDecode(this.getCurrentProduct.meta_title || this.getCurrentProduct.name),
-      meta: this.getCurrentProduct.meta_description ? [{ vmid: 'description', name: 'description', content: htmlDecode(this.getCurrentProduct.meta_description) }] : []
+      title: htmlDecode(this.getCurrentProduct.meta_title || this.getCurrentProduct.name) + ' - ',
+      meta: [
+        { vmid: 'description', name: 'description', content: this.getCurrentProduct.meta_description ? htmlDecode(this.getCurrentProduct.meta_description) : '' },
+        { property: 'og:title', content: htmlDecode(this.getCurrentProduct.meta_title || this.getCurrentProduct.name) + ' - Cups, bottles and reusable drinkware accessories' },
+        { property: 'og:site_name', content: 'Costa Coffee Reusable Cup' },
+        { property: 'og:description', content: this.getCurrentProduct.meta_description ? htmlDecode(this.getCurrentProduct.meta_description) : '' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://costacoffee.w10.world' + this.$route.path },
+        { property: 'og:image', content: 'https://costacoffee.w10.world/img/0/0/resize/catalog/product/' + this.getCurrentProduct.image },
+        { property: 'og:image:width', content: '800px' },
+        { property: 'og:image:height', content: '800px' }
+      ]
     }
   }
+  // metaInfo () {
+  //   const storeView = currentStoreView()
+  //   return {
+  //     /* link: [
+  //       { rel: 'amphtml',
+  //         href: this.$router.resolve(localizedRoute({
+  //           name: this.getCurrentProduct.type_id + '-product-amp',
+  //           params: {
+  //             parentSku: this.getCurrentProduct.parentSku ? this.getCurrentProduct.parentSku : this.getCurrentProduct.sku,
+  //             slug: this.getCurrentProduct.slug,
+  //             childSku: this.getCurrentProduct.sku
+  //           }
+  //         }, storeView.storeCode)).href
+  //       }
+  //     ], */
+  //     title: htmlDecode(this.getCurrentProduct.meta_title || this.getCurrentProduct.name),
+  //     meta: this.getCurrentProduct.meta_description ? [{ vmid: 'description', name: 'description', content: htmlDecode(this.getCurrentProduct.meta_description) }] : []
+  //   }
+  // }
 }
 </script>
 

@@ -9,6 +9,7 @@ import { adjustMultistoreApiUrl } from '@vue-storefront/core/lib/multistore'
 import { coreHooksExecutors } from '@vue-storefront/core/hooks';
 import getApiEndpointUrl from '@vue-storefront/core/helpers/getApiEndpointUrl';
 import omit from 'lodash-es/omit'
+import { CategoryService } from '../data-resolver';
 
 export const processURLAddress = (url: string = '') => {
   if (url.startsWith('/')) return `${getApiEndpointUrl(config.api, 'url')}${url}`
@@ -176,6 +177,23 @@ export function buildFilterProductsQuery (currentCategory, chosenFilters = {}, d
   }
 
   return filterQr
+}
+
+export const getProductPrimaryCategory = (product) => {
+  if (product && product.category) {
+    return Object.keys(product.category).filter(c => {
+      return parseInt(product.category[c].category_id) === parseInt(product.primary_category)
+    }).map(c => ({ ...product.category[c] }));
+  }
+  return false;
+}
+
+export const getCategoryById = async catId => {
+  return await CategoryService.getCategories({
+    catId,
+    includeFields: config.entities?.category?.includeFields,
+    excludeFields: config.entities?.category?.excludeFields
+  });
 }
 
 export function once (key, fn) {

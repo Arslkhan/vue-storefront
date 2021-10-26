@@ -177,9 +177,10 @@ $color-white: color(white);
   font-size: 24px;
   font-family: 'Brandon_reg';
   color: #6D1F37;
-  font-size: clamp(16px, 1.600vw, 24px);
+  // font-size: clamp(16px, 1.600vw, 24px);
   @media (max-width: 767px) {
-    font-size: clamp(15px, 3.129vw, 24px);
+    font-size: 24px;
+    // font-size: clamp(15px, 3.129vw, 24px);
   }
 }
 .product-description {

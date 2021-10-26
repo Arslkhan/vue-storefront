@@ -1,17 +1,22 @@
 <template>
   <div class="sidebar-menu fixed mw-100 bg-cl-secondary">
     <div class="row brdr-bottom-1 brdr-cl-bg-secondary">
-      <div
-        v-if="submenu.depth"
-        class="col-xs bg-cl-primary"
-      >
+      <div v-if="submenu.depth" class="col-xs bg-cl-primary">
         <sub-btn type="back" class="bg-cl-transparent brdr-none" />
       </div>
       <div class="col-xs bg-cl-primary">
         <button
           type="button"
           :aria-label="$t('Close')"
-          class="w-100 inline-flex end-xs bg-cl-transparent brdr-none p0 close-btn"
+          class="
+            w-100
+            inline-flex
+            end-xs
+            bg-cl-transparent
+            brdr-none
+            p0
+            close-btn
+          "
           @click="closeMenu"
         >
           <i class="material-icons p15">close</i>
@@ -30,7 +35,7 @@
               :to="localizedRoute('/')"
               exact
             >
-              {{ $t('Home') }}
+              {{ $t("Home") }}
             </router-link>
           </li>
           <li
@@ -42,7 +47,7 @@
               :to="localizedRoute('/our-range.html')"
               exact
             >
-              {{ $t('Our Range') }}
+              {{ $t("Our Range") }}
             </router-link>
           </li>
           <li
@@ -54,7 +59,7 @@
               :to="localizedRoute('/faq')"
               exact
             >
-              {{ $t('FAQ') }}
+              {{ $t("FAQ") }}
             </router-link>
           </li>
           <li
@@ -66,7 +71,7 @@
               :to="localizedRoute('/contact-us')"
               exact
             >
-              {{ $t('Contact us') }}
+              {{ $t("Contact us") }}
             </router-link>
           </li>
           <li
@@ -75,10 +80,7 @@
             @click="closeMenu"
             v-for="category in visibleCategories"
           >
-            <div
-              v-if="isCurrentMenuShowed"
-              class="subcategory-item"
-            >
+            <div v-if="isCurrentMenuShowed" class="subcategory-item">
               <!-- <sub-btn
                 v-if="category.children_count > 0 && category.name === 'Our Range'"
                 class="bg-cl-transparent brdr-none fs-medium"
@@ -161,19 +163,26 @@
               v-if="!currentUser && isCurrentMenuShowed"
               href="#"
               @click.prevent="closeMenu"
-              class="block w-100 px25 py20 cl-accent no-underline fs-medium-small account"
+              class="
+                block
+                w-100
+                px25
+                py20
+                cl-accent
+                no-underline
+                fs-medium-small
+                account
+              "
             >
-              {{ $t('My account') }}
+              {{ $t("My account") }}
             </a>
           </li>
-          <li
-            class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary"
-          >
+          <li class="brdr-bottom-1 brdr-cl-bg-secondary bg-cl-primary">
             <a
               class="block px25 py20 cl-accent no-underline"
-              href="https://w10.world/" target="_blank"
+              href="https://w10.world/our-range.html"
             >
-              <img src="/assets/W10logomobile.png" alt="w10world">
+              <img src="/assets/W10logomobile.png" alt="w10world" />
             </a>
           </li>
         </ul>
@@ -183,107 +192,109 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import i18n from '@vue-storefront/i18n'
-import SidebarMenu from '@vue-storefront/core/compatibility/components/blocks/SidebarMenu/SidebarMenu'
-import SubBtn from 'theme/components/core/blocks/SidebarMenu/SubBtn'
-import SubCategory from 'theme/components/core/blocks/SidebarMenu/SubCategory'
-import { formatCategoryLink } from '@vue-storefront/core/modules/url/helpers'
-import { disableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock'
+import { mapState } from "vuex";
+import i18n from "@vue-storefront/i18n";
+import SidebarMenu from "@vue-storefront/core/compatibility/components/blocks/SidebarMenu/SidebarMenu";
+import SubBtn from "theme/components/core/blocks/SidebarMenu/SubBtn";
+import SubCategory from "theme/components/core/blocks/SidebarMenu/SubCategory";
+import { formatCategoryLink } from "@vue-storefront/core/modules/url/helpers";
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 
 export default {
   components: {
     SubCategory,
-    SubBtn
+    SubBtn,
   },
   mixins: [SidebarMenu],
-  data () {
+  data() {
     return {
       myAccountLinks: [
         {
           id: 1,
-          name: i18n.t('My profile'),
-          url: '/my-account'
+          name: i18n.t("My profile"),
+          url: "/my-account",
         },
         {
           id: 2,
-          name: i18n.t('My shipping details'),
-          url: '/my-account/shipping-details'
+          name: i18n.t("My shipping details"),
+          url: "/my-account/shipping-details",
         },
         {
           id: 3,
-          name: i18n.t('My newsletter'),
-          url: '/my-account/newsletter'
+          name: i18n.t("My newsletter"),
+          url: "/my-account/newsletter",
         },
         {
           id: 4,
-          name: i18n.t('My orders'),
-          url: '/my-account/orders'
+          name: i18n.t("My orders"),
+          url: "/my-account/orders",
         },
         {
           id: 5,
-          name: i18n.t('My loyalty card'),
-          url: '#'
+          name: i18n.t("My loyalty card"),
+          url: "#",
         },
         {
           id: 6,
-          name: i18n.t('My product reviews'),
-          url: '#'
-        }
+          name: i18n.t("My product reviews"),
+          url: "#",
+        },
       ],
-      componentLoaded: false
-    }
+      componentLoaded: false,
+    };
   },
   computed: {
-    mainListStyles () {
-      return this.submenu.depth ? `transform: translateX(${this.submenu.depth * 100}%)` : false
+    mainListStyles() {
+      return this.submenu.depth
+        ? `transform: translateX(${this.submenu.depth * 100}%)`
+        : false;
     },
     ...mapState({
-      submenu: state => state.ui.submenu,
-      currentUser: state => state.user.current
+      submenu: (state) => state.ui.submenu,
+      currentUser: (state) => state.user.current,
     }),
-    getSubmenu () {
-      return this.submenu
+    getSubmenu() {
+      return this.submenu;
     },
-    visibleCategories () {
-      return this.categories.filter(category => {
-        return category.product_count > 0 || category.children_count > 0
-      })
+    visibleCategories() {
+      return this.categories.filter((category) => {
+        return category.product_count > 0 || category.children_count > 0;
+      });
     },
-    isCurrentMenuShowed () {
-      return !this.getSubmenu || !this.getSubmenu.depth
-    }
+    isCurrentMenuShowed() {
+      return !this.getSubmenu || !this.getSubmenu.depth;
+    },
   },
-  mounted () {
+  mounted() {
     this.$nextTick(() => {
       this.componentLoaded = true;
-      disableBodyScroll(this.$refs.container)
-    })
+      disableBodyScroll(this.$refs.container);
+    });
   },
-  destroyed () {
-    clearAllBodyScrollLocks()
+  destroyed() {
+    clearAllBodyScrollLocks();
   },
   methods: {
-    login () {
+    login() {
       if (!this.currentUser && this.isCurrentMenuShowed) {
         this.$nextTick(() => {
-          this.$store.commit('ui/setAuthElem', 'login')
-          this.$bus.$emit('modal-show', 'modal-signup')
-          this.$router.push({ name: 'my-account' })
-        })
+          this.$store.commit("ui/setAuthElem", "login");
+          this.$bus.$emit("modal-show", "modal-signup");
+          this.$router.push({ name: "my-account" });
+        });
       }
     },
-    categoryLink (category) {
-      return formatCategoryLink(category)
-    }
-  }
-}
+    categoryLink(category) {
+      return formatCategoryLink(category);
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 @import "~theme/css/animations/transitions";
-@import '~theme/css/variables/colors';
-@import '~theme/css/helpers/functions/color';
+@import "~theme/css/variables/colors";
+@import "~theme/css/helpers/functions/color";
 $bg-secondary: color(secondary, $colors-background);
 $color-gainsboro: color(gainsboro);
 $color-matterhorn: color(matterhorn);
@@ -334,7 +345,8 @@ $color-mine-shaft: color(mine-shaft);
   }
 
   button {
-    color: $color-mine-shaft;a {
+    color: $color-mine-shaft;
+    a {
       color: $color-mine-shaft;
     }
   }
@@ -350,7 +362,6 @@ $color-mine-shaft: color(mine-shaft);
       }
     }
   }
-
 }
 @media (max-width: 767px) {
   .sidebar-menu__container {
@@ -358,13 +369,13 @@ $color-mine-shaft: color(mine-shaft);
   }
   .sidebar-menu__list {
     .home {
-      color: #6D1F37;
-      font-family: 'BrandonMedium';
+      color: #6d1f37;
+      font-family: "BrandonMedium";
       font-size: 20px;
     }
     li {
       a {
-        font-family: 'BrandonMedium';
+        font-family: "BrandonMedium";
         font-size: 20px;
       }
     }
