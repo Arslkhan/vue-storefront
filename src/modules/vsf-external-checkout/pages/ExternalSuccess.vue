@@ -1,54 +1,40 @@
 <template>
-  <div id="thank_you_external">
-    <header class="thank-you-title bg-cl-secondary py35 pl20">
-      <div class="container">
-        <breadcrumbs
-          :routes="[{name: 'Homepage', route_link: '/'}]"
-          :active-route="this.$t('Order confirmation')"
-        />
-        <h2 class="category-title">
-          {{ $t('Order confirmation') }}
-        </h2>
+  <div>
+    <HeaderW10 />
+    <div id="thank_you_external">
+      <header class="thank-you-title">
+        <div class="container center-xs middle-xs">
+          <h1>
+            {{ $t('Order confirmation') }}
+          </h1>
+        </div>
+      </header>
+      <div class="text-center center-xs flex middle-xs w-100">
+        <hr/>
       </div>
-    </header>
-    <div class="thank-you-content align-justify py40 pl20">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 pl20 pr20">
-            <h3 v-if="OnlineOnly">
-              {{ $t('Your purchase') }}
-            </h3>
-            <p v-html="this.$t('You have successfuly placed the order. You can check status of your order by using our <b>delivery status</b> feature. You will receive an order confirmation e-mail with details of your order and a link to track its progress.')" />
-            <p v-html="this.$t('E-mail us at <b>demo@vuestorefront.io</b> with any questions, suggestions how we could improve products or shopping experience')" />
-            <h4>
-              {{ $t('Your Account') }}
-            </h4>
-            <p v-html="this.$t('You can log to your account using e-mail and password defined earlier. On your account you can <b>edit your profile data</b> and check <b>history of transactions,</b> edit <b>subscription to newsletter.</b>')" />
-          </div>
-          <div class="col-md-6 pt30 bg-cl-secondary thank-you-improvment">
-            <h3>
-              {{ $t('What we can improve?') }}
-            </h3>
-            <p class="mb25">
-              {{ $t('Your feedback is important for us. Let us know what we could improve.') }}
-            </p>
-            <form @submit.prevent="sendFeedback">
-              <base-textarea
-                class="mb25"
-                type="text"
-                name="body"
-                v-model="feedback"
-                :placeholder="$t('Type your opinion')"
-                :autofocus="true"
-              />
-              <button-outline color="dark">
-                {{ $t('Give a feedback') }}
-              </button-outline>
-            </form>
+      <div class="thank-you-content">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 pl20 pr20">
+              <h3 v-if="OnlineOnly">
+                {{ $t('Your purchase') }}
+              </h3>
+              <p
+                v-html="this.$t('You will receive an order confirmation email with details of your order and once dispatched a link to track your parcel’s progress.')"/>
+              <p
+                v-html="this.$t('E-mail us at <b>contactus@w10.world</b> with any questions or suggestions on how we could improve products or shopping experience')"/>
+              <h3>
+                {{ $t('Your Account') }}
+              </h3>
+              <p
+                v-html="this.$t('You can log into your account using the e-mail and password setup earlier. On your account you can <b>edit your profile data</b> and check <b>history of transactions</b>.</b>')"/>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
+    <FooterW10 />
   </div>
 </template>
 
@@ -61,6 +47,10 @@ import ButtonOutline from 'theme/components/theme/ButtonOutline'
 import VueOfflineMixin from 'vue-offline/mixin'
 import { EmailForm } from '@vue-storefront/core/modules/mailer/components/EmailForm'
 import rootStore from '@vue-storefront/core/store'
+import fetch from 'isomorphic-fetch';
+import HeaderW10 from 'theme/components/core/blocks/Header/Header-w10.vue'
+import FooterW10 from 'theme/components/core/blocks/Footer/Footer-w10.vue'
+
 export default {
   name: 'ExternalThankYouPage',
   mixins: [Composite, VueOfflineMixin, EmailForm],
@@ -83,9 +73,11 @@ export default {
     }
   },
   components: {
-    BaseTextarea,
-    Breadcrumbs,
-    ButtonOutline
+    HeaderW10,
+    FooterW10
+    // BaseTextarea,
+    // Breadcrumbs,
+    // ButtonOutline
   },
   beforeMount () {
     this.$bus.$on('application-after-loaded', (payload) => {
@@ -157,7 +149,58 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  #thank_you_external ~ .notifications {
-    display: none;
+#thank_you_external ~ .notifications {
+  display: none;
+}
+
+h1 {
+  font-size: 44px;
+  font-weight: 100;
+  color: black;
+  margin: 40px 0 0px 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-size: 25px;
+  font-weight: 300;
+  color: black;
+  margin: 0px 0 0px 0;
+  padding: 0;
+  text-transform: uppercase;
+}
+
+hr {
+  margin: 50px 0;
+  padding: 0;
+  width: 100px;
+  border: 0;
+  border-top: 1px solid #98694b;
+}
+
+.thank-you-improvment {
+  padding: 20px 40px 40px 40px
+}
+
+.thank-you-content {
+  margin-bottom: 40px;
+}
+
+@media (max-width: 767px) {
+  hr {
+    margin: 30px 0 0 0;
   }
+  .thank-you-content {
+    margin-top: 0px;
+  }
+  h1 {
+    font-size: 32px;
+    font-weight: 100;
+    color: black;
+    margin: 40px 0 0px 0;
+    padding: 0;
+  }
+}
+
 </style>
