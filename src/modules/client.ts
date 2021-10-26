@@ -17,6 +17,7 @@ import { contactEmail } from './contact-email'
 import { PaymentCashOnDeliveryModule } from './payment-cash-on-delivery'
 import { NewsletterModule } from '@vue-storefront/core/modules/newsletter'
 import { InitialResourcesModule } from '@vue-storefront/core/modules/initial-resources'
+import { GoogleGtagModule } from './google-gtag';
 
 // import { DeviceModule } from './device/index';
 import { registerModule } from '@vue-storefront/core/lib/modules'
@@ -43,6 +44,7 @@ export function registerClientModules () {
   // registerModule(DeviceModule)
   registerModule(ExternalCheckout)
   registerModule(contactEmail)
+  registerModule(GoogleGtagModule)
 }
 
 // Deprecated API, will be removed in 2.0

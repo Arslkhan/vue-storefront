@@ -91,6 +91,19 @@ export default {
       }
     })
   },
+  metaInfo () {
+    return {
+      title: this.$route.meta.title,
+      meta: [{ vmid: 'description', description: this.$route.meta.description }],
+      script: [
+        {
+          id: 'adwords-conversion',
+          src: 'https://www.googletagmanager.com/gtag/js?id=AW-612207016',
+          async: true
+        }
+      ]
+    }
+  },
   methods: {
     clearTheCart () {
       if (this.getNumberOfItemsInCart() > 0) {

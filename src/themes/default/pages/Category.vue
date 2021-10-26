@@ -135,7 +135,8 @@ export default {
       mobileFilters: false,
       defaultColumn: 3,
       loadingProducts: false,
-      loading: true
+      loading: true,
+      baseUrlImage: ''
     }
   },
   computed: {
@@ -199,22 +200,107 @@ export default {
       }
     }
   },
+  created () {
+    this.baseUrlImage = config.server.baseUrl
+  },
+  // metaInfo () {
+  //   const storeView = currentStoreView()
+  //   const { meta_title, meta_description, name, slug } = this.getCurrentCategory
+  //   const meta = meta_description ? [
+  //     { vmid: 'description', name: 'description', content: htmlDecode(meta_description) }
+  //   ] : []
+  //   /* const categoryLocaliedLink = localizedRoute({
+  //     name: 'category-amp',
+  //     params: { slug }
+  //   }, storeView.storeCode)
+  //   const ampCategoryLink = this.$router.resolve(categoryLocaliedLink).href */
+  //
+  //   return {
+  //     // link: [ { rel: 'amphtml', href: ampCategoryLink } ],
+  //     title: htmlDecode(meta_title || name),
+  //     meta
+  //   }
+  // }
   metaInfo () {
     const storeView = currentStoreView()
-    const { meta_title, meta_description, name, slug } = this.getCurrentCategory
-    const meta = meta_description ? [
-      { vmid: 'description', name: 'description', content: htmlDecode(meta_description) }
-    ] : []
-    /* const categoryLocaliedLink = localizedRoute({
-      name: 'category-amp',
-      params: { slug }
-    }, storeView.storeCode)
-    const ampCategoryLink = this.$router.resolve(categoryLocaliedLink).href */
+    const {
+      meta_title,
+      meta_description,
+      description,
+      cat_banner_desp,
+      name,
+      slug
+    } = this.getCurrentCategory
+    // let metaDescriptionCat = this.getCurrentCategory.cat_banner_desp ? this.getCurrentCategory.cat_banner_desp.replace(/<\/?[^>]+(>|$)/g, '') : ''
+    let metaLengthCat = 233
+    // if (metaDescriptionCat) {
+    //   metaDescriptionCat = metaDescriptionCat.length > metaLengthCat ? metaDescriptionCat.substring(0, metaLengthCat - 3) + '...' : metaDescriptionCat
+    // }
+
+    const meta_descriptionHtml = htmlDecode(meta_description)
+    const meta_descriptionHtmlAfter = meta_descriptionHtml.replace(/<\/?[^>]+(>|$)/g, '')
+    const categoryLocaliedLink = localizedRoute(
+      {
+        name: 'category-amp',
+        params: { slug }
+      },
+      storeView.storeCode
+    )
+    const ampCategoryLink = this.$router.resolve(categoryLocaliedLink).href
+    // const canonicalCategoryLink = this.getCurrentCategory.canonical_url ? this.getCurrentCategory.canonical_url : '/' + this.getCurrentCategory.url_path
+    let metaData = [
+      {
+        property: 'og:url',
+        content: 'https://w10.world/costacoffee'
+      },
+      {
+        property: 'og:title',
+        content: htmlDecode(meta_title || name)
+      },
+      {
+        property: 'og:type',
+        content: 'website'
+      },
+      {
+        property: 'og:description',
+        content: meta_description
+      }
+      // {
+      //   property: 'og:image',
+      //   content: this.getCurrentCategory.image
+      //     ? `${this.baseUrlImage}img/1280/298/resize/catalog/category/${this.getCurrentCategory.image}`
+      //     : `/assets/category-images/header.png`
+      // }
+    ]
+    if (meta_description) {
+      metaData.push({
+        vmid: 'description',
+        name: 'description',
+        content: meta_descriptionHtmlAfter
+      })
+    }
+    // else {
+    //   metaData.push({
+    //     vmid: 'description',
+    //     name: 'description',
+    //     content: metaDescriptionCat
+    //   })
+    // }
+    // const meta = meta_description
+    //   ? [
+    //     {
+    //       vmid: 'description',
+    //       name: 'description',
+    //       content: meta_descriptionHtmlAfter
+    //     }
+    //   ]
+    //   : []
 
     return {
-      // link: [ { rel: 'amphtml', href: ampCategoryLink } ],
+      link: [{ rel: 'canonical', href: '/' + this.getCurrentCategory.url_path }],
       title: htmlDecode(meta_title || name),
-      meta
+      titleTemplate: '%s',
+      meta: metaData
     }
   }
 }
