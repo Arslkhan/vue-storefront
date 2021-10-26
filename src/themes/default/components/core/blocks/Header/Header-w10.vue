@@ -155,7 +155,6 @@
                     width="100%"
                     xml:space="preserve"
                     xmlns="http://www.w3.org/2000/svg"
-                    xmlns:serif="http://www.serif.com/"
                     xmlns:xlink="http://www.w3.org/1999/xlink"
                   >
                     <path
@@ -227,7 +226,7 @@ import Logo from "theme/components/core/Logo";
 import MicrocartIcon from "theme/components/core/blocks/Header/MicrocartIcon";
 import SearchIcon from "theme/components/core/blocks/Header/SearchIcon";
 import WishlistIcon from "theme/components/core/blocks/Header/WishlistIcon";
-import TopPromo from "theme/components/theme/blocks/Home/TopPromo";
+// import TopPromo from "theme/components/theme/blocks/Home/TopPromo";
 
 export default {
   name: "Header",
@@ -239,7 +238,7 @@ export default {
     MicrocartIcon,
     SearchIcon,
     WishlistIcon,
-    TopPromo,
+    // TopPromo,
   },
   mixins: [CurrentPage],
   data() {
