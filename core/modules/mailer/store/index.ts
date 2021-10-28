@@ -40,6 +40,28 @@ export const mailerStore: Module<any, any> = {
       //   Logger.error(e, 'mailer')()
       //   throw new Error(e)
       // }
+    },
+    async clearCart (quote) {
+      console.log('clearCart quote', quote)
+      try {
+        const res = await fetch(
+          processURLAddress(config.cartClearCall.endpoint),
+          {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+              Accept: 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(quote)
+          }
+        )
+        console.log('sendEmail VSF res', res)
+        return res
+      } catch (e) {
+        Logger.error(e, 'mailer')()
+        throw new Error(e)
+      }
     }
   }
 }

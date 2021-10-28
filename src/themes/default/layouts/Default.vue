@@ -56,6 +56,8 @@ import { isServer } from '@vue-storefront/core/helpers'
 import Head from 'theme/head'
 import config from 'config'
 import axios from 'axios';
+import rootStore from "@vue-storefront/core/store";
+import i18n from "@vue-storefront/i18n";
 
 const SidebarMenu = () => import(/* webpackPreload: true */ /* webpackChunkName: "vsf-sidebar-menu" */ 'theme/components/core/blocks/SidebarMenu/SidebarMenu.vue')
 const Microcart = () => import(/* webpackPreload: true */ /* webpackChunkName: "vsf-microcart" */ 'theme/components/core/blocks/Microcart/Microcart.vue')
@@ -93,16 +95,34 @@ export default {
     async checkCartHasItems () {
       let emailResponse
       if (this.getCartToken) {
-        emailResponse = await axios.post('https://secure.w10.world/rest/default/V1/w10/clearcart',
-          this.getCartToken,
-          {
-            headers: {
-              'Content-type': 'application/json'
-            }
-          }
-        );
+        this.$store.dispatch('mailer/clearCart', this.getCartToken)
+          .then(res => {
+            console.log('sendEmail res', res)
+            // if (res.ok) {
+            //   if (success) success(i18n.t('Email has successfully been sent'))
+            // } else {
+            //   return res.json()
+            // }
+          })
+        // emailResponse = await axios.post('https://secure.w10.world/rest/default/V1/w10/clearcart',
+        //   this.getCartToken,
+        //   {
+        //     headers: {
+        //       'Content-type': 'application/json'
+        //     }
+        //   }
+        // );
       }
-      console.log('checkCartHasItems', emailResponse, this.getCartToken)
+      console.log('checkCartHasItems', this.getCartToken)
+    },
+    clearTheCart () {
+      if (this.getNumberOfItemsInCart() > 0) {
+        rootStore.dispatch('cart/clear', {}, { root: true })
+        rootStore.dispatch('cart/serverCreate', { guestCart: false }, { root: true })
+      }
+    },
+    getNumberOfItemsInCart () {
+      return this.$store.state.cart.cartItems.length
     },
     // async pullCartSync () {
     //   console.log('pullCartSync called')
@@ -146,6 +166,16 @@ export default {
       this.$Progress.finish()
     })
     this.$bus.$on('offline-order-confirmation', this.onOrderConfirmation)
+    // this.$bus.$on('application-after-loaded', (payload) => {
+    //   if (document.getElementById('thank_you_external') != null) {
+    //     this.clearTheCart()
+    //   }
+    // })
+    // this.$bus.$on('cart-after-itemchanged', (payload) => {
+    //   if (document.getElementById('thank_you_external') != null) {
+    //     this.clearTheCart()
+    //   }
+    // })
   },
   beforeDestroy () {
     this.$bus.$off('offline-order-confirmation', this.onOrderConfirmation)
