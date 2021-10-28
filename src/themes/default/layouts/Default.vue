@@ -97,6 +97,7 @@ export default {
     async checkCartHasItems () {
       let emailResponse
       if (this.getCartToken) {
+        console.log('checkCartHasItems', this.getCartToken)
         this.$store.dispatch('mailer/clearCart', { quote_id: this.getCartToken })
           .then(res => {
             if (res.ok) {

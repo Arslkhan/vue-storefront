@@ -56,7 +56,7 @@ export const mailerStore: Module<any, any> = {
             body: JSON.stringify(quote)
           }
         )
-        console.log('sendEmail VSF res', res)
+        console.log('sendEmail VSF res', res, JSON.stringify(quote))
         return res
       } catch (e) {
         Logger.error(e, 'mailer')()
