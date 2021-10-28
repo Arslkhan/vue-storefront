@@ -97,14 +97,14 @@ export default {
     async checkCartHasItems () {
       let emailResponse
       if (this.getCartToken) {
-        this.$store.dispatch('mailer/clearCart', this.getCartToken)
+        this.$store.dispatch('mailer/clearCart', { quote_id: this.getCartToken })
           .then(res => {
             console.log('sendEmail res', res)
-            // if (res.ok) {
-            //   if (success) success(i18n.t('Email has successfully been sent'))
-            // } else {
-            //   return res.json()
-            // }
+            if (res.ok) {
+              // if (success) success(i18n.t('Email has successfully been sent'))
+            } else {
+              // return res.json()
+            }
           })
         // emailResponse = await axios.post('https://secure.w10.world/rest/default/V1/w10/clearcart',
         //   this.getCartToken,
