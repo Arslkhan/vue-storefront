@@ -1,6 +1,6 @@
 <template>
   <div>
-    <HeaderW10 />
+<!--    <HeaderW10 />-->
     <div id="thank_you_external">
       <header class="thank-you-title">
         <div class="container center-xs middle-xs">
@@ -34,7 +34,7 @@
         </div>
       </div>
     </div>
-    <FooterW10 />
+<!--    <FooterW10 />-->
   </div>
 </template>
 
