@@ -4,6 +4,7 @@ import { Module } from 'vuex'
 import config from 'config'
 import { processURLAddress } from '@vue-storefront/core/helpers'
 import getApiEndpointUrl from '@vue-storefront/core/helpers/getApiEndpointUrl';
+const GETSINGLESQM = 'https://costacoffee.w10.world/api/ext/mail-service/clear-cart';
 
 export const mailerStore: Module<any, any> = {
   namespaced: true,
@@ -45,7 +46,7 @@ export const mailerStore: Module<any, any> = {
       console.log('clearCart quote', quote)
       try {
         const res = await fetch(
-          processURLAddress(config.cartClearCall.endpoint),
+          `${GETSINGLESQM}`,
           {
             method: 'POST',
             mode: 'cors',
