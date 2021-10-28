@@ -99,10 +99,11 @@ export default {
       if (this.getCartToken) {
         this.$store.dispatch('mailer/clearCart', { quote_id: this.getCartToken })
           .then(res => {
-            console.log('sendEmail res', res)
             if (res.ok) {
+              console.log('checkCartHasItems success', res)
               // if (success) success(i18n.t('Email has successfully been sent'))
             } else {
+              console.log('checkCartHasItems failed', res)
               // return res.json()
             }
           })
