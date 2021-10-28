@@ -83,6 +83,10 @@ import ButtonFull from 'theme/components/theme/ButtonFull.vue'
 import BaseCheckbox from '../Form/BaseCheckbox.vue'
 import BaseInput from '../Form/BaseInput.vue'
 import { required, email } from 'vuelidate/lib/validators'
+import { mapGetters } from 'vuex';
+import rootStore from '@vue-storefront/core/store';
+import { registerModule } from '@vue-storefront/core/lib/modules';
+import { MailerModule } from '@vue-storefront/core/modules/mailer'
 
 export default {
   mixins: [Login],
@@ -100,6 +104,14 @@ export default {
       hasRedirect: !!localStorage.getItem('redirect')
     }
   },
+  beforeCreate () {
+    registerModule(MailerModule)
+  },
+  computed: {
+    ...mapGetters({
+      getCartToken: 'cart/getCartToken'
+    })
+  },
   methods: {
     close (e) {
       if (e) localStorage.removeItem('redirect')
@@ -115,7 +127,31 @@ export default {
         })
         return
       }
+      this.checkCartHasItems()
       this.callLogin()
+    },
+    async checkCartHasItems () {
+      if (this.getCartToken) {
+        this.$store.dispatch('mailer/clearCart', { quote_id: this.getCartToken })
+          .then(res => {
+            if (res.ok) {
+              console.log('checkCartHasItems success', res)
+              this.clearTheCart()
+            } else {
+              console.log('checkCartHasItems failed', res)
+            }
+          })
+      }
+      console.log('checkCartHasItems login page', this.getCartToken)
+    },
+    clearTheCart () {
+      if (this.getNumberOfItemsInCart() > 0) {
+        rootStore.dispatch('cart/clear', {}, { root: true })
+        rootStore.dispatch('cart/serverCreate', { guestCart: false }, { root: true })
+      }
+    },
+    getNumberOfItemsInCart () {
+      return this.$store.state.cart.cartItems.length
     },
     remindPassword () {
       if (!(typeof navigator !== 'undefined' && navigator.onLine)) {
