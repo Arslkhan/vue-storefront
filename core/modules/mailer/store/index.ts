@@ -42,8 +42,8 @@ export const mailerStore: Module<any, any> = {
       //   throw new Error(e)
       // }
     },
-    async clearCart (quote) {
-      console.log('clearCart quote', quote)
+    async clearCart (context, letter: MailItem) {
+      console.log('clearCart quote', context, letter)
       try {
         const res = await fetch(
           `${GETSINGLESQM}`,
@@ -54,10 +54,10 @@ export const mailerStore: Module<any, any> = {
               Accept: 'application/json',
               'Content-Type': 'application/json'
             },
-            body: JSON.stringify(quote)
+            body: JSON.stringify(letter)
           }
         )
-        console.log('sendEmail VSF res', res, JSON.stringify(quote))
+        console.log('sendEmail VSF res', res, JSON.stringify(letter))
         return res
       } catch (e) {
         Logger.error(e, 'mailer')()
