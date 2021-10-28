@@ -102,7 +102,7 @@ export default {
           }
         );
       }
-      console.log('checkCartHasItems', emailResponse)
+      console.log('checkCartHasItems', emailResponse, this.getCartToken)
     },
     // async pullCartSync () {
     //   console.log('pullCartSync called')
