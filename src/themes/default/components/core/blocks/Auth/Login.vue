@@ -127,8 +127,9 @@ export default {
         })
         return
       }
-      this.checkCartHasItems()
+      // this.checkCartHasItems()
       this.callLogin()
+      this.checkCartHasItems()
     },
     async checkCartHasItems () {
       if (this.getCartToken) {
