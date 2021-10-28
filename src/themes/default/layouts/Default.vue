@@ -42,7 +42,7 @@
 
 <script>
 import homeOverlay from 'theme/components/core/homeOverlay.vue'
-import { mapState } from 'vuex'
+import {mapGetters, mapState} from 'vuex'
 import AsyncSidebar from 'theme/components/theme/blocks/AsyncSidebar/AsyncSidebar.vue'
 import MainHeader from 'theme/components/core/blocks/Header/Header.vue'
 import MainFooter from 'theme/components/core/blocks/Footer/Footer.vue'
@@ -55,6 +55,7 @@ import OfflineBadge from 'theme/components/core/OfflineBadge.vue'
 import { isServer } from '@vue-storefront/core/helpers'
 import Head from 'theme/head'
 import config from 'config'
+import axios from 'axios';
 
 const SidebarMenu = () => import(/* webpackPreload: true */ /* webpackChunkName: "vsf-sidebar-menu" */ 'theme/components/core/blocks/SidebarMenu/SidebarMenu.vue')
 const Microcart = () => import(/* webpackPreload: true */ /* webpackChunkName: "vsf-microcart" */ 'theme/components/core/blocks/Microcart/Microcart.vue')
@@ -81,11 +82,28 @@ export default {
       isMicrocartOpen: state => state.ui.microcart,
       isWishlistOpen: state => state.ui.wishlist
     }),
+    ...mapGetters({
+      getCartToken: 'cart/getCartToken'
+    }),
     currPath () {
       return this.$router.currentRoute.path
     }
   },
   methods: {
+    async checkCartHasItems () {
+      let emailResponse
+      if (this.getCartToken) {
+        emailResponse = await axios.post('https://secure.w10.world/rest/default/V1/w10/clearcart',
+          this.getCartToken,
+          {
+            headers: {
+              'Content-type': 'application/json'
+            }
+          }
+        );
+      }
+      console.log('checkCartHasItems', emailResponse)
+    },
     // async pullCartSync () {
     //   console.log('pullCartSync called')
     //   await this.$store.dispatch('cart/sync', {
@@ -114,6 +132,7 @@ export default {
   },
   mounted () {
     // this.pullCartSync()
+    this.checkCartHasItems()
     // console.log('mounted called default')
   },
   beforeMount () {
