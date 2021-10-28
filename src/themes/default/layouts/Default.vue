@@ -42,7 +42,7 @@
 
 <script>
 import homeOverlay from 'theme/components/core/homeOverlay.vue'
-import {mapGetters, mapState} from 'vuex'
+import { mapGetters, mapState } from 'vuex'
 import AsyncSidebar from 'theme/components/theme/blocks/AsyncSidebar/AsyncSidebar.vue'
 import MainHeader from 'theme/components/core/blocks/Header/Header.vue'
 import MainFooter from 'theme/components/core/blocks/Footer/Footer.vue'
@@ -56,8 +56,10 @@ import { isServer } from '@vue-storefront/core/helpers'
 import Head from 'theme/head'
 import config from 'config'
 import axios from 'axios';
-import rootStore from "@vue-storefront/core/store";
-import i18n from "@vue-storefront/i18n";
+import rootStore from '@vue-storefront/core/store';
+import i18n from '@vue-storefront/i18n';
+import { registerModule } from '@vue-storefront/core/lib/modules';
+import { MailerModule } from '@vue-storefront/core/modules/mailer'
 
 const SidebarMenu = () => import(/* webpackPreload: true */ /* webpackChunkName: "vsf-sidebar-menu" */ 'theme/components/core/blocks/SidebarMenu/SidebarMenu.vue')
 const Microcart = () => import(/* webpackPreload: true */ /* webpackChunkName: "vsf-microcart" */ 'theme/components/core/blocks/Microcart/Microcart.vue')
@@ -154,6 +156,9 @@ export default {
     // this.pullCartSync()
     this.checkCartHasItems()
     // console.log('mounted called default')
+  },
+  beforeCreate() {
+    registerModule(MailerModule)
   },
   beforeMount () {
     // Progress bar on top of the page
