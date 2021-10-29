@@ -16,7 +16,8 @@
     >
       <!-- <i class="material-icons block">account_circle</i> -->
       <div class="innerbutton">
-        <span>Sign in</span>
+        <span v-if="!currentUser">Sign in</span>
+        <span v-if="currentUser">Signed In</span>
         <img src="/assets/fonts/user.svg" alt="account">
       </div>
     </button>
