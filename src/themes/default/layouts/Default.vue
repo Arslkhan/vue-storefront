@@ -146,7 +146,7 @@ export default {
   },
   mounted () {
     // this.pullCartSync()
-    // this.checkCartHasItems()
+    this.checkCartHasItems()
     // console.log('mounted called default')
   },
   beforeCreate() {
