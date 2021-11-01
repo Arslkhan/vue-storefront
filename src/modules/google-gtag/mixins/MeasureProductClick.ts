@@ -17,8 +17,8 @@ export const MeasureProductClick = {
       }
     }, 2000);
 
-    this.sendAddCartProdClick = debounce(this.sendAddCartProdClickMethod, 2000);
-    this.sendRemoveCartProdClick = debounce(this.sendRemoveCartProdClickMethod, 2000)
+    this.sendAddCartProdClick = debounce(this.sendAddCartProdClickMethod, 1000);
+    this.sendRemoveCartProdClick = debounce(this.sendRemoveCartProdClickMethod, 1000)
   },
   methods: {
     sendProductClick (position = null) {

@@ -96,10 +96,10 @@ import Columns from '../components/core/Columns.vue'
 import ButtonFull from 'theme/components/theme/ButtonFull.vue'
 import { mapGetters } from 'vuex'
 import onBottomScroll from '@vue-storefront/core/mixins/onBottomScroll'
-import rootStore from '@vue-storefront/core/store';
 import { catalogHooksExecutors } from '@vue-storefront/core/modules/catalog-next/hooks'
 import { localizedRoute, currentStoreView } from '@vue-storefront/core/lib/multistore'
 import { htmlDecode } from '@vue-storefront/core/filters'
+import { GTAGCategory } from 'src/modules/google-gtag/mixins/GTAGCategory'
 
 const THEME_PAGE_SIZE = 50
 
@@ -120,6 +120,7 @@ const composeInitialPageState = async (store, route, forceLoad = false) => {
 }
 
 export default {
+  name: 'CategoryPage',
   components: {
     LazyHydrate,
     ButtonFull,
@@ -129,7 +130,7 @@ export default {
     SortBy,
     Columns
   },
-  mixins: [onBottomScroll],
+  mixins: [GTAGCategory, onBottomScroll],
   data () {
     return {
       mobileFilters: false,
@@ -137,6 +138,13 @@ export default {
       loadingProducts: false,
       loading: true,
       baseUrlImage: ''
+    }
+  },
+  watch: {
+    getCategoryProducts (to, from) {
+      if (to && Array.isArray(to) && to.length > 0 && to !== from) {
+        this.setGtagProductsList({ isListingProducts: true, products: this.getCategoryProducts }, 'fromWatch-getCategoryProducts')
+      }
     }
   },
   computed: {

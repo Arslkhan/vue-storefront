@@ -2,7 +2,7 @@ import RootState from 'core/types/RootState';
 import {Store} from 'vuex';
 import config from 'config';
 
-export const getProductBySku = async (sku: string, store: Store<RootState>) => await store.dispatch('product/single', {
+export const getProductBySku = async (sku: string, store: Store<RootState>) => store.dispatch('product/single', {
   options: { sku: sku },
   setCurrentProduct: false,
   setCurrentCategoryPath: false,

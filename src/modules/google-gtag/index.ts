@@ -185,15 +185,15 @@ export const GoogleGtagModule: StorefrontModule = function ({ store, router, app
       // SET_SUCCESS_PURCHASE
       if (type === 'google-gtag/SET_SUCCESS_PURCHASE') {
         console.log('afer mutation detect')
-        const orderId = payload.confirmation.orderNumber
+        const orderId = payload.orderId || payload.confirmation.orderNumber
         const orderHistory = state.user.orders_history
         const order = orderHistory ? orderHistory.items.find((order) => order['entity_id'].toString() === orderId) : null
         const platformTotals = state.cart.platformTotals
-        const products = await mapTransactionProductsToGtag(payload.order.products, store)
+        const products = await mapTransactionProductsToGtag((payload.products || payload.order.products), store)
         let productsAllPurchaseId = Object.keys(products).map(key => products[key].id)
         const productsAllNames = Object.keys(products).map(k => products[k].name)
         const productsAllVal = Object.keys(products).map(k => +(parseFloat(products[k].price).toFixed(2)))
-        console.log('afer var init')
+        console.log('after var init', payload)
         let purchaseEventObj = {
           'ecomm_pagetype': 'purchase',
           'ecomm_prodid': productsAllPurchaseId,
@@ -201,8 +201,8 @@ export const GoogleGtagModule: StorefrontModule = function ({ store, router, app
           'ecomm_pname': productsAllNames,
           'ecomm_pvalue': productsAllVal,
           'transaction_id': orderId,
-          'affiliation': appConfig.themeConfigurations.title ? appConfig.themeConfigurations.title : '',
-          'value': ((payload.order && payload.order.grandtotal) ? +(parseFloat(payload.order.grandtotal).toFixed(2)) : 0.00),
+          'affiliation': 'W10 Live',
+          'value': (payload.subTotal || 0.00),
           // 'value': order ? order.total_due : platformTotals && platformTotals.base_grand_total ? platformTotals.base_grand_total : '',
           'currency': 'GBP',
           'tax': order ? order.total_due : platformTotals && platformTotals.base_tax_amount ? platformTotals.base_tax_amount : '',
@@ -277,6 +277,7 @@ export const GoogleGtagModule: StorefrontModule = function ({ store, router, app
       }
 
       if (type === 'google-gtag/SET_PRODUCT_CURRENT') {
+        console.log('google-gtag/SET_PRODUCT_CURRENT', payload);
         let productAttribute = (appConfig.googleTagManager && appConfig.googleTagManager.product_id_to_use) ? appConfig.googleTagManager.product_id_to_use : 'sku'
         // console.log('fetchedPayloadIs', payload);
         GTAG.event('dynProd', {
@@ -306,19 +307,7 @@ export const GoogleGtagModule: StorefrontModule = function ({ store, router, app
 
       // Measuring Views of Other Clicks
       if (type === 'google-gtag/SET_HOME_CLICK') {
-        console.log('dynHome')
-        // let { metaInfo, path, fullPath } = payload
-        // if (metaInfo) {
-        //   // console.log('metaInfo', metaInfo);
-        //   GTAG.pageview({
-        //     /* The page's title. */
-        //     page_title: metaInfo?.title || metaInfo?.titleTemplate,
-        //     /* The page's URL. */
-        //     page_path: path,
-        //     /* The path portion of location. This value must start with a slash (/) character. */
-        //     page_location: fullPath
-        //   })
-        // }
+        console.log('dynHome');
         GTAG.event('dynHome', {
           'ecomm_pagetype': 'home',
           'non_interaction': true

@@ -51,11 +51,17 @@ import { mapGetters } from 'vuex'
 import config from 'config'
 import { registerModule } from '@vue-storefront/core/lib/modules'
 import { RecentlyViewedModule } from '@vue-storefront/core/modules/recently-viewed'
+import { MeasureProductClick } from 'src/modules/google-gtag/mixins/MeasureProductClick'
 
 export default {
+  name: 'HomePage',
   data () {
     return {
-      loading: true
+      loading: true,
+      pageTitle: {
+        title: '',
+        titleTemplate: 'W10 Collapsible Cup and Eco-Friendly Drinkware'
+      }
     }
   },
   components: {
@@ -93,7 +99,9 @@ export default {
       }
     }
   },
+  mixins: [MeasureProductClick],
   mounted () {
+    this.sendHomeClick({ metaInfo: { ...this.pageTitle }, path: this.$route.path, fullPath: this.$route.fullPath });
     if (!this.isLoggedIn && localStorage.getItem('redirect')) this.$bus.$emit('modal-show', 'modal-signup')
   },
   watch: {
