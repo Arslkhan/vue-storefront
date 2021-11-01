@@ -180,10 +180,8 @@ export function buildFilterProductsQuery (currentCategory, chosenFilters = {}, d
 }
 
 export const getProductPrimaryCategory = (product) => {
-  if (product && product.category) {
-    return Object.keys(product.category).filter(c => {
-      return parseInt(product.category[c].category_id) === parseInt(product.primary_category)
-    }).map(c => ({ ...product.category[c] }));
+  if (product && product.category && Array.isArray(product.category) && product.category.length > 0) {
+    return product.category[product.category.length - 1]
   }
   return false;
 }

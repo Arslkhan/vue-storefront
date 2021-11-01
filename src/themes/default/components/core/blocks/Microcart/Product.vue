@@ -152,6 +152,7 @@ import { ProductOption } from '@vue-storefront/core/modules/catalog/components/P
 import { getThumbnailForProduct, getProductConfiguration } from '@vue-storefront/core/modules/cart/helpers'
 import ButtonFull from 'theme/components/theme/ButtonFull'
 import EditMode from './EditMode'
+import { MeasureProductClick } from 'src/modules/google-gtag/mixins/MeasureProductClick'
 
 export default {
   data () {
@@ -176,7 +177,7 @@ export default {
     ButtonFull,
     ProductQuantity
   },
-  mixins: [Product, ProductOption, EditMode],
+  mixins: [Product, ProductOption, EditMode, MeasureProductClick],
   computed: {
     ...mapState({
       isMicrocartOpen: state => state.ui.microcart
@@ -247,8 +248,9 @@ export default {
 
       this.updateQuantity(qty)
     },
-    removeFromCart () {
-      this.$store.dispatch('cart/removeItem', { product: this.product })
+    async removeFromCart () {
+      await this.$store.dispatch('cart/removeItem', { product: this.product })
+      await this.sendRemoveCartProdClick({ product: this.product, page: this.$route.name });
     },
     updateQuantity (quantity) {
       this.$store.dispatch('cart/updateQuantity', { product: this.product, qty: quantity })
