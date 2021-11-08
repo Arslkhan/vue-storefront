@@ -129,7 +129,7 @@ export default {
       }
       // this.checkCartHasItems()
       this.callLogin()
-      this.checkCartHasItems()
+      // this.checkCartHasItems()
     },
     async checkCartHasItems () {
       if (this.getCartToken) {
