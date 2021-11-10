@@ -63,10 +63,11 @@
               <microcart-icon class="p15 icon pointer carticon" />
               <account-icon class="p15 icon hidden-xs pointer" />
             </div>
-            <div class="social-icons">
-              <a href="https://www.facebook.com/CostaCoffee" target="_blank"
-                ><span
-                  ><svg
+            <no-ssr>
+              <div class="social-icons">
+                <a href="https://www.facebook.com/CostaCoffee" target="_blank">
+                <span>
+                  <svg
                     baseProfile="tiny"
                     height="24px"
                     id="Layer_1"
@@ -83,11 +84,12 @@
                         fill="#fff"
                         id="fbicon"
                       />
-                    </g></svg></span
-              ></a>
-              <a href="https://twitter.com/CostaCoffee/" target="_blank"
-                ><span
-                  ><svg
+                    </g></svg>
+                </span>
+                </a>
+                <a href="https://twitter.com/CostaCoffee/" target="_blank">
+                <span>
+                  <svg
                     enable-background="new 0 0 56.693 56.693"
                     height="24px"
                     id="Layer_1"
@@ -102,14 +104,15 @@
                       fill="#fff"
                       d="M52.837,15.065c-1.811,0.805-3.76,1.348-5.805,1.591c2.088-1.25,3.689-3.23,4.444-5.592c-1.953,1.159-4.115,2-6.418,2.454  c-1.843-1.964-4.47-3.192-7.377-3.192c-5.581,0-10.106,4.525-10.106,10.107c0,0.791,0.089,1.562,0.262,2.303  c-8.4-0.422-15.848-4.445-20.833-10.56c-0.87,1.492-1.368,3.228-1.368,5.082c0,3.506,1.784,6.6,4.496,8.412  c-1.656-0.053-3.215-0.508-4.578-1.265c-0.001,0.042-0.001,0.085-0.001,0.128c0,4.896,3.484,8.98,8.108,9.91  c-0.848,0.23-1.741,0.354-2.663,0.354c-0.652,0-1.285-0.063-1.902-0.182c1.287,4.015,5.019,6.938,9.441,7.019  c-3.459,2.711-7.816,4.327-12.552,4.327c-0.815,0-1.62-0.048-2.411-0.142c4.474,2.869,9.786,4.541,15.493,4.541  c18.591,0,28.756-15.4,28.756-28.756c0-0.438-0.009-0.875-0.028-1.309C49.769,18.873,51.483,17.092,52.837,15.065z"
                       id="twitter"
-                    /></svg></span
-              ></a>
-              <a
-                href="https://www.youtube.com/user/forcoffeelovers"
-                target="_blank"
-              >
-                <span
-                  ><svg
+                    /></svg>
+                </span>
+                </a>
+                <a
+                  href="https://www.youtube.com/user/forcoffeelovers"
+                  target="_blank"
+                >
+                <span>
+                  <svg
                     height="100%"
                     style="
                       fill-rule: evenodd;
@@ -130,12 +133,13 @@
                       d="M501.303,132.765c-5.887,-22.03 -23.235,-39.377 -45.265,-45.265c-39.932,-10.7 -200.038,-10.7 -200.038,-10.7c0,0 -160.107,0 -200.039,10.7c-22.026,5.888 -39.377,23.235 -45.264,45.265c-10.697,39.928 -10.697,123.238 -10.697,123.238c0,0 0,83.308 10.697,123.232c5.887,22.03 23.238,39.382 45.264,45.269c39.932,10.696 200.039,10.696 200.039,10.696c0,0 160.106,0 200.038,-10.696c22.03,-5.887 39.378,-23.239 45.265,-45.269c10.696,-39.924 10.696,-123.232 10.696,-123.232c0,0 0,-83.31 -10.696,-123.238Zm-296.506,200.039l0,-153.603l133.019,76.802l-133.019,76.801Z"
                       style="fill-rule: nonzero"
                       id="youtube"
-                    /></svg></span
-              ></a>
-              <a
-                href="https://www.instagram.com/costacoffee/?hl=en"
-                target="_blank"
-              >
+                    /></svg>
+                </span>
+                </a>
+                <a
+                  href="https://www.instagram.com/costacoffee/?hl=en"
+                  target="_blank"
+                >
                 <span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -147,9 +151,11 @@
                       d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
                       id="insta"
                     />
-                  </svg> </span
-              ></a>
-            </div>
+                  </svg>
+                </span>
+                </a>
+              </div>
+            </no-ssr>
           </div>
         </div>
         <div
@@ -159,12 +165,12 @@
           <div class="col-xs-5 col-md-3 middle-xs">
             <div>
               <router-link :to="localizedRoute('/')" class="cl-tertiary links">
-                {{ $t("Return to shopping") }}
+                {{ $t('Return to shopping') }}
               </router-link>
             </div>
           </div>
           <div class="col-xs-2 col-md-6 center-xs">
-            <logo width="auto" height="41px" />
+            <logo width="auto" height="41px"/>
           </div>
           <div class="col-xs-5 col-md-3 end-xs">
             <div>
@@ -172,34 +178,35 @@
                 v-if="!currentUser"
                 href="#"
                 @click.prevent="gotoAccount"
-                class="cl-tertiary links"
-                >{{ $t("Login to your account") }}</a
-              >
-              <span v-else>{{
-                $t("You are logged in as {firstname}", currentUser)
-              }}</span>
+                class="cl-tertiary links">
+                {{ $t('Login to your account') }}
+              </a>
+              <span v-else>
+                {{ $t('You are logged in as {firstname}', currentUser) }}
+              </span>
             </div>
           </div>
         </div>
       </div>
     </header>
-    <div class="header-placeholder" />
+    <div class="header-placeholder"/>
   </div>
 </template>
 
 <script>
-import { mapState } from "vuex";
-import CurrentPage from "theme/mixins/currentPage";
-import AccountIcon from "theme/components/core/blocks/Header/AccountIcon";
-import CompareIcon from "theme/components/core/blocks/Header/CompareIcon";
-import HamburgerIcon from "theme/components/core/blocks/Header/HamburgerIcon";
-import Logo from "theme/components/core/Logo";
-import MicrocartIcon from "theme/components/core/blocks/Header/MicrocartIcon";
-import SearchIcon from "theme/components/core/blocks/Header/SearchIcon";
-import WishlistIcon from "theme/components/core/blocks/Header/WishlistIcon";
+import { mapState } from 'vuex';
+import CurrentPage from 'theme/mixins/currentPage';
+import AccountIcon from 'theme/components/core/blocks/Header/AccountIcon';
+import CompareIcon from 'theme/components/core/blocks/Header/CompareIcon';
+import HamburgerIcon from 'theme/components/core/blocks/Header/HamburgerIcon';
+import Logo from 'theme/components/core/Logo';
+import MicrocartIcon from 'theme/components/core/blocks/Header/MicrocartIcon';
+import SearchIcon from 'theme/components/core/blocks/Header/SearchIcon';
+import WishlistIcon from 'theme/components/core/blocks/Header/WishlistIcon';
+import NoSSR from 'vue-no-ssr';
 
 export default {
-  name: "Header",
+  name: 'Header',
   components: {
     AccountIcon,
     CompareIcon,
@@ -208,9 +215,10 @@ export default {
     MicrocartIcon,
     SearchIcon,
     WishlistIcon,
+    'no-ssr': NoSSR
   },
   mixins: [CurrentPage],
-  data() {
+  data () {
     return {
       navVisible: true,
       isScrolling: false,
@@ -224,15 +232,15 @@ export default {
       isOpenLogin: (state) => state.ui.signUp,
       currentUser: (state) => state.user.current,
     }),
-    isThankYouPage() {
+    isThankYouPage () {
       return this.$store.state.checkout.isThankYouPage
         ? this.$store.state.checkout.isThankYouPage
         : false;
     },
   },
-  beforeMount() {
+  beforeMount () {
     window.addEventListener(
-      "scroll",
+      'scroll',
       () => {
         this.isScrolling = true;
       },
@@ -247,10 +255,10 @@ export default {
     }, 250);
   },
   methods: {
-    gotoAccount() {
-      this.$bus.$emit("modal-toggle", "modal-signup");
+    gotoAccount () {
+      this.$bus.$emit('modal-toggle', 'modal-signup');
     },
-    hasScrolled() {
+    hasScrolled () {
       this.scrollTop = window.scrollY;
       if (
         this.scrollTop > this.lastScrollTop &&
@@ -269,12 +277,15 @@ export default {
 <style lang="scss" scoped>
 @import "~theme/css/variables/colors";
 @import "~theme/css/helpers/functions/color";
+
 $color-icon-hover: color(secondary, $colors-background);
 .header {
   height: 9.375rem;
+
   .container {
     width: 1513px;
     max-width: 100%;
+
     .ham-main {
       .ham-button {
         @media (max-width: 480px) {
@@ -282,6 +293,7 @@ $color-icon-hover: color(secondary, $colors-background);
         }
       }
     }
+
     .logo-group {
       height: 9.375rem;
       display: flex;
@@ -294,6 +306,7 @@ $color-icon-hover: color(secondary, $colors-background);
       @media (max-width: 480px) {
         padding-left: 0;
       }
+
       .logo-main {
         padding: 0 0 0 122px;
         @media (max-width: 1199px) {
@@ -304,6 +317,7 @@ $color-icon-hover: color(secondary, $colors-background);
         }
       }
     }
+
     .headerlink {
       display: flex;
       justify-content: space-evenly;
@@ -318,6 +332,7 @@ $color-icon-hover: color(secondary, $colors-background);
       @media (max-width: 767px) {
         display: none;
       }
+
       a {
         color: #fff;
         font-family: "BrandonMedium";
@@ -327,6 +342,7 @@ $color-icon-hover: color(secondary, $colors-background);
         }
       }
     }
+
     .icons-group {
       align-self: baseline;
       padding-left: 0;
@@ -348,6 +364,7 @@ $color-icon-hover: color(secondary, $colors-background);
         padding: 0;
         flex-basis: 28%;
       }
+
       .wishicon {
         display: flex;
         order: 2;
@@ -355,6 +372,7 @@ $color-icon-hover: color(secondary, $colors-background);
           padding: 0 10px 0 0;
         }
       }
+
       .carticon {
         display: flex;
         order: 3;
@@ -363,22 +381,27 @@ $color-icon-hover: color(secondary, $colors-background);
         }
       }
     }
+
     .social-icons {
       display: flex;
       justify-content: flex-end;
       padding: 0 7px 0 0;
+
       a {
         // height: 0px;
       }
+
       @media (max-width: 767px) {
         display: none;
       }
       @media (max-width: 1199px) and (min-width: 768px) {
         padding: 0;
       }
+
       span {
         padding: 0 9px;
         cursor: pointer;
+
         svg {
           width: 26px;
           fill: #fff;
@@ -391,16 +414,19 @@ $color-icon-hover: color(secondary, $colors-background);
     }
   }
 }
+
 header {
   height: 150px;
   top: -55px;
   z-index: 3;
   transition: top 0.2s ease-in-out;
   background: #6d1f37ff;
+
   &.is-visible {
     top: 0;
   }
 }
+
 // .icon {
 //   opacity: 0.6;
 //   &:hover,
@@ -413,12 +439,15 @@ header {
   //for edge
   float: right;
 }
+
 .header-placeholder {
   height: 54px;
 }
+
 .links {
   text-decoration: underline;
 }
+
 @media (max-width: 767px) {
   .row.middle-xs {
     margin: 0 -15px;
@@ -438,18 +467,23 @@ header {
     font-size: 12px;
   }
 }
+
 #fbicon {
   fill: #3b5998;
 }
+
 #twitter {
   fill: #00acee;
 }
+
 #youtube {
   fill: rgb(255, 0, 0);
 }
+
 #insta {
   fill: #fbad50;
 }
+
 // #instacircle:hover {
 //   fill: #00acee;
 // }
@@ -475,6 +509,7 @@ a:not(.no-underline):hover:after {
     }
   }
 }
+
 @media (max-width: 900px) {
   .main-logo {
     img {
@@ -482,6 +517,7 @@ a:not(.no-underline):hover:after {
     }
   }
 }
+
 @media (max-width: 767px) {
   .main-logo {
     img {

@@ -10,18 +10,19 @@
     @mouseout="showMenu = false"
     :aria-label="$t('Open my account')"
   >
-    <button
-      type="button"
-      class="bg-cl-transparent brdr-none p0 button-acc"
-    >
-      <!-- <i class="material-icons block">account_circle</i> -->
-      <div class="innerbutton">
-        <span v-if="!currentUser">Sign in</span>
-        <span v-if="currentUser">Signed In</span>
-        <img src="/assets/fonts/user.svg" alt="account">
-      </div>
-    </button>
-
+    <no-ssr>
+      <button
+        type="button"
+        class="bg-cl-transparent brdr-none p0 button-acc"
+      >
+        <!-- <i class="material-icons block">account_circle</i> -->
+        <div class="innerbutton">
+          <span v-if="!currentUser">Sign in</span>
+          <span v-if="currentUser">Signed In</span>
+          <img src="/assets/fonts/user.svg" alt="account">
+        </div>
+      </button>
+    </no-ssr>
     <no-ssr>
       <div v-show="currentUser" :class="['dropdown-content bg-cl-primary align-left sans-serif lh20 weight-400', !showMenu ? 'dropdown-content__hidden' : '']">
         <div class="py5">
