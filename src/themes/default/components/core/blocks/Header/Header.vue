@@ -49,7 +49,7 @@
               class="inline-flex weight-500 relative no-underline"
               href="https://w10.world/our-range.html"
             >
-              <img src="/assets/W10 logo.png" alt="w10logo" />
+              <img src="/assets/Group50.png" alt="w10logo" />
             </a>
           </div>
           <div class="col-xs-2 visible-xs hidden">
