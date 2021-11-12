@@ -182,7 +182,7 @@
               class="block px25 py20 cl-accent no-underline"
               href="https://w10.world/our-range.html"
             >
-              <img src="/assets/W10logomobile.png" alt="w10world" />
+              <img src="/assets/Group51.png" alt="w10world" />
             </a>
           </li>
         </ul>
