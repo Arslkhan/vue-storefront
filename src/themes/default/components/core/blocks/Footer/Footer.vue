@@ -66,7 +66,7 @@
                   no-underline
                   anchor-costa
                 "
-                href="http://w10.world/"
+                href="https://w10.world/our-range.html"
               >
                 <img src="/assets/Group50.png" alt="w10logo" />
               </a>
