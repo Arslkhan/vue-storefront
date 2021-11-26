@@ -251,7 +251,7 @@ export default {
   },
   methods: {
     loggedInUser() {
-      console.log("loggedInUser", this.router);
+      console.log("loggedInUser", this.router, this.route);
     },
     openFilters() {
       this.mobileFilters = true;
