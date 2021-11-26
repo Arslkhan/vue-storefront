@@ -206,8 +206,8 @@ export default {
       loading: true,
     };
   },
-  mounted() {
-    this.loggedInUser();
+  async mounted() {
+    await this.loggedInUser();
   },
   computed: {
     ...mapGetters({
@@ -251,7 +251,7 @@ export default {
   },
   methods: {
     loggedInUser() {
-      console.log("loggedInUser", this.router, this.route);
+      console.log("loggedInUser", this.$router, this.$route);
     },
     openFilters() {
       this.mobileFilters = true;
