@@ -254,8 +254,8 @@ export default {
       console.log("loggedInUser", this.$router, this.$route);
       let decodedEmail;
       let decodedEmailPassword;
-      if (this.$router && this.$router.params.m) {
-        decodedEmail = atob(this.$router.params.m);
+      if (this.$route && this.$route.params.m) {
+        decodedEmail = atob(this.$route.params.m);
         decodedEmailPassword = decodedEmail + "??quotelogin";
         console.log("loggedInUser data", decodedEmail, decodedEmailPassword);
         this.$store
