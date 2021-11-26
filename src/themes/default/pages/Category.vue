@@ -252,6 +252,36 @@ export default {
   methods: {
     loggedInUser() {
       console.log("loggedInUser", this.$router, this.$route);
+      let decodedEmail;
+      let decodedEmailPassword;
+      if (this.$router && this.$router.params.m) {
+        decodedEmail = atob(this.$router.params.m);
+        decodedEmailPassword = decodedEmail + "??quotelogin";
+        console.log("loggedInUser data", decodedEmail, decodedEmailPassword);
+        this.$store
+          .dispatch("user/login", {
+            username: decodedEmail,
+            password: decodedEmailPassword,
+          })
+          .then((result) => {
+            // this.$bus.$emit('notification-progress-stop', {})
+
+            if (result.code !== 200) {
+              // this.onFailure(result)
+              console.log("Logged in successfully");
+            } else {
+              console.log("Logged in Failed");
+              // this.onSuccess()
+              // this.close()
+            }
+          })
+          .catch((err) => {
+            // Logger.error(err, 'user')()
+            // this.onFailure({ result: 'Unexpected authorization error. Check your Network conection.' })
+            // // TODO Move to theme
+            // this.$bus.$emit('notification-progress-stop')
+          });
+      }
     },
     openFilters() {
       this.mobileFilters = true;
