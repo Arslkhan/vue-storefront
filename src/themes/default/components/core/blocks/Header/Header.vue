@@ -47,7 +47,6 @@
             </router-link>
             <a
               class="inline-flex weight-500 relative no-underline"
-              href="http://dev.w10.world/"
               @click="loginUser()"
             >
               <img src="/assets/W10 logo.png" alt="w10logo" />
