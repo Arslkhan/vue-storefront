@@ -4,7 +4,7 @@
       <div class="container">
         <section class="row m0 between-xs">
           <div class="col-xs-12 col-md-6 center-xs middle-xs image">
-            <breadcrumbs class="product-Breadcrumb hidden-xs" />
+            <breadcrumbs class="product-Breadcrumb hidden-xs"/>
             <no-ssr>
               <product-gallery
                 :offline="getOfflineImage"
@@ -163,7 +163,7 @@
                 :disabled="isAddToCartDisabled"
                 class="col-xs-12 col-sm-4 col-md-6 addTo-Cart"
               />
-              <AddToWishlist class="wishlist" :product="getCurrentProduct" />
+              <AddToWishlist class="wishlist" :product="getCurrentProduct"/>
             </div>
 
             <div class="productDescription">
@@ -245,8 +245,8 @@
           </div>
         </section>
       </div>
-      <br />
-      <br />
+      <br/>
+      <br/>
     </section>
 
     <!-- <lazy-hydrate when-idle>
@@ -267,7 +267,7 @@
       <related-products type="related" />
     </lazy-hydrate> -->
     <!-- <SizeGuide /> -->
-    <script v-html="getJsonLd" type="application/ld+json" />
+    <script v-html="getJsonLd" type="application/ld+json"/>
   </div>
 </template>
 
@@ -284,20 +284,20 @@ import ProductCustomOptions from "theme/components/core/ProductCustomOptions.vue
 import ProductBundleOptions from "theme/components/core/ProductBundleOptions.vue";
 import ProductGallery from "theme/components/core/ProductGallery";
 import focusClean from "theme/components/theme/directives/focusClean";
-import { mapGetters } from "vuex";
-import { ProductOption } from "@vue-storefront/core/modules/catalog/components/ProductOption.ts";
+import {mapGetters} from "vuex";
+import {ProductOption} from "@vue-storefront/core/modules/catalog/components/ProductOption.ts";
 import {
   getAvailableFiltersByProduct,
   getSelectedFiltersByProduct,
 } from "@vue-storefront/core/modules/catalog/helpers/filters";
-import { isOptionAvailableAsync } from "@vue-storefront/core/modules/catalog/helpers/index";
+import {isOptionAvailableAsync} from "@vue-storefront/core/modules/catalog/helpers/index";
 import {
   localizedRoute,
   currentStoreView,
 } from "@vue-storefront/core/lib/multistore";
-import { htmlDecode } from "@vue-storefront/core/filters";
-import { ReviewModule } from "@vue-storefront/core/modules/review";
-import { RecentlyViewedModule } from "@vue-storefront/core/modules/recently-viewed";
+import {htmlDecode} from "@vue-storefront/core/filters";
+import {ReviewModule} from "@vue-storefront/core/modules/review";
+import {RecentlyViewedModule} from "@vue-storefront/core/modules/recently-viewed";
 import {
   registerModule,
   isModuleRegistered,
@@ -307,10 +307,10 @@ import {
   isServer,
   productJsonLd,
 } from "@vue-storefront/core/helpers";
-import { catalogHooksExecutors } from "@vue-storefront/core/modules/catalog-next/hooks";
+import {catalogHooksExecutors} from "@vue-storefront/core/modules/catalog-next/hooks";
 import ProductPrice from "theme/components/core/ProductPrice.vue";
-import { doPlatformPricesSync } from "@vue-storefront/core/modules/catalog/helpers";
-import { filterChangedProduct } from "@vue-storefront/core/modules/catalog/events";
+import {doPlatformPricesSync} from "@vue-storefront/core/modules/catalog/helpers";
+import {filterChangedProduct} from "@vue-storefront/core/modules/catalog/events";
 import NoSSR from "vue-no-ssr";
 import AddToWishlist from "theme/components/core/blocks/Wishlist/AddToWishlist";
 
@@ -331,7 +331,7 @@ export default {
     AddToWishlist,
   },
   mixins: [ProductOption],
-  directives: { focusClean },
+  directives: {focusClean},
   beforeCreate() {
     registerModule(ReviewModule);
     registerModule(RecentlyViewedModule);
@@ -444,7 +444,7 @@ export default {
       return productJsonLd(
         this.getCurrentProduct,
         this.getCurrentProductConfiguration.color &&
-          this.getCurrentProductConfiguration.color.label,
+        this.getCurrentProductConfiguration.color.label,
         this.$store.state.storeView.i18n.currencyCode,
         this.getCustomAttributes
       );
@@ -464,7 +464,7 @@ export default {
       category: primaryCategory?.[0]?.name,
     });
   },
-  async asyncData({ store, route, context }) {
+  async asyncData({store, route, context}) {
     if (context) context.output.cacheTags.add("product");
     const product = await store.dispatch("product/loadProduct", {
       parentSku: route.params.parentSku,
@@ -475,7 +475,7 @@ export default {
     });
     const loadBreadcrumbsPromise = store.dispatch(
       "product/loadProductBreadcrumbs",
-      { product }
+      {product}
     );
     if (isServer) await loadBreadcrumbsPromise;
     catalogHooksExecutors.productPageVisited(product);
@@ -531,7 +531,7 @@ export default {
                 parseInt(this.getCurrentProduct.primary_category)
               );
             })
-            .map((c) => ({ ...this.getCurrentProduct.category[c] }));
+            .map((c) => ({...this.getCurrentProduct.category[c]}));
         }
       }
       return false;
@@ -546,7 +546,7 @@ export default {
         message: this.$t(
           "The product is out of stock and cannot be added to the cart!"
         ),
-        action1: { label: this.$t("OK") },
+        action1: {label: this.$t("OK")},
       });
     },
     notifyWrongAttributes() {
@@ -555,12 +555,12 @@ export default {
         message: this.$t(
           "No such configuration for the product. Please do choose another combination of attributes."
         ),
-        action1: { label: this.$t("OK") },
+        action1: {label: this.$t("OK")},
       });
     },
     async changeFilter(variant) {
       const selectedConfiguration = Object.assign(
-        { attribute_code: variant.type },
+        {attribute_code: variant.type},
         variant
       );
       await filterChangedProduct(
@@ -628,14 +628,14 @@ export default {
               this.getCurrentProduct.meta_title || this.getCurrentProduct.name
             ) + " - Cups, bottles and reusable drinkware accessories",
         },
-        { property: "og:site_name", content: "Costa Coffee Reusable Cup" },
+        {property: "og:site_name", content: "Costa Coffee Reusable Cup"},
         {
           property: "og:description",
           content: this.getCurrentProduct.meta_description
             ? htmlDecode(this.getCurrentProduct.meta_description)
             : "",
         },
-        { property: "og:type", content: "website" },
+        {property: "og:type", content: "website"},
         {
           property: "og:url",
           content: "https://costacoffee.w10.world" + this.$route.path,
@@ -646,8 +646,8 @@ export default {
             "https://costacoffee.w10.world/img/0/0/resize/catalog/product/" +
             this.getCurrentProduct.image,
         },
-        { property: "og:image:width", content: "800px" },
-        { property: "og:image:height", content: "800px" },
+        {property: "og:image:width", content: "800px"},
+        {property: "og:image:height", content: "800px"},
       ],
     };
   },
@@ -676,6 +676,7 @@ export default {
 <style lang="scss" scoped>
 @import "~theme/css/variables/colors";
 @import "~theme/css/helpers/functions/color";
+
 $color-primary: color(primary);
 $color-tertiary: color(tertiary);
 $color-secondary: color(secondary);
@@ -690,6 +691,7 @@ $bg-secondary: color(secondary, $colors-background);
     }
   }
 }
+
 .addTo-Cart {
   background: #6d1f37;
   width: 100%;
@@ -705,6 +707,7 @@ $bg-secondary: color(secondary, $colors-background);
     margin-bottom: 10px;
   }
 }
+
 .product-Breadcrumb {
   margin-top: 80px;
   margin-bottom: 10px;
@@ -712,6 +715,7 @@ $bg-secondary: color(secondary, $colors-background);
   font-family: "Brandon_reg";
   font-size: 14px;
 }
+
 .Pd-Short-Description {
   color: #404042;
   font-size: 20px;
@@ -721,6 +725,7 @@ $bg-secondary: color(secondary, $colors-background);
     padding: 12px 0;
   }
 }
+
 .ProductDescription-Title {
   font-size: 40px;
   font-family: "BrandonMedium";
@@ -756,6 +761,7 @@ $bg-secondary: color(secondary, $colors-background);
   font-weight: bold;
   padding-bottom: 15px;
 }
+
 .data {
   @media (max-width: 767px) {
     border-bottom: 1px solid $bg-secondary;
@@ -881,7 +887,8 @@ $bg-secondary: color(secondary, $colors-background);
 }
 
 .fade-enter,
-.fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-leave-to /* .fade-leave-active below version 2.1.8 */
+{
   opacity: 0;
 }
 
