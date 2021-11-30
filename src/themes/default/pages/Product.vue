@@ -221,7 +221,7 @@
               >
                 Ingredients
               </h1>
-              <p v-html="getCurrentProduct.ingredients" class="descriptionText">
+              <p v-html="getCurrentProduct?.ingredients" class="descriptionText">
                 {{ getCurrentProduct.ingredients }}
               </p>
             </div>
