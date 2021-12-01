@@ -152,7 +152,7 @@
               <p v-html="getCurrentProduct.costa_instruction" class="descriptionText">{{ getCurrentProduct.costa_instruction }}</p>
               <h1 class="ProductDescription-Title" v-if="getCurrentProduct.warning_notes">Warning notes</h1>
               <p v-html="getCurrentProduct.warning_notes" class="descriptionText">{{ getCurrentProduct.warning_notes }}</p>
-              <h1 class="ProductDescription-Title" v-if="getCurrentProduct?.ingredients">Ingredients</h1>
+              <!-- <h1 class="ProductDescription-Title" v-if="getCurrentProduct?.ingredients">Ingredients</h1> -->
               <!-- <p v-html="getCurrentProduct?.ingredients" class="descriptionText">{{ getCurrentProduct.ingredients }}</p> -->
           </div>
 
