@@ -190,6 +190,9 @@
       </div>
     </header>
     <div class="header-placeholder"/>
+  <div class="promotion-bar">
+    <img src="assets/promotionbar.png" alt="sale-promotion">
+  </div>
   </div>
 </template>
 
