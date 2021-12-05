@@ -3,7 +3,8 @@
     <div class="promotion-bar">
     <div class="sale-heading">
         <router-link :to="localizedRoute('/our-range.html')" class="sale-class">
-            SALE <br> UP TO 50% OFF
+            <span class="first">SALE</span> <br>
+            <span class="second"> UP TO 50% OFF</span> 
         </router-link>
     </div>
     <img src="assets/promotionbar.png" alt="sale-promotion">
@@ -17,6 +18,8 @@ export default {
 };
 </script>
 
-<style>
-
+<style lang="css">
+.sale-class {
+    color: #ffffff;
+}
 </style>
