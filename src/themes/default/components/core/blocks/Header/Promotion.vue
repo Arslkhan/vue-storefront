@@ -23,6 +23,13 @@ export default {
     color: #ffffff;
 }
 .sale-heading {
+    font-weight: bold;
+    font-size: 27px;
     position: absolute;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding-top: 15px;
 }
 </style>
