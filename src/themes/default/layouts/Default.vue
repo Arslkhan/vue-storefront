@@ -7,6 +7,7 @@
     <loader />
     <div id="viewport" class="w-100 relative">
       <main-header />
+      <Promotion/>
       <async-sidebar
         :async-component="SearchPanel"
         :is-open="isSearchPanelOpen"
@@ -48,6 +49,7 @@ import homeOverlay from "theme/components/core/homeOverlay.vue";
 import { mapGetters, mapState } from "vuex";
 import AsyncSidebar from "theme/components/theme/blocks/AsyncSidebar/AsyncSidebar.vue";
 import MainHeader from "theme/components/core/blocks/Header/Header.vue";
+import Promotion from "theme/components/core/blocks/Header/Promotion.vue";
 import MainFooter from "theme/components/core/blocks/Footer/Footer.vue";
 import Overlay from "theme/components/core/Overlay.vue";
 import Loader from "theme/components/core/Loader.vue";
@@ -206,6 +208,7 @@ export default {
   components: {
     homeOverlay,
     MainHeader,
+    Promotion,
     MainFooter,
     SidebarMenu, // eslint-disable-line vue/no-unused-components
     Overlay,
