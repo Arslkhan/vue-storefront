@@ -7,7 +7,7 @@
           <span class="second"> UP TO 50% OFF</span>
         </router-link>
       </div>
-      <img src="assets/sale_banner_background.png" alt="sale-promotion">
+      <img src="assets/sale_banner_background.svg" alt="sale-promotion">
     </div>
   </div>
 </template>
