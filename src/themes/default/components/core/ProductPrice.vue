@@ -37,6 +37,9 @@ export default {
       default: () => ({})
     }
   },
+  mounted () {
+    console.log('product mounted', this.product)
+  },
   computed: {
     bundleOptionsPrice () {
       const allBundeOptions = this.product.bundle_options || []
