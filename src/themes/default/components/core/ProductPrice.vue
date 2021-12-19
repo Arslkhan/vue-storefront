@@ -82,7 +82,7 @@ export default {
     initialPrice () {
       return {
         default: this.product.price || this.product.price || 0,
-        original: this.product.original_price_incl_tax || this.product.originalPriceInclTax || 0,
+        original: this.product.original_price || this.product.originalPriceInclTax || 0,
         special: this.product.special_price || this.product.specialPrice || 0
       }
     },

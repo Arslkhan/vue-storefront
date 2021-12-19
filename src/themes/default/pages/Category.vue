@@ -1,85 +1,92 @@
 <template>
-  <div id="category">
-    <header class="bg-cl-primary py35 main-container">
-      <div class="container-custom-1">
-        <breadcrumbs />
-        <div class="row middle-sm bg-cl-primary">
-          <h1 class="col-sm-12 category-title mb10 align-center">
-            <!-- {{ getCurrentCategory.name }} -->
-            {{ "Our range" }}
-          </h1>
-          <div class="sorting col-sm-2 align-right mt50 hidden">
-            <label class="mr10">{{ $t('Columns') }}:</label>
-            <columns @change-column="columnChange" />
+  <div>
+    <div id="category">
+      <div class="banner-image" v-lazy:background-image="'/assets/salebanner.svg'">
+        <div class="container center-xs middle-xs">
+          <h2>SALE <br> UP TO 50 % OFF</h2>
+        </div>
+        <header class="bg-cl-primary py35 main-container">
+          <div class="container-custom-1">
+            <breadcrumbs/>
+            <div class="row middle-sm bg-cl-primary">
+              <h1 class="col-sm-12 category-title mb10 align-center">
+                <!-- {{ getCurrentCategory.name }} -->
+                {{ "Our range" }}
+              </h1>
+              <div class="sorting col-sm-2 align-right mt50 hidden">
+                <label class="mr10">{{ $t('Columns') }}:</label>
+                <columns @change-column="columnChange"/>
+              </div>
+              <p class="col-xs-12 col-md-6 m0 pb0 cl-secondary items hidden-xs">
+                {{ getCategoryProductsTotal + ' items' }}
+              </p>
+              <div class="sorting col-sm-2 col-md-6 align-right">
+                <label class="mr10">{{ $t('Sort By') }}:</label>
+                <sort-by
+                  :has-label="true"
+                  @change="changeFilter"
+                  :value="getCurrentSearchQuery.sort"
+                />
+              </div>
+            </div>
           </div>
-          <p class="col-xs-12 col-md-6 m0 pb0 cl-secondary items hidden-xs">
-            {{ getCategoryProductsTotal + ' items' }}
-          </p>
-          <div class="sorting col-sm-2 col-md-6 align-right">
-            <label class="mr10">{{ $t('Sort By') }}:</label>
-            <sort-by
-              :has-label="true"
-              @change="changeFilter"
-              :value="getCurrentSearchQuery.sort"
-            />
+          <div class="container-mobile">
+            <div class="row m0">
+              <p class="col-xs-4 col-md-6 m0 pb0 cl-secondary items items-mobile hidden-md">
+                {{ getCategoryProductsTotal + ' items' }}
+              </p>
+              <button
+                class="col-xs-2 mt25 mr15 p15 mobile-filters-button bg-cl-th-accent brdr-none cl-white h5 sans-serif fs-medium-small"
+                @click="openFilters"
+              >
+                {{ $t('Sort By:') }}
+              </button>
+              <div class="mobile-sorting col-xs-6 mt25">
+                <sort-by
+                  @change="changeFilter"
+                  :value="getCurrentSearchQuery.sort"
+                />
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="container-custom pb60">
+          <div class="row m0 pt15">
+            <div class="col-md-3 start-xs category-filters hidden">
+              <sidebar :filters="getAvailableFilters" @changeFilter="changeFilter"/>
+            </div>
+            <div class="col-md-3 start-xs mobile-filters" v-show="mobileFilters">
+              <div class="close-container absolute w-100">
+                <i class="material-icons p15 close cl-accent" @click="closeFilters">close</i>
+              </div>
+              <sidebar class="mobile-filters-body" :filters="getAvailableFilters" @changeFilter="changeFilter"/>
+              <div class="relative pb20 pt15">
+                <div class="brdr-top-1 brdr-cl-primary absolute divider w-100"/>
+              </div>
+              <button-full
+                class="mb20 btn__filter"
+                @click.native="closeFilters"
+              >
+                {{ $t('Filter') }}
+              </button-full>
+            </div>
+            <div class="col-md-12 px10 border-box products-list">
+              <div v-if="isCategoryEmpty" class="hidden-xs">
+                <h4 data-testid="noProductsInfo">
+                  {{ $t('No products found!') }}
+                </h4>
+                <p>{{
+                    $t('Please change Your search criteria and try again. If still not finding anything relevant, please visit the Home page and try out some of our bestsellers!')
+                  }}</p>
+              </div>
+              <lazy-hydrate :trigger-hydration="!loading" v-if="isLazyHydrateEnabled">
+                <product-listing :columns="defaultColumn" :products="getCategoryProducts"/>
+              </lazy-hydrate>
+              <product-listing v-else :columns="defaultColumn" :products="getCategoryProducts"/>
+            </div>
           </div>
         </div>
       </div>
-      <div class="container-mobile">
-        <div class="row m0">
-          <p class="col-xs-4 col-md-6 m0 pb0 cl-secondary items items-mobile hidden-md">
-            {{ getCategoryProductsTotal + ' items' }}
-          </p>
-          <button
-            class="col-xs-2 mt25 mr15 p15 mobile-filters-button bg-cl-th-accent brdr-none cl-white h5 sans-serif fs-medium-small"
-            @click="openFilters"
-          >
-            {{ $t('Sort By:') }}
-          </button>
-          <div class="mobile-sorting col-xs-6 mt25">
-            <sort-by
-              @change="changeFilter"
-              :value="getCurrentSearchQuery.sort"
-            />
-          </div>
-        </div>
-      </div>
-    </header>
-    <div class="container-custom pb60">
-      <div class="row m0 pt15">
-        <div class="col-md-3 start-xs category-filters hidden">
-          <sidebar :filters="getAvailableFilters" @changeFilter="changeFilter" />
-        </div>
-        <div class="col-md-3 start-xs mobile-filters" v-show="mobileFilters">
-          <div class="close-container absolute w-100">
-            <i class="material-icons p15 close cl-accent" @click="closeFilters">close</i>
-          </div>
-          <sidebar class="mobile-filters-body" :filters="getAvailableFilters" @changeFilter="changeFilter" />
-          <div class="relative pb20 pt15">
-            <div class="brdr-top-1 brdr-cl-primary absolute divider w-100" />
-          </div>
-          <button-full
-            class="mb20 btn__filter"
-            @click.native="closeFilters"
-          >
-            {{ $t('Filter') }}
-          </button-full>
-        </div>
-        <div class="col-md-12 px10 border-box products-list">
-          <div v-if="isCategoryEmpty" class="hidden-xs">
-            <h4 data-testid="noProductsInfo">
-              {{ $t('No products found!') }}
-            </h4>
-            <p>{{ $t('Please change Your search criteria and try again. If still not finding anything relevant, please visit the Home page and try out some of our bestsellers!') }}</p>
-          </div>
-          <lazy-hydrate :trigger-hydration="!loading" v-if="isLazyHydrateEnabled">
-            <product-listing :columns="defaultColumn" :products="getCategoryProducts" />
-          </lazy-hydrate>
-          <product-listing v-else :columns="defaultColumn" :products="getCategoryProducts" />
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
 
 <script>
@@ -449,6 +456,22 @@ export default {
 
   .close {
     margin-left: auto;
+  }
+
+  .banner-image {
+    background-size: cover;
+    height: 100px;
+  }
+
+  .banner-image h2 {
+    margin-top: -1px;
+    color: #fff;
+    font-size: 36px !important;
+    font-family: 'BrandonMedium';
+  }
+
+  span.price-special {
+    color: red !important;
   }
 </style>
 <style lang="scss">
