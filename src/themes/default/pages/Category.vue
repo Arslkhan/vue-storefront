@@ -1,92 +1,93 @@
 <template>
-  <div>
-    <div id="category">
-      <div class="banner-image" v-lazy:background-image="'/assets/salebanner.svg'">
-        <div class="container center-xs middle-xs">
-          <h2>SALE <br> UP TO 50 % OFF</h2>
-        </div>
-        <header class="bg-cl-primary py35 main-container">
-          <div class="container-custom-1">
-            <breadcrumbs/>
-            <div class="row middle-sm bg-cl-primary">
-              <h1 class="col-sm-12 category-title mb10 align-center">
-                <!-- {{ getCurrentCategory.name }} -->
-                {{ "Our range" }}
-              </h1>
-              <div class="sorting col-sm-2 align-right mt50 hidden">
-                <label class="mr10">{{ $t('Columns') }}:</label>
-                <columns @change-column="columnChange"/>
-              </div>
-              <p class="col-xs-12 col-md-6 m0 pb0 cl-secondary items hidden-xs">
-                {{ getCategoryProductsTotal + ' items' }}
-              </p>
-              <div class="sorting col-sm-2 col-md-6 align-right">
-                <label class="mr10">{{ $t('Sort By') }}:</label>
-                <sort-by
-                  :has-label="true"
-                  @change="changeFilter"
-                  :value="getCurrentSearchQuery.sort"
-                />
-              </div>
-            </div>
+  <div id="category">
+    <div class="banner-image" v-lazy:background-image="'/assets/salebanner.svg'">
+      <div class="container center-xs middle-xs">
+
+
+        <h2>SALE <br> UP TO 50 % OFF</h2>
+
+      </div>
+    </div>
+    <header class="bg-cl-primary py35 main-container">
+      <div class="container-custom-1">
+        <breadcrumbs />
+        <div class="row middle-sm bg-cl-primary">
+          <h1 class="col-sm-12 category-title mb10 align-center">
+            <!-- {{ getCurrentCategory.name }} -->
+            {{ "Our range" }}
+          </h1>
+          <div class="sorting col-sm-2 align-right mt50 hidden">
+            <label class="mr10">{{ $t('Columns') }}:</label>
+            <columns @change-column="columnChange" />
           </div>
-          <div class="container-mobile">
-            <div class="row m0">
-              <p class="col-xs-4 col-md-6 m0 pb0 cl-secondary items items-mobile hidden-md">
-                {{ getCategoryProductsTotal + ' items' }}
-              </p>
-              <button
-                class="col-xs-2 mt25 mr15 p15 mobile-filters-button bg-cl-th-accent brdr-none cl-white h5 sans-serif fs-medium-small"
-                @click="openFilters"
-              >
-                {{ $t('Sort By:') }}
-              </button>
-              <div class="mobile-sorting col-xs-6 mt25">
-                <sort-by
-                  @change="changeFilter"
-                  :value="getCurrentSearchQuery.sort"
-                />
-              </div>
-            </div>
-          </div>
-        </header>
-        <div class="container-custom pb60">
-          <div class="row m0 pt15">
-            <div class="col-md-3 start-xs category-filters hidden">
-              <sidebar :filters="getAvailableFilters" @changeFilter="changeFilter"/>
-            </div>
-            <div class="col-md-3 start-xs mobile-filters" v-show="mobileFilters">
-              <div class="close-container absolute w-100">
-                <i class="material-icons p15 close cl-accent" @click="closeFilters">close</i>
-              </div>
-              <sidebar class="mobile-filters-body" :filters="getAvailableFilters" @changeFilter="changeFilter"/>
-              <div class="relative pb20 pt15">
-                <div class="brdr-top-1 brdr-cl-primary absolute divider w-100"/>
-              </div>
-              <button-full
-                class="mb20 btn__filter"
-                @click.native="closeFilters"
-              >
-                {{ $t('Filter') }}
-              </button-full>
-            </div>
-            <div class="col-md-12 px10 border-box products-list">
-              <div v-if="isCategoryEmpty" class="hidden-xs">
-                <h4 data-testid="noProductsInfo">
-                  {{ $t('No products found!') }}
-                </h4>
-                <p>{{
-                    $t('Please change Your search criteria and try again. If still not finding anything relevant, please visit the Home page and try out some of our bestsellers!')
-                  }}</p>
-              </div>
-              <lazy-hydrate :trigger-hydration="!loading" v-if="isLazyHydrateEnabled">
-                <product-listing :columns="defaultColumn" :products="getCategoryProducts"/>
-              </lazy-hydrate>
-              <product-listing v-else :columns="defaultColumn" :products="getCategoryProducts"/>
-            </div>
+          <p class="col-xs-12 col-md-6 m0 pb0 cl-secondary items hidden-xs">
+            {{ getCategoryProductsTotal + ' items' }}
+          </p>
+          <div class="sorting col-sm-2 col-md-6 align-right">
+            <label class="mr10">{{ $t('Sort By') }}:</label>
+            <sort-by
+              :has-label="true"
+              @change="changeFilter"
+              :value="getCurrentSearchQuery.sort"
+            />
           </div>
         </div>
       </div>
+      <div class="container-mobile">
+        <div class="row m0">
+          <p class="col-xs-4 col-md-6 m0 pb0 cl-secondary items items-mobile hidden-md">
+            {{ getCategoryProductsTotal + ' items' }}
+          </p>
+          <button
+            class="col-xs-2 mt25 mr15 p15 mobile-filters-button bg-cl-th-accent brdr-none cl-white h5 sans-serif fs-medium-small"
+            @click="openFilters"
+          >
+            {{ $t('Sort By:') }}
+          </button>
+          <div class="mobile-sorting col-xs-6 mt25">
+            <sort-by
+              @change="changeFilter"
+              :value="getCurrentSearchQuery.sort"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container-custom pb60">
+      <div class="row m0 pt15">
+        <div class="col-md-3 start-xs category-filters hidden">
+          <sidebar :filters="getAvailableFilters" @changeFilter="changeFilter" />
+        </div>
+        <div class="col-md-3 start-xs mobile-filters" v-show="mobileFilters">
+          <div class="close-container absolute w-100">
+            <i class="material-icons p15 close cl-accent" @click="closeFilters">close</i>
+          </div>
+          <sidebar class="mobile-filters-body" :filters="getAvailableFilters" @changeFilter="changeFilter" />
+          <div class="relative pb20 pt15">
+            <div class="brdr-top-1 brdr-cl-primary absolute divider w-100" />
+          </div>
+          <button-full
+            class="mb20 btn__filter"
+            @click.native="closeFilters"
+          >
+            {{ $t('Filter') }}
+          </button-full>
+        </div>
+        <div class="col-md-12 px10 border-box products-list">
+          <div v-if="isCategoryEmpty" class="hidden-xs">
+            <h4 data-testid="noProductsInfo">
+              {{ $t('No products found!') }}
+            </h4>
+            <p>{{ $t('Please change Your search criteria and try again. If still not finding anything relevant, please visit the Home page and try out some of our bestsellers!') }}</p>
+          </div>
+          <lazy-hydrate :trigger-hydration="!loading" v-if="isLazyHydrateEnabled">
+            <product-listing :columns="defaultColumn" :products="getCategoryProducts" />
+          </lazy-hydrate>
+          <product-listing v-else :columns="defaultColumn" :products="getCategoryProducts" />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -314,165 +315,158 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .btn {
-    &__filter {
-      min-width: 100px;
+.btn {
+  &__filter {
+    min-width: 100px;
+  }
+}
+.divider {
+  width: calc(100vw - 8px);
+  bottom: 20px;
+  left: -36px;
+}
+.main-container {
+  padding: 0 0 33px 0;
+}
+.container-custom {
+  padding: 0 79px;
+}
+.container-custom-1 {
+  padding: 0 97px;
+}
+.category-filters {
+  width: 242px;
+}
+
+.mobile-filters {
+  display: none;
+  overflow: auto;
+}
+
+.mobile-filters-button {
+  display: none;
+}
+
+.mobile-sorting {
+  display: none;
+}
+
+.category-title {
+  line-height: 65px;
+  font-size: 40px;
+  font-weight: 700;
+  color: #6E2138;
+  font-family: 'Brandon_reg';
+  margin: 0;
+}
+.items {
+  color: #000000;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 4px;
+  padding-left: 30px;
+}
+.sorting {
+  color: #404042;
+  font-weight: 400;
+  font-size: 14px;
+  margin-top: 4px;
+  padding-right: 32px;
+  label {
+    margin-right: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .category-title {
+    margin: 0;
+    font-size: 36px;
+    line-height: 40px;
+    @media (max-width: 350px) {
+      font-size: 27px;
     }
   }
-  .divider {
-    width: calc(100vw - 8px);
-    bottom: 20px;
-    left: -36px;
+  .container-mobile {
+    .row {
+      padding: 19px 11px 0 16px;
+    }
   }
-  .main-container {
-    padding: 0 0 33px 0;
+  .items-mobile {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
   }
   .container-custom {
-    padding: 0 79px;
+    padding: 0;
   }
-  .container-custom-1 {
-    padding: 0 97px;
-  }
-  .category-filters {
-    width: 242px;
+  .products-list {
+    width: 100%;
+    max-width: none;
   }
 
   .mobile-filters {
-    display: none;
-    overflow: auto;
+    display: block;
   }
 
   .mobile-filters-button {
+    display: block;
+    height: 45px;
+    display: block;
+    height: 45px;
+    background: transparent;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+  .sorting {
     display: none;
   }
 
   .mobile-sorting {
-    display: none;
-  }
-
-  .category-title {
-    line-height: 65px;
-    font-size: 40px;
-    font-weight: 700;
-    color: #6E2138;
-    font-family: 'Brandon_reg';
+    display: block;
     margin: 0;
   }
-  .items {
-    color: #000000;
-    font-weight: 400;
-    font-size: 14px;
-    margin-top: 4px;
-    padding-left: 30px;
+
+  .category-filters {
+    display: none;
   }
-  .sorting {
-    color: #404042;
-    font-weight: 400;
-    font-size: 14px;
-    margin-top: 4px;
-    padding-right: 32px;
-    label {
-      margin-right: 10px;
-    }
-  }
-  @media (max-width: 767px) {
-    .category-title {
-      margin: 0;
-      font-size: 36px;
-      line-height: 40px;
-      @media (max-width: 350px) {
-        font-size: 27px;
-      }
-    }
-    .container-mobile {
-      .row {
-        padding: 19px 11px 0 16px;
-      }
-    }
-    .items-mobile {
-      display: flex;
-      align-items: center;
-      margin: 0;
-      padding: 0;
-    }
-    .container-custom {
-      padding: 0;
-    }
-    .products-list {
-      width: 100%;
-      max-width: none;
-    }
-
-    .mobile-filters {
-      display: block;
-    }
-
-    .mobile-filters-button {
-      display: block;
-      height: 45px;
-      display: block;
-      height: 45px;
-      background: transparent;
-      color: #000;
-      margin: 0;
-      padding: 0;
-    }
-    .sorting {
-      display: none;
-    }
-
-    .mobile-sorting {
-      display: block;
-      margin: 0;
-    }
-
-    .category-filters {
-      display: none;
-    }
-    .product-listing {
-      justify-content: center;;
-    }
-
-    .mobile-filters {
-      position: fixed;
-      background-color: #F2F2F2;
-      z-index: 5;
-      padding: 0 40px;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      top: 0;
-      box-sizing: border-box;
-    }
-
-    .mobile-filters-body {
-      padding-top: 50px;
-    }
+  .product-listing {
+    justify-content: center;;
   }
 
-  .close-container {
+  .mobile-filters {
+    position: fixed;
+    background-color: #F2F2F2;
+    z-index: 5;
+    padding: 0 40px;
     left: 0;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    box-sizing: border-box;
   }
 
-  .close {
-    margin-left: auto;
+  .mobile-filters-body {
+    padding-top: 50px;
   }
+}
 
-  .banner-image {
-    background-size: cover;
-    height: 100px;
-  }
+.close-container {
+  left: 0;
+}
 
-  .banner-image h2 {
-    margin-top: -1px;
-    color: #fff;
-    font-size: 36px !important;
-    font-family: 'BrandonMedium';
-  }
+.close {
+  margin-left: auto;
+}
+.banner-image{background-size: cover;height: 100px;}
+.banner-image h2 {
+  margin-top: -1px;
+  color: #fff;
+  font-size: 36px !important;
+  font-family: 'BrandonMedium';
+}
 
-  span.price-special {
-    color: red !important;
-  }
+span.price-special {color: red !important;}
 </style>
 <style lang="scss">
 .product-image {
